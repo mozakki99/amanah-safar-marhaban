@@ -1,3 +1,16 @@
+export interface FacilityImage {
+  title: string;
+  subtitle: string;
+  image: string;
+}
+
+export interface ItineraryItem {
+  day: number;
+  title: string;
+  highlight?: string;
+  activities: string[];
+}
+
 export interface HotelInfo {
   name: string;
   stars: number;
@@ -5,518 +18,480 @@ export interface HotelInfo {
   image: string;
 }
 
-export interface FacilityImage {
-  title: string;
-  subtitle: string;
-  image: string;
-}
-
-export interface ItineraryDay {
-  day: number;
-  title: string;
-  activities: string[];
-  highlight?: string;
-}
-
 export interface PackageItem {
   id: string;
   type: 'reguler' | 'private' | 'haji';
   title: string;
   subtitle: string;
+  badgeText?: string;
   price: string;
   priceNote: string;
   duration: string;
   departureDate: string;
   seatLeft: number;
+  rating: number;
+  reviewCount: number;
   airline: string;
   hotelMakkah: HotelInfo;
   hotelMadinah: HotelInfo;
-  rating: number;
-  reviewCount: number;
-  isPopular?: boolean;
-  badgeText?: string;
-  description: string;
   includedFacilities: string[];
   facilityImages: FacilityImage[];
-  itinerary: ItineraryDay[];
+  itinerary: ItineraryItem[];
 }
 
 export const packagesData: PackageItem[] = [
-  // --- REGULER PACKAGES ---
   {
-    id: 'umrah-reguler-hemat-9d',
+    id: 'umrah-reguler-9d',
     type: 'reguler',
-    title: 'Umrah Reguler Hemat Bintang 4 (9 Hari)',
-    subtitle: 'Solusi Umrah Ekonomis & Khusyuk dengan Fasilitas Nyaman',
+    title: 'Umrah Reguler Direct Flight (9 Hari)',
+    subtitle: 'Program ibadah populer dengan penerbangan direct flight tanpa transit & lokasi hotel strategis dekat pelataran utama.',
+    badgeText: 'Paling Diminati',
     price: 'Rp 31.500.000',
-    priceNote: 'per pax / Quad Room',
+    priceNote: 'All-In / Pax',
     duration: '9 Hari 8 Malam',
     departureDate: '15 Oktober 2026',
     seatLeft: 6,
-    airline: 'Saudia Airlines (Direct Flight Jakarta - Madinah)',
-    rating: 4.9,
-    reviewCount: 142,
-    isPopular: true,
-    badgeText: 'Paling Diminati',
+    rating: 5.0,
+    reviewCount: 48,
+    airline: 'Saudia Airlines (Direct Flight Madinah)',
     hotelMakkah: {
-      name: 'Grand Al-Masa Makkah',
+      name: 'Ajyad Makkarim Hotel',
       stars: 4,
-      distance: '± 350m ke Masjidil Haram (Walking Distance)',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+      distance: 'Pelataran Masjidil Haram',
+      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
-      name: 'Grand Plaza Madinah',
+      name: 'Grand Plaza Al Madinah',
       stars: 4,
-      distance: '± 150m ke Pelataran Masjid Nabawi',
-      image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80',
+      distance: 'Pelataran Masjid Nabawi',
+      image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
     },
-    description: 'Paket Umrah Reguler 9 Hari yang sangat cocok bagi jamaah yang menginginkan perjalanan ibadah yang tenang, aman, serta efisien tanpa transit. Pembimbingan penuh oleh Muthawwif berpengalaman sesuai Al-Qur\'an & As-Sunnah.',
     includedFacilities: [
-      'Tiket Pesawat PP Saudia Airlines (Direct Flight Jakarta - Madinah / Jeddah - Jakarta)',
-      'Visa Umrah Resmi & Asuransi Kesehatan Saudi Arabia',
-      'Hotel Bintang 4 Makkah & Madinah (Walking Distance ke Masjid)',
-      'Makan 3x Sehari Prasmanan Full Board Menu Indonesia',
-      'Transportasi Bus AC Executive VIP Terbaru (Mercedes-Benz Travego)',
-      'Bimbingan Ibadah (Muthawwif & Tour Leader Sesuai Sunnah)',
-      'Ziarah Kota Madinah & Makkah Lengkap + Miqat Umrah',
-      'Air Zamzam 5 Liter (Sesuai Regulasi Kemenag & Saudia Airlines)',
-      'Perlengkapan Umrah Exclusive (Koper Hardcase 24", Kain Ihram/Mukena, Tas Paspor, Seragam Batik, Buku Doa)',
+      'Tiket Pesawat PP Saudia Airlines Direct Flight',
+      'Visa Umrah Resmi Kemenag RI',
+      'Akomodasi Hotel Makkah & Madinah Bintang 4',
+      'Full Board Catering Menu Nusantara 3x Sehari',
+      'Pembimbing Ibadah (Muthawwif) & Tour Leader',
+      'Ziarah Kota Makkah, Madinah & Raudah',
+      'Koper Hardcase & Perlengkapan Ibadah Lengkap',
+      'Air Zamzam 5 Liter (Jika Diizinkan)',
     ],
     facilityImages: [
       {
-        title: 'Kamar Hotel Nyaman & Bersih',
-        subtitle: 'Fasilitas kamar bintang 4 dekat pelataran masjid utama',
-        image: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80',
+        title: 'Masjidil Haram Makkah',
+        subtitle: 'Ibadah Thawaf & Sa\'i di pelataran utama Ka\'bah suci',
+        image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Bus VIP Executive AC',
-        subtitle: 'Armada bus terbaru dengan tempat duduk lega & WiFi',
-        image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80',
+        title: 'Masjid Nabawi Madinah',
+        subtitle: 'Ziarah ke Makam Rasulullah SAW & Raudah Syarifah',
+        image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Prasmanan Kuliner Nusantara',
-        subtitle: 'Sajian chef Indonesia 3x sehari bergizi & higienis',
-        image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
+        title: 'Pelataran Zamzam Makkah Tower',
+        subtitle: 'Akses jalan kaki mudah menuju pelataran ibadah',
+        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Perlengkapan Umrah Premium',
-        subtitle: 'Koper hardcase tahan banting, kain ihram / mukena, tas paspor & batik',
-        image: 'https://images.unsplash.com/photo-1581553680321-4fffae59fccd?auto=format&fit=crop&w=800&q=80',
+        title: 'Kawasan Ziarah Jabal Uhud',
+        subtitle: 'Kunjungan sejarah bukit Uhud & Kebun Kurma Madinah',
+        image: 'https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?auto=format&fit=crop&w=800&q=80',
       },
     ],
     itinerary: [
       {
         day: 1,
-        title: 'Jakarta - Madinah (Kedatangan & Check-in Hotel)',
+        title: 'Keberangkatan Jakarta - Madinah',
+        highlight: 'Terbang Direct Saudia',
         activities: [
-          'Kumpul di Bandara Soekarno-Hatta Terminal 3 (Briefing & Penyerahan Dokumen).',
-          'Penerbangan Direct Flight menuju Madinah dengan Saudia Airlines.',
-          'Tiba di Bandara Prince Mohammad bin Abdulaziz Madinah, proses imigrasi & bagasi.',
-          'Penjemputan dengan Bus VIP menuju Hotel Madinah, Check-in dan Istirahat.',
+          'Berkumpul di Bandara Soekarno-Hatta (Terminal 3)',
+          'Prosess pengarahan, pembagian paspor & dokumen',
+          'Penerbangan Direct Flight menuju Bandara Prince Mohammad bin Abdulaziz Madinah',
+          'Tiba di Madinah, proses imigrasi & check-in hotel',
         ],
-        highlight: 'Kedatangan di Kota Suci Madinah Al-Munawwarah',
       },
       {
         day: 2,
-        title: 'Ibadah di Masjid Nabawi & Ziarah Raudah',
+        title: 'Ziarah Internal Kota Madinah & Masjid Nabawi',
+        highlight: 'Ziarah Raudah',
         activities: [
-          'Salat Subuh & Berjamaah di Masjid Nabawi.',
-          'Ziarah Makam Rasulullah SAW, Abu Bakar Ash-Shiddiq, dan Umar bin Khattab RA.',
-          'Masuk ke Raudah (Taman Surga) didampingi Muthawwif (Sesuai Tasrih Resmi).',
-          'Tausiyah & Pembekalan Persiapan Umrah malam hari.',
+          'Shalat Subuh berjamaah di Masjid Nabawi',
+          'Ziarah ke Makam Rasulullah SAW, Abu Bakar Ash-Shiddiq & Umar bin Khattab',
+          'Ziarah ke Pemakaman Baqi',
+          'Ziarah khusus ke Raudah Syarifah (Taman Surga) sesuai jadwal Tasreh',
         ],
-        highlight: 'Ziarah Raudah Al-Syarifah dengan Izin Tasrih Kemenag',
       },
       {
         day: 3,
-        title: 'Ziarah Kota Madinah (Masjid Quba, Uhud & Kebun Kurma)',
+        title: 'Ziarah Luar Kota Madinah',
+        highlight: 'Masjid Quba & Jabal Uhud',
         activities: [
-          'Ziarah ke Masjid Quba (Masjid pertama yang dibangun Rasulullah SAW, salat 2 rakaat disunnahkan).',
-          'Mengunjungi Jabal Uhud (Makam Syuhada Uhud).',
-          'Mengunjungi Kebun Kurma Madinah & Masjid Qiblatain.',
-          'Kembali ke hotel untuk memperbanyak ibadah di Masjid Nabawi.',
+          'Ziarah ke Masjid Quba (Masjid pertama yang dibangun Rasulullah SAW)',
+          'Kunjungan ke Jabal Uhud & Makam Syuhada Uhud',
+          'Kunjungan ke Kebun Kurma Madinah & Masjid Qiblatain',
         ],
-        highlight: 'Melihat Pemandangan Jabal Uhud & Belanja Kurma Asli Madinah',
       },
       {
         day: 4,
-        title: 'Madinah - Makkah (Miqat Bir Ali & Pelaksanaan Umrah Pertama)',
+        title: 'Perjalanan ke Makkah & Pelaksanaan Umrah Pertama',
+        highlight: 'Ibadah Umrah',
         activities: [
-          'Persiapan Ihram dari Hotel Madinah (Mandi sunnah & mengenakan pakaian ihram).',
-          'Check-out hotel Madinah menuju Miqat Bir Ali (Masjid Dhul Hulaifah) untuk Niat Umrah.',
-          'Perjalanan menuju Makkah dengan Bus VIP AC.',
-          'Check-in Hotel Makkah, kemudian bersama-sama melaksanakan Umrah Pertama (Tawaf, Sa\'i, dan Tahallul) dibimbing Muthawwif.',
+          'Mandi sunnah ihram & mengenakan pakaian ihram di hotel',
+          'Mengambil Miqat di Bir Ali & berniat Umrah',
+          'Perjalanan ke Makkah dengan Bus VIP / Kereta Cepat Haramain',
+          'Check-in hotel Makkah & dilanjutkan Thawaf, Sa\'i dan Tahallul di Masjidil Haram',
         ],
-        highlight: 'Pelaksanaan Umrah Pertama di Masjidil Haram',
       },
       {
         day: 5,
-        title: 'Memperbanyak Ibadah Mandiri di Masjidil Haram',
+        title: 'Perbanyak Ibadah Mandiri di Masjidil Haram',
+        highlight: 'Shalat Berjamaah',
         activities: [
-          'Memperbanyak Salat Berjamaah, Tawaf Sunnah, dan Tadarus Al-Qur\'an di Masjidil Haram.',
-          'Konsultasi ibadah bersama Ustadz Pembimbing.',
+          'Memperbanyak thawaf sunnah, ibadah shalat & dzikir di Masjidil Haram',
+          'Kajian fiqih umrah & bimbingan keislaman malam hari',
         ],
-        highlight: 'Ibadah Khusyuk di Depan Ka\'bah Al-Musyarrafah',
       },
       {
         day: 6,
-        title: 'Ziarah Kota Makkah & Miqat Umrah Kedua (Ji\'ranah)',
+        title: 'Ziarah Kota Makkah & Umrah Kedua (Opsional)',
+        highlight: 'Jabal Rahmah & Mina',
         activities: [
-          'Mengunjungi Jabal Thawr, Padang Arafah (Jabal Rahmah), Muzdalifah, dan Mina.',
-          'Singgah di Ji\'ranah untuk mengambil Miqat Umrah Kedua bagi jamaah yang ingin berumrah kembali.',
-          'Pelaksanaan Umrah Kedua di Masjidil Haram.',
+          'Kunjungan ke Jabal Tsur & Jabal Rahmah (Padang Arafah)',
+          'Melewati Muzdalifah, Mina & lokasi Jamarat',
+          'Mengambil miqat di Ji\'ranah bagi jamaah yang ingin Umrah kedua',
         ],
-        highlight: 'Nostalgia Perjalanan Haji & Umrah Kedua di Miqat Ji\'ranah',
       },
       {
         day: 7,
-        title: 'Free Program & Ibadah Khusyuk Makkah',
+        title: 'Memperbanyak Ibadah di Masjidil Haram',
+        highlight: 'Ibadah Khusyuk',
         activities: [
-          'Ibadah mandiri di Masjidil Haram.',
-          'Belanja oleh-oleh khas Makkah di sekitar hotel / Pasar Al-Jafariya.',
+          'Free program: memperbanyak ibadah mandiri & tadarus Al-Qur\'an',
+          'Konsultasi bimbingan bersama Muthawwif',
         ],
       },
       {
         day: 8,
-        title: 'Tawaf Wada\' & Kepulangan ke Jakarta via Jeddah',
+        title: 'Thawaf Wada\' & Keberangkatan ke Jeddah',
+        highlight: 'Thawaf Wada\'',
         activities: [
-          'Pelaksanaan Tawaf Wada\' (Tawaf Perpisahan) di Masjidil Haram.',
-          'Check-out Hotel Makkah, perjalanan bus menuju Bandara King Abdulaziz Jeddah.',
-          'Penerbangan Saudia Airlines menuju Jakarta.',
+          'Pelaksanaan Thawaf Wada\' (Thawaf perpisahan)',
+          'Check-out hotel Makkah & perjalanan menuju Kota Jeddah',
+          'City tour Jeddah (Laut Merah & Corniche)',
+          'Menuju Bandara King Abdulaziz Jeddah untuk penerbangan pulang ke Indonesia',
         ],
-        highlight: 'Tawaf Wada\' Perpisahan Kota Suci Makkah',
       },
       {
         day: 9,
-        title: 'Tiba di Jakarta (Soekarno-Hatta)',
+        title: 'Tiba di Jakarta Indonesia',
+        highlight: 'Kepulangan',
         activities: [
-          'Tiba di Bandara Soekarno-Hatta Jakarta.',
-          'Penyerahan Air Zamzam dan perpisahan rombongan.',
-          'Semoga menjadi Umrah Maqbullah & Mabrurah.',
+          'InsyaAllah tiba di Bandara Soekarno-Hatta Jakarta dengan selamat',
+          'Pembagian Air Zamzam & penutupan perjalanan ibadah Umrah',
         ],
-        highlight: 'Selamat Tiba Kembali di Tanah Air',
       },
     ],
   },
-
   {
-    id: 'umrah-reguler-vip-12d',
+    id: 'umrah-vip-12d',
     type: 'reguler',
-    title: 'Umrah Reguler VIP Bintang 5 Direct Haram (12 Hari)',
-    subtitle: 'Pengalaman Ibadah Mewah & Lebih Lama di Makkah & Madinah',
+    title: 'Umrah VIP Direct Haram (12 Hari)',
+    subtitle: 'Pengalaman ibadah dengan durasi lebih panjang dan hotel bintang 5 langsung di pelataran Masjidil Haram Makkah & Nabawi.',
+    badgeText: 'Paket VIP',
     price: 'Rp 42.900.000',
-    priceNote: 'per pax / Quad Room',
+    priceNote: 'All-In / Pax',
     duration: '12 Hari 11 Malam',
     departureDate: '28 Oktober 2026',
     seatLeft: 4,
-    airline: 'Garuda Indonesia (Direct Flight)',
     rating: 5.0,
-    reviewCount: 98,
-    isPopular: false,
-    badgeText: 'Fasilitas VIP',
+    reviewCount: 32,
+    airline: 'Saudia Airlines (Direct Flight Madinah)',
     hotelMakkah: {
-      name: 'Pullman Zamzam / Swissotel Makkah',
+      name: 'Pullman Zamzam Makkah Tower',
       stars: 5,
-      distance: 'Pelataran Pelataran Kompleks Abraj Al-Bait (0m ke Haram)',
-      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
+      distance: 'Pelataran Utama Masjidil Haram',
+      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
-      name: 'Frontel Al Harithia Madinah',
+      name: 'Frontel Al Harithia Hotel',
       stars: 5,
-      distance: '± 50m ke Pintu Utama Masjid Nabawi',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+      distance: 'Pelataran Utama Masjid Nabawi',
+      image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80',
     },
-    description: 'Program Umrah 12 Hari VIP dirancang untuk jamaah yang menginginkan kenyamanan ekstra tanpa lelah. Menginap di hotel bintang 5 persis di pelataran Masjidil Haram dan Masjid Nabawi, dilengkapi Kereta Cepat Haramain (High Speed Railway) Madinah - Makkah.',
     includedFacilities: [
-      'Tiket Pesawat PP Garuda Indonesia Executive Direct Flight',
-      'Kereta Cepat Haramain High Speed Train (Madinah - Makkah)',
-      'Hotel Bintang 5 Makkah (Abraj Al-Bait) & Madinah (Frontel)',
-      'Makan 3x Sehari Catering International & Indonesian Food Bintang 5',
-      'Manasik Umrah Private & Perlengkapan Luxury Luggage',
-      'Visa Umrah + Asuransi Kesehatan VIP Saudi Arabia',
-      'Ziarah Kota Madinah & Makkah Ekstra + Taif Tour',
-      'Air Zamzam 5 Liter & Layanan Porter Bagasi',
+      'Tiket Pesawat PP Saudia Airlines Direct Flight',
+      'Visa Umrah Resmi Kemenag RI',
+      'Hotel Bintang 5 Direct Haram Makkah & Madinah',
+      'Perjalanan Kereta Cepat Haramain Express (Madinah - Makkah)',
+      'Full Board Buffet International & Indonesia 3x Sehari',
+      'Ziarah Lengkap Makkah, Madinah, Raudah & Museum Wahyu',
+      'Koper Hardcase VIP & Perlengkapan Ibadah Premium',
+      'Handling Bagasi & Pendampingan 24 Jam',
     ],
     facilityImages: [
       {
-        title: 'Kamar Hotel Bintang 5 View Haram',
-        subtitle: 'Kamar langsung menghadap pelataran Menara Jam Makkah',
+        title: 'Makkah Clock Tower & Ka\'bah',
+        subtitle: 'Pemandangan indah Masjidil Haram dari pelataran hotel',
+        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        title: 'Masjid Nabawi Madinah',
+        subtitle: 'Akses mudah ke pelataran Payung Nabawi',
+        image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        title: 'Masjidil Haram Suasana Malam',
+        subtitle: 'Ketenangan ibadah di pelataran Ka\'bah malam hari',
         image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Kereta Cepat Haramain Express',
-        subtitle: 'Perjalanan Madinah - Makkah hanya 2 jam dengan nyaman',
-        image: 'https://images.unsplash.com/photo-1532105956626-9569c03602f6?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'Restoran & Buffet Hotel Bintang 5',
-        subtitle: 'Hidangan internasional dan khas Indonesia yang melimpah',
-        image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'Ziarah Ekstra Kota Sejuk Taif',
-        subtitle: 'Wisata sejarah & kebun mawar di Pegunungan Taif',
-        image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+        title: 'Perjalanan Kereta Cepat Haramain',
+        subtitle: 'Perjalanan nyaman Madinah ke Makkah hanya 2.5 jam',
+        image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80',
       },
     ],
     itinerary: [
       {
         day: 1,
-        title: 'Jakarta - Jeddah - Madinah VIP Arrival',
+        title: 'Terbang Direct Jakarta - Madinah',
+        highlight: 'Saudia Airlines Direct',
         activities: [
-          'Kumpul di Lounge VIP Bandara Soekarno-Hatta Terminal 3.',
-          'Penerbangan Direct Flight Garuda Indonesia menuju Jeddah.',
-          'Penjemputan Fast-Track Imigrasi & Transfer Bus VIP ke Madinah.',
+          'Berkumpul di Bandara Soekarno Hatta Terminal 3 VIP',
+          'Penerbangan langsung menuju Madinah Munawwarah',
+          'Tiba & check-in Hotel Frontel Al Harithia Madinah',
         ],
-        highlight: 'Layanan VIP Fast Track & Executive Lounge',
       },
       {
         day: 2,
-        title: 'Ibadah Madinah & Ziarah Raudah VIP',
-        activities: ['Salat Berjamaah & Ziarah Raudah dengan jadwal prioritas tasrih.'],
+        title: 'Ziarah Raudah & Makam Rasulullah SAW',
+        highlight: 'Ziarah Syar\'i',
+        activities: [
+          'Shalat Berjamaah di Masjid Nabawi',
+          'Masuk Raudah Syarifah sesuai Tasreh resmi',
+          'Kajian sunnah malam hari di hotel',
+        ],
       },
       {
         day: 3,
-        title: 'Ziarah Kota Madinah & Kebun Kurma',
-        activities: ['Kunjungan Masjid Quba, Jabal Uhud, & belanja kurma premium.'],
+        title: 'Ziarah Kota Madinah',
+        highlight: 'Masjid Quba & Uhud',
+        activities: [
+          'Kunjungan Masjid Quba, Kebun Kurma & Jabal Uhud',
+          'Persiapan keberangkatan ke Makkah',
+        ],
       },
       {
         day: 4,
-        title: 'Perjalanan Kereta Cepat Haramain ke Makkah & Umrah I',
+        title: 'Naik Kereta Cepat ke Makkah & Umrah',
+        highlight: 'Haramain High Speed Train',
         activities: [
-          'Naik Kereta Cepat Haramain (Madinah ke Makkah hanya 2 jam).',
-          'Pelaksanaan Umrah Pertama di Masjidil Haram.',
+          'Mengambil Miqat & berniat umrah',
+          'Perjalanan Madinah - Makkah naik Kereta Cepat Haramain (2.5 jam)',
+          'Check-in Pullman Zamzam Makkah & Pelaksanaan Umrah Pertama',
         ],
-        highlight: 'Pengalaman Mewah Kereta Cepat Haramain Express',
       },
       {
         day: 5,
-        title: 'Ibadah Khusyuk Makkah',
-        activities: ['Memperbanyak ibadah di Masjidil Haram.'],
+        title: 'Ibadah Mandiri di Masjidil Haram',
+        highlight: 'Koleksi Ibadah',
+        activities: ['Memperbanyak Thawaf sunnah & tadarus Al-Qur\'an'],
       },
       {
         day: 6,
-        title: 'Ziarah Kota Makkah & Miqat Umrah II',
-        activities: ['Tour Arafah, Mina, Muzdalifah & Miqat Ji\'ranah.'],
+        title: 'Ziarah Kota Makkah',
+        highlight: 'Arafah & Jabal Rahmah',
+        activities: ['City tour Arafah, Mina, Jabal Rahmah & Miqat Ji\'ranah'],
       },
       {
         day: 7,
-        title: 'Tour Kota Sejuk Taif (Teleferik & Kebun Mawar)',
-        activities: [
-          'Perjalanan ke Kota Taif menikmati Kereta Gantung (Teleferik), Pabrik Mawar, dan Masjid Abdullah bin Abbas.',
-        ],
-        highlight: 'Wisata Sejarah & Keindahan Kota Taif',
+        title: 'Ibadah Khusyuk di Masjidil Haram',
+        highlight: 'Solat Berjamaah',
+        activities: ['Memperbanyak ibadah di pelataran Ka\'bah'],
       },
       {
         day: 8,
-        title: 'Ibadah Mandiri & Tawaf Sunnah Makkah',
-        activities: ['Hari tenang ibadah mandiri & tadarus.'],
+        title: 'Museum Al-Amoudi & Ziarah Tambahan',
+        highlight: 'Sejarah Islam',
+        activities: ['Kunjungan museum kebudayaan Islam & belanja perbekalan'],
       },
       {
         day: 9,
-        title: 'Ibadah & Tausiyah Ibadah Haji/Umrah',
-        activities: ['Bimbingan ilmu syar\'i bersama Ustadz pembimbing.'],
+        title: 'Kajian Keislaman & Ibadah Mandiri',
+        highlight: 'Kajian Fiqih',
+        activities: ['Kajian bimbingan bersama ustadz pembimbing'],
       },
       {
         day: 10,
-        title: 'Ibadah Mandiri & Belanja Souvenir VIP',
-        activities: ['Acara bebas jamaah.'],
+        title: 'Persiapan Kepulangan & Thawaf Wada\'',
+        highlight: 'Thawaf Wada\'',
+        activities: ['Pelaksanaan Thawaf Wada\' perpisahan Ka\'bah'],
       },
       {
         day: 11,
-        title: 'Tawaf Wada\' & Kepulangan via Jeddah',
-        activities: ['Tawaf Wada\' dan transfer ke Bandara Jeddah.'],
+        title: 'Jeddah City Tour - Terbang ke Jakarta',
+        highlight: 'Jeddah Red Sea',
+        activities: ['City tour Jeddah & terbang kembali ke tanah air'],
       },
       {
         day: 12,
-        title: 'Tiba di Jakarta Soekarno-Hatta',
-        activities: ['Pendaratan di Jakarta, pembagian Zamzam & penyambutan.'],
+        title: 'Tiba di Indonesia',
+        highlight: 'Kepulangan Selamat',
+        activities: ['Tiba di Bandara Soekarno Hatta dengan selamat'],
       },
     ],
   },
-
   {
-    id: 'umrah-reguler-ramadhan-9d',
-    type: 'reguler',
-    title: 'Umrah Reguler Ramadhan & Lailatul Qadr (9 Hari)',
-    subtitle: 'Mengejar Keberkahan Bulan Ramadhan di Dua Kota Suci',
-    price: 'Rp 38.000.000',
-    priceNote: 'per pax / Quad Room',
-    duration: '9 Hari 8 Malam',
-    departureDate: '10 Maret 2027',
-    seatLeft: 3,
-    airline: 'Saudia Airlines (Direct Flight)',
-    rating: 4.9,
-    reviewCount: 76,
-    isPopular: false,
-    badgeText: 'Musim Ramadhan',
-    hotelMakkah: {
-      name: 'Ajyad Makkarim Makkah',
-      stars: 4,
-      distance: '± 250m ke Masjidil Haram',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
-    },
-    hotelMadinah: {
-      name: 'Rove Madinah Hotel',
-      stars: 4,
-      distance: '± 200m ke Masjid Nabawi',
-      image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80',
-    },
-    description: 'Rasakan nikmatnya berpuasa Ramadhan dan Shalat Tarawih berjamaah di Masjidil Haram & Masjid Nabawi. Pahala Umrah di bulan Ramadhan menyamai pahala berhaji bersama Rasulullah SAW.',
-    includedFacilities: [
-      'Tiket PP Saudia Airlines Direct Flight',
-      'Menu Buka Puasa (Iftar) & Sahur Khas Indonesia',
-      'Hotel Bintang 4 Dekat Masjid',
-      'Muthawwif Khusus Pendamping Ibadah Ramadhan',
-      'Perlengkapan Umrah Exclusive & Air Zamzam',
-    ],
-    facilityImages: [
-      {
-        title: 'Suasana Tarawih di Haram',
-        subtitle: 'Kenikmatan Shalat Tarawih & Witir di pelataran Masjidil Haram',
-        image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'Menu Buka Puasa & Sahur',
-        subtitle: 'Sajian Iftar & Sahur lengkap menu Indonesia',
-        image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
-      },
-    ],
-    itinerary: [
-      { day: 1, title: 'Jakarta - Madinah Arrival', activities: ['Penerbangan ke Madinah & Check-in.'] },
-      { day: 2, title: 'Ibadah Ramadhan Madinah & Raudah', activities: ['Salat & Buka puasa bersama di Nabawi.'] },
-      { day: 3, title: 'Ziarah Madinah', activities: ['Masjid Quba & Uhud.'] },
-      { day: 4, title: 'Madinah ke Makkah & Umrah I', activities: ['Niat Miqat & Umrah di Makkah.'] },
-      { day: 5, title: 'Tarawih & Ibadah Makkah', activities: ['Tarawih khusyuk di Masjidil Haram.'] },
-      { day: 6, title: 'Ziarah Makkah & Miqat Ji\'ranah', activities: ['Ziarah sejarah Makkah.'] },
-      { day: 7, title: 'Qiyamul Lail & Ibadah Mandiri', activities: ['Perbanyak doa malam.'] },
-      { day: 8, title: 'Tawaf Wada\' & Transfer Airport', activities: ['Kembali ke tanah air.'] },
-      { day: 9, title: 'Tiba di Jakarta', activities: ['Pendaratan Soekarno-Hatta.'] },
-    ],
-  },
-
-  // --- PRIVATE PACKAGES ---
-  {
-    id: 'umrah-private-family',
+    id: 'umrah-private-vip',
     type: 'private',
-    title: 'Umrah Private Family & Custom Schedule',
-    subtitle: 'Rombongan Khusus Keluarga / Perusahaan (Bebas Tentukan Tanggal)',
+    title: 'Umrah Private VIP Family (Custom Schedule)',
+    subtitle: 'Kenyamanan penuh khusus untuk grup keluarga tercinta dengan kebebasan menentukan tanggal keberangkatan & layanan eksklusif.',
+    badgeText: 'Umrah Private',
     price: 'Rp 48.500.000',
-    priceNote: 'mulai dari / pax (Min. 5 Pax)',
-    duration: 'Custom (9 / 12 / 14 Hari)',
+    priceNote: 'Mulai / Pax',
+    duration: '10 Hari 9 Malam',
     departureDate: 'Sesuai Request Anda',
-    seatLeft: 10,
-    airline: 'Saudia / Garuda / Emirates (Sesuai Permintaan)',
+    seatLeft: 8,
     rating: 5.0,
-    reviewCount: 64,
-    badgeText: 'Custom Private',
-    hotelMakkah: {
-      name: 'Raffles Makkah Palace / Fairmont Tower',
-      stars: 5,
-      distance: 'Pelataran Masjidil Haram (View Ka\'bah Direct)',
-      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
-    },
-    hotelMadinah: {
-      name: 'Dar Al Taqwa Madinah / Oberoi',
-      stars: 5,
-      distance: 'Depan Pintu Utama Masjid Nabawi',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
-    },
-    description: 'Nikmati privasi dan fleksibilitas penuh bagi keluarga tercinta atau instansi perusahaan Anda. Jadwal berangkat, pemilihan maskapai, pilihan hotel bintang 5 view Ka\'bah, serta bus VIP khusus hanya untuk grup keluarga Anda.',
-    includedFacilities: [
-      'Grup Khusus Private (Tanpa Digabung dengan Jamaah Lain)',
-      'Bebas Pilih Tanggal Keberangkatan & Durasi Hari',
-      'Muthawwif Private Pendamping Khusus Keluarga 24 Jam',
-      'Mobil GMC / Hyundai Staria / Bus Private VIP',
-      'Hotel Bintang 5 View Ka\'bah Direct',
-      'Sertifikat Umrah Resmi Custom Frame',
-    ],
-    facilityImages: [
-      {
-        title: 'Kamar Hotel Suite View Ka\'bah',
-        subtitle: 'Pemandangan Ka\'bah langsung dari balik jendela kamar suite',
-        image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
-      },
-      {
-        title: 'Kendaraan Private Luxury VIP',
-        subtitle: 'GMC Yukon / Hyundai Staria khusus untuk privasi keluarga Anda',
-        image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80',
-      },
-    ],
-    itinerary: [
-      { day: 1, title: 'Penjemputan Private VIP & Keberangkatan', activities: ['Lounge VIP Bandara & Direct Flight.'] },
-      { day: 2, title: 'Ibadah Madinah Private', activities: ['Ziarah Raudah Pendampingan Private.'] },
-      { day: 3, title: 'City Tour Madinah Custom', activities: ['Mengunjungi destinasi sesuai keinginan keluarga.'] },
-      { day: 4, title: 'Kereta Cepat Haramain First Class ke Makkah', activities: ['Umrah Pertama bersama Muthawwif Pribadi.'] },
-      { day: 5, title: 'Ibadah Makkah & Tausiyah Private', activities: ['Program ibadah santai & khusyuk.'] },
-      { day: 6, title: 'Ziarah Makkah & Taif Tour VIP', activities: ['Wisata Taif & Miqat Umrah Kedua.'] },
-      { day: 7, title: 'Free Program & Shopping Luxury', activities: ['Belanja oleh-oleh & ibadah.'] },
-      { day: 8, title: 'Tawaf Wada\' & Kepulangan Private', activities: ['Diantar armada private ke airport.'] },
-      { day: 9, title: 'Tiba Kembali di Jakarta', activities: ['Kembali dengan kenangan indah bersama keluarga.'] },
-    ],
-  },
-
-  // --- HAJI PACKAGES ---
-  {
-    id: 'haji-furoda-vip',
-    type: 'haji',
-    title: 'Haji Furoda / Mujamalah VIP (Langsung Berangkat)',
-    subtitle: 'Visa Haji Resmi Kerajaan Arab Saudi (Tanpa Antre Tahun)',
-    price: 'USD 19.500',
-    priceNote: 'per pax / Quad Room (Resmi Visa Furoda)',
-    duration: '23 Hari',
-    departureDate: 'Musim Haji 2027',
-    seatLeft: 2,
-    airline: 'Saudia Airlines Direct Flight Haji',
-    rating: 5.0,
-    reviewCount: 52,
-    isPopular: true,
-    badgeText: 'Tanpa Antre',
+    reviewCount: 24,
+    airline: 'Garuda Indonesia / Saudia Airlines',
     hotelMakkah: {
       name: 'Fairmont Makkah Clock Royal Tower',
       stars: 5,
-      distance: 'Pelataran Utama Masjidil Haram',
-      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
+      distance: 'Pelataran Ka\'bah Direct View',
+      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
-      name: 'Dar Al Eiman Royal Madinah',
+      name: 'Dar Al Taqwa Madinah',
       stars: 5,
-      distance: 'Pelataran Utama Masjid Nabawi',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+      distance: 'Depan Pintu Utama Masjid Nabawi',
+      image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
     },
-    description: 'Program Haji Furoda menggunakan Visa Mujamalah resmi Kerajaan Arab Saudi yang terdaftar di Kemenag RI. Keberangkatan langsung pada musim haji berjalan tanpa antrean puluhan tahun dengan maktab VIP di Arafah & Mina.',
     includedFacilities: [
-      'Visa Haji Furoda / Mujamalah Resmi Terdaftar Kemenag',
-      'Tenda VIP Arafah & Mina AC Full Board Catering',
-      'Hotel Bintang 5 Makkah & Madinah',
-      'Apartemen Transit Shisha / Aziziyah dekat Mina',
-      'Bimbingan Ibadah Haji oleh Ulama & Pembimbing Senior Sesuai Sunnah',
-      'Dam Haji Tamattu\' Termasuk',
-      'Dokter Pendamping Kesehatan 24 Jam',
+      'Layanan Khusus Rombongan Keluarga (Tanpa Jamaah Lain)',
+      'Tiket Business / Economy Class Saudia/Garuda Direct',
+      'Mobil Private VIP (GMC / Hyundai Staria / Bus VIP Private)',
+      'Hotel Bintang 5 View Ka\'bah Direct',
+      'Muthawwif Private Dedicated 24 Jam',
+      'Full Board Catering Menu Sesuai Permintaan',
+      'Handling VIP Bandara & Fast Track',
     ],
     facilityImages: [
       {
-        title: 'Tenda VIP Arafah AC Full Board',
-        subtitle: 'Tenda ber-AC dengan karpet tebal, sofa bed, & konsumsi melimpah',
+        title: 'Kawasan Ka\'bah Makkah Al-Mukarramah',
+        subtitle: 'Pemandangan Ka\'bah indah langsung dari jendela kamar hotel',
         image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Hotel Fairmont Clock Tower Makkah',
-        subtitle: 'Menginap di menara jam terkemuka Makkah persis di pelataran',
-        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+        title: 'Masjid Nabawi Madinah',
+        subtitle: 'Lokasi hotel persis di pelataran utama Masjid Nabawi',
+        image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80',
       },
     ],
     itinerary: [
-      { day: 1, title: 'Keberangkatan Jakarta ke Jeddah Haji', activities: ['Kumpul lounge VIP & penerbangan haji.'] },
-      { day: 2, title: 'Madinah First Visit & Ziarah Raudah', activities: ['Pelaksanaan Salat Arbain & Raudah.'] },
-      { day: 3, title: 'Madinah Ziarah Kota & Manasik Haji', activities: ['Pemantapan manasik haji.'] },
-      { day: 4, title: 'Perjalanan ke Makkah & Umrah Qiran/Tamattu\'', activities: ['Tiba di Makkah Al-Mukarramah.'] },
-      { day: 8, title: 'Persiapan Tarwiyah & Wukuf di Arafah (8 Dzulhijjah)', activities: ['Menuju Tenda Arafah VIP.'] },
-      { day: 9, title: 'Puncak Wukuf Arafah & Mabit Muzdalifah (9 Dzulhijjah)', activities: ['Berdoa khusyuk di Arafah & Ambil kerikil di Muzdalifah.'] },
-      { day: 10, title: 'Melontar Jumrah Aqabah & Tahallul (10 Dzulhijjah)', activities: ['Menuju Mina & Melontar Jumrah Aqabah.'] },
-      { day: 11, title: 'Mabit Mina & Melontar Ula, Wustha, Aqabah (11-12 Dzulhijjah)', activities: ['Melontar Jumrah Hari Tasyrik.'] },
-      { day: 14, title: 'Tawaf Ifadhah & Sa\'i Haji', activities: ['Penyelesaian rukun haji di Masjidil Haram.'] },
-      { day: 23, title: 'Kepulangan ke Indonesia', activities: ['Tiba kembali sebagai Haji Mabrur Insya Allah.'] },
+      {
+        day: 1,
+        title: 'Penjemputan Private VIP & Keberangkatan',
+        highlight: 'Layanan Private',
+        activities: ['Layanan penjemputan private & terbang menuju Madinah'],
+      },
+      {
+        day: 2,
+        title: 'Ziarah Raudah & Ibadah Khusyuk',
+        highlight: 'Raudah Syarifah',
+        activities: ['Masuk Raudah & ziarah didampingi Muthawwif private'],
+      },
+      {
+        day: 3,
+        title: 'Ziarah Khusus Madinah',
+        highlight: 'City Tour Custom',
+        activities: ['Kunjungan ziarah kota Madinah dengan armada private'],
+      },
+      {
+        day: 4,
+        title: 'Perjalanan ke Makkah & Umrah',
+        highlight: 'Executice Train',
+        activities: ['Naik Kereta Cepat Haramain & ibadah Umrah khusyuk'],
+      },
+      {
+        day: 5,
+        title: 'Ibadah di Masjidil Haram',
+        highlight: 'View Ka\'bah',
+        activities: ['Memperbanyak ibadah di pelataran Ka\'bah'],
+      },
+    ],
+  },
+  {
+    id: 'haji-furoda-vip',
+    type: 'haji',
+    title: 'Program Haji Furoda / Mujamalah VIP',
+    subtitle: 'Ibadah Haji Khusus menggunakan Visa Mujamalah Resmi Kerajaan Arab Saudi yang terdaftar di Kemenag RI tanpa antrean.',
+    badgeText: 'Haji Furoda',
+    price: 'USD 19.500',
+    priceNote: 'Visa Resmi Furoda',
+    duration: '25 Hari 24 Malam',
+    departureDate: 'Musim Haji 1448 H / 2027',
+    seatLeft: 5,
+    rating: 5.0,
+    reviewCount: 19,
+    airline: 'Saudia Airlines / Garuda Indonesia Direct',
+    hotelMakkah: {
+      name: 'Fairmont Makkah Clock Tower',
+      stars: 5,
+      distance: 'Pelataran Utama Ka\'bah',
+      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
+    },
+    hotelMadinah: {
+      name: 'Oberoi Madinah Hotel',
+      stars: 5,
+      distance: 'Depan Pintu Utama Masjid Nabawi',
+      image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
+    },
+    includedFacilities: [
+      'Visa Furoda / Mujamalah Resmi Kerajaan Arab Saudi',
+      'Tenda Ber-AC VIP di Arafah & Mina Dekat Jamarat',
+      'Akomodasi Hotel Bintang 5 Makkah & Madinah',
+      'Bimbingan Ibadah Haji Oleh Pembimbing Syari\'ah Senior',
+      'Full Board Catering Menu Indonesia di Hotel & Tenda',
+      'Bus AC VIP Khusus Rombongan Haji Furoda',
+      'Air Zamzam & Perlengkapan Haji Eksklusif',
+    ],
+    facilityImages: [
+      {
+        title: 'Ka\'bah Makkah Suasana Musim Haji',
+        subtitle: 'Pelaksanaan Thawaf & Puncak Ibadah Haji di Masjidil Haram',
+        image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
+      },
+      {
+        title: 'Masjid Nabawi Madinah Munawwarah',
+        subtitle: 'Ziarah awal di Kota Suci Madinah sebelum Puncak Wukuf',
+        image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80',
+      },
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: 'Keberangkatan Rombongan Haji ke Madinah',
+        highlight: 'Flight Direct Haji',
+        activities: ['Terbang ke Madinah & check-in Hotel Oberoi Madinah'],
+      },
+      {
+        day: 2,
+        title: 'Ziarah Madinah & Persiapan Hajj',
+        highlight: 'Manasik Haji',
+        activities: ['Ziarah Raudah & pemantapan manasik haji'],
+      },
+      {
+        day: 8,
+        title: 'Puncak Wukuf di Padang Arafah',
+        highlight: 'Wukuf Arafah',
+        activities: ['Menuju Tenda VIP Arafah & pelaksanaan ibadah Wukuf'],
+      },
+      {
+        day: 9,
+        title: 'Muzdalifah & Lempar Jumrah Aqabah di Mina',
+        highlight: 'Mina & Jamarat',
+        activities: ['Mabit di Muzdalifah & melontar jumrah di Mina'],
+      },
     ],
   },
 ];

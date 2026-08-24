@@ -1,45 +1,24 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --background: #FFFFFF;
-    --foreground: #1E1E24;
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
   }
-}
 
-@theme {
-  --color-purple-primary: #4B2476;
-  --color-purple-dark: #371A58;
-  --color-purple-light: #65339B;
-  --color-purple-soft: #F4EFFC;
-  --color-gold-accent: #F5B027;
-  --color-gold-hover: #E59F15;
-  --color-gold-light: #FFF8E7;
-  --color-slate-dark: #18181C;
-}
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: #FAFAFD;
-  color: #1E1E24;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  overflow-x: hidden;
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #F1F1F5;
-}
-::-webkit-scrollbar-thumb {
-  background: #4B2476;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #371A58;
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
 }
