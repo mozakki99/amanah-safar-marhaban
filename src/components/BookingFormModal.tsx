@@ -57,13 +57,13 @@ Mohon informasi rincian pendaftaran & kuota seat. Terima kasih.`;
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/70 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
-      <div className="relative bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-purple-100 dark:border-slate-800 text-gray-900 dark:text-white">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
+      <div className="relative bg-white dark:bg-[#160C26] rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-purple-100 dark:border-purple-800/80 text-gray-900 dark:text-white">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-white flex items-center justify-center transition-colors focus:outline-none"
+          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-gray-100 dark:bg-[#251545] hover:bg-gray-200 dark:hover:bg-[#311C5B] text-gray-700 dark:text-purple-200 flex items-center justify-center transition-colors focus:outline-none border border-transparent dark:border-purple-700/60"
           aria-label="Tutup Formulir"
         >
           <X className="w-5 h-5" />
@@ -71,7 +71,7 @@ Mohon informasi rincian pendaftaran & kuota seat. Terima kasih.`;
 
         {/* Modal Header */}
         <div className="space-y-2 pr-8 mb-6">
-          <div className="inline-flex items-center gap-1.5 bg-purple-100 dark:bg-slate-800 text-[#4B2476] dark:text-[#F5B027] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-1.5 bg-purple-100 dark:bg-[#251545] text-[#4B2476] dark:text-[#F5B027] px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-purple-200 dark:border-purple-700/60">
             <ShieldCheck className="w-4 h-4" />
             <span>Form Pendaftaran & Konsultasi</span>
           </div>
@@ -80,7 +80,7 @@ Mohon informasi rincian pendaftaran & kuota seat. Terima kasih.`;
             {packageName ? `Pendaftaran ${packageName}` : 'Konsultasi Ibadah Umrah & Haji'}
           </h3>
 
-          <p className="text-xs text-gray-500 dark:text-gray-400">
+          <p className="text-xs text-gray-500 dark:text-purple-300/80">
             Isi formulir singkat di bawah ini. Tim Konsultan Marhaban akan langsung membantu Anda via WhatsApp.
           </p>
         </div>
@@ -89,69 +89,69 @@ Mohon informasi rincian pendaftaran & kuota seat. Terima kasih.`;
         <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
           {/* Nama Lengkap */}
           <div>
-            <label className="block font-bold text-gray-700 dark:text-gray-300 mb-1">
+            <label className="block font-bold text-gray-700 dark:text-purple-200 mb-1">
               Nama Lengkap <span className="text-red-500">*</span>
             </label>
             <div className="relative">
-              <User className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <User className="w-4 h-4 text-gray-400 dark:text-purple-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 required
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 placeholder="Contoh: H. Ahmad Subandi"
-                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027]"
+                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-[#201238] border border-gray-200 dark:border-purple-800/80 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027]"
               />
             </div>
           </div>
 
           {/* Nomor WhatsApp */}
           <div>
-            <label className="block font-bold text-gray-700 dark:text-gray-300 mb-1">
+            <label className="block font-bold text-gray-700 dark:text-purple-200 mb-1">
               Nomor WhatsApp Active <span className="text-red-500">*</span>
             </label>
             <div className="relative">
-              <PhoneCall className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <PhoneCall className="w-4 h-4 text-gray-400 dark:text-purple-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="tel"
                 required
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="0812xxxxxxxx"
-                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027]"
+                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-[#201238] border border-gray-200 dark:border-purple-800/80 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027]"
               />
             </div>
           </div>
 
           {/* Kota Domisili */}
           <div>
-            <label className="block font-bold text-gray-700 dark:text-gray-300 mb-1">
+            <label className="block font-bold text-gray-700 dark:text-purple-200 mb-1">
               Kota Domisili <span className="text-red-500">*</span>
             </label>
             <div className="relative">
-              <MapPin className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <MapPin className="w-4 h-4 text-gray-400 dark:text-purple-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 required
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="Contoh: Yogyakarta / Jakarta / Surabaya"
-                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027]"
+                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-[#201238] border border-gray-200 dark:border-purple-800/80 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027]"
               />
             </div>
           </div>
 
           {/* Perkiraan Rencana Keberangkatan */}
           <div>
-            <label className="block font-bold text-gray-700 dark:text-gray-300 mb-1">
+            <label className="block font-bold text-gray-700 dark:text-purple-200 mb-1">
               Rencana Keberangkatan
             </label>
             <div className="relative">
-              <Calendar className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Calendar className="w-4 h-4 text-gray-400 dark:text-purple-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               <select
                 value={departurePlan}
                 onChange={(e) => setDeparturePlan(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027]"
+                className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-[#201238] border border-gray-200 dark:border-purple-800/80 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027]"
               >
                 <option value="Bulan Depan">Bulan Depan</option>
                 <option value="3-6 Bulan Lagi">3 - 6 Bulan Lagi</option>
@@ -164,7 +164,7 @@ Mohon informasi rincian pendaftaran & kuota seat. Terima kasih.`;
 
           {/* Catatan / Pertanyaan opsional */}
           <div>
-            <label className="block font-bold text-gray-700 dark:text-gray-300 mb-1">
+            <label className="block font-bold text-gray-700 dark:text-purple-200 mb-1">
               Catatan / Pertanyaan Khusus (Opsional)
             </label>
             <textarea
@@ -172,7 +172,7 @@ Mohon informasi rincian pendaftaran & kuota seat. Terima kasih.`;
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Contoh: Jumlah jamaah 4 orang, ingin kamar Quad"
-              className="w-full px-4 py-2.5 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027]"
+              className="w-full px-4 py-2.5 bg-gray-50 dark:bg-[#201238] border border-gray-200 dark:border-purple-800/80 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027]"
             ></textarea>
           </div>
 
@@ -180,15 +180,15 @@ Mohon informasi rincian pendaftaran & kuota seat. Terima kasih.`;
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full py-3.5 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-900 text-white font-extrabold text-sm rounded-xl shadow-lg hover:bg-[#371A58] dark:hover:bg-amber-500 transition-all text-center flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-950 text-white font-extrabold text-sm rounded-xl shadow-lg hover:bg-[#371A58] dark:hover:bg-amber-400 transition-all text-center flex items-center justify-center gap-2"
             >
-              <Send className="w-4 h-4 text-[#F5B027] dark:text-gray-900" />
+              <Send className="w-4 h-4 text-[#F5B027] dark:text-gray-950" />
               <span>Lanjutkan ke WhatsApp Konsultan</span>
             </button>
           </div>
         </form>
 
-        <p className="text-[10px] text-gray-400 text-center mt-4">
+        <p className="text-[10px] text-gray-400 dark:text-purple-300/70 text-center mt-4">
           🔒 Data Anda aman & terlindungi. Resmi terdaftar Kemenag RI (PT Amanah Tangguh Mandiri).
         </p>
 

@@ -36,7 +36,7 @@ export default function AuthorityBar() {
   ];
 
   return (
-    <div className="bg-[#4B2476] dark:bg-[#1A0A2D] text-white py-6 border-y border-purple-900 dark:border-purple-800 transition-colors overflow-hidden relative">
+    <div className="bg-[#4B2476] dark:bg-[#150A26] text-white py-6 border-y border-purple-900 dark:border-purple-800/80 transition-colors overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Info: Legal Licenses */}
@@ -51,7 +51,7 @@ export default function AuthorityBar() {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 text-xs font-mono text-amber-300 bg-white/10 px-4 py-2 rounded-xl border border-white/15">
+          <div className="flex items-center gap-4 text-xs font-mono text-amber-300 bg-white/10 dark:bg-purple-950/60 px-4 py-2 rounded-xl border border-white/15 dark:border-purple-700/60">
             <span>PPIU: <strong>23022300424760012</strong></span>
             <span>|</span>
             <span>PIHK: <strong>23022300424760013</strong></span>
@@ -63,17 +63,17 @@ export default function AuthorityBar() {
       {/* Full-Bleed Running Marquee with Smooth Left/Right Soft Fade Effect */}
       <div className="pt-4 relative w-full overflow-hidden">
         {/* Left Soft Fade Overlay */}
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-12 sm:w-24 bg-gradient-to-r from-[#4B2476] dark:from-[#1A0A2D] to-transparent z-10"></div>
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-12 sm:w-24 bg-gradient-to-r from-[#4B2476] dark:from-[#150A26] to-transparent z-10"></div>
         
         {/* Right Soft Fade Overlay */}
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-12 sm:w-24 bg-gradient-to-l from-[#4B2476] dark:from-[#1A0A2D] to-transparent z-10"></div>
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-12 sm:w-24 bg-gradient-to-l from-[#4B2476] dark:from-[#150A26] to-transparent z-10"></div>
 
         {/* Marquee Track */}
         <div className="flex items-center gap-5 animate-marquee whitespace-nowrap">
           {[...airlines, ...airlines, ...airlines, ...airlines].map((air, idx) => (
             <div
               key={idx}
-              className="inline-flex items-center gap-3 bg-white dark:bg-slate-900 backdrop-blur-md px-4 py-2 rounded-2xl border border-purple-200 dark:border-slate-800 shadow-md shrink-0 text-gray-900 dark:text-white"
+              className="inline-flex items-center gap-3 bg-white dark:bg-[#1E1136] backdrop-blur-md px-4 py-2 rounded-2xl border border-purple-200 dark:border-purple-700/60 shadow-md shrink-0 text-gray-900 dark:text-white"
             >
               <div className="relative w-12 h-7 flex items-center justify-center overflow-hidden shrink-0">
                 <img
