@@ -44,7 +44,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top Bar with Exact Official PPIU & PIHK Numbers */}
-      <div className="bg-[#4B2476] dark:bg-[#1A0C30] text-white text-[11px] sm:text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-2 leading-tight border-b border-purple-900/60">
+      <div className="bg-[#4B2476] dark:bg-[#200D38] text-white text-[11px] sm:text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-2 leading-tight">
         <ShieldCheck className="w-3.5 h-3.5 text-[#F5B027] shrink-0" />
         <span className="truncate">
           PT Amanah Tangguh Mandiri • PPIU: 23022300424760012 | PIHK: 23022300424760013
@@ -55,8 +55,8 @@ export default function Navbar() {
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 dark:bg-[#120822]/95 backdrop-blur-md shadow-xs py-3 border-b border-gray-100 dark:border-purple-900/60'
-            : 'bg-white dark:bg-[#120822] border-b border-gray-100 dark:border-purple-900/60 py-4'
+            ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-xs py-3 border-b border-gray-100 dark:border-slate-800'
+            : 'bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-800 py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -74,7 +74,7 @@ export default function Navbar() {
               />
             </div>
             
-            <span className="font-sans font-bold text-base sm:text-lg text-[#4B2476] dark:text-purple-200 tracking-tight whitespace-nowrap">
+            <span className="font-sans font-bold text-base sm:text-lg text-[#4B2476] dark:text-purple-300 tracking-tight whitespace-nowrap">
               Amanah Safar Marhaban
             </span>
           </Link>
@@ -90,7 +90,7 @@ export default function Navbar() {
                   className={`text-sm font-semibold transition-colors py-1 relative group ${
                     isActive
                       ? 'text-[#4B2476] dark:text-[#F5B027]'
-                      : 'text-gray-700 dark:text-purple-200/90 hover:text-[#4B2476] dark:hover:text-[#F5B027]'
+                      : 'text-gray-700 dark:text-gray-200 hover:text-[#4B2476] dark:hover:text-[#F5B027]'
                   }`}
                 >
                   {link.name}
@@ -108,7 +108,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={toggleTheme}
-              className="p-2.5 rounded-full bg-gray-100 dark:bg-[#1E1136] text-gray-700 dark:text-[#F5B027] hover:bg-purple-100 dark:hover:bg-[#2B184C] transition-colors focus:outline-none border border-gray-200 dark:border-purple-700/60"
+              className="p-2.5 rounded-full bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-amber-400 hover:bg-purple-100 dark:hover:bg-slate-700 transition-colors focus:outline-none"
               aria-label="Toggle Night Mode"
               title={theme === 'dark' ? 'Mode Terang' : 'Night Mode'}
             >
@@ -123,9 +123,9 @@ export default function Navbar() {
               href="https://wa.me/6282132323030?text=Assalamu%27alaikum%20Amanah%20Safar%20Marhaban,%20saya%20ingin%20konsultasi%20paket%20Umrah"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#4B2476] hover:bg-[#371A58] dark:bg-[#F5B027] dark:hover:bg-amber-400 dark:text-gray-950 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-2xs hover:shadow-md transition-all"
+              className="inline-flex items-center gap-2 bg-[#4B2476] hover:bg-[#371A58] dark:bg-[#F5B027] dark:hover:bg-amber-500 dark:text-gray-900 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-2xs hover:shadow-md transition-all"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-[#F5B027] dark:text-gray-950" />
+              <PhoneCall className="w-3.5 h-3.5 text-[#F5B027] dark:text-gray-900" />
               <span>Konsultasi Gratis</span>
             </a>
           </div>
@@ -134,7 +134,7 @@ export default function Navbar() {
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-xl bg-gray-100 dark:bg-[#1E1136] text-gray-700 dark:text-[#F5B027] focus:outline-none border border-gray-200 dark:border-purple-700/60"
+              className="p-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-amber-400 focus:outline-none border border-gray-200 dark:border-slate-700"
               aria-label="Toggle Night Mode"
             >
               {theme === 'dark' ? (
@@ -146,7 +146,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-gray-800 dark:text-white bg-white dark:bg-[#1E1136] focus:outline-none border border-gray-200 dark:border-purple-700/60"
+              className="p-2 rounded-xl text-gray-800 dark:text-white bg-white dark:bg-slate-800 focus:outline-none border border-gray-200 dark:border-slate-700"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6 text-[#4B2476] dark:text-[#F5B027]" /> : <Menu className="w-6 h-6 text-[#4B2476] dark:text-[#F5B027]" />}
@@ -158,8 +158,8 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 flex flex-col justify-between bg-white dark:bg-[#0E061A] text-gray-900 dark:text-white animate-fadeIn">
-          <div className="px-4 py-3.5 border-b border-gray-100 dark:border-purple-900/60 flex items-center justify-between">
+        <div className="lg:hidden fixed inset-0 z-50 flex flex-col justify-between bg-white dark:bg-slate-900 text-gray-900 dark:text-white animate-fadeIn">
+          <div className="px-4 py-3.5 border-b border-gray-100 dark:border-slate-800 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
               <div className="relative w-8 h-8 bg-white rounded-lg p-0.5 border border-purple-100 flex items-center justify-center overflow-hidden shrink-0">
                 <Image
@@ -170,14 +170,14 @@ export default function Navbar() {
                   className="object-contain"
                 />
               </div>
-              <span className="font-sans font-bold text-base text-[#4B2476] dark:text-purple-200 whitespace-nowrap">
+              <span className="font-sans font-bold text-base text-[#4B2476] dark:text-purple-300 whitespace-nowrap">
                 Amanah Safar Marhaban
               </span>
             </div>
 
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2 rounded-xl bg-purple-50 dark:bg-[#1E1136] text-[#4B2476] dark:text-white focus:outline-none"
+              className="p-2 rounded-xl bg-purple-50 dark:bg-slate-800 text-[#4B2476] dark:text-white focus:outline-none"
             >
               <X className="w-6 h-6" />
             </button>
@@ -189,7 +189,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between text-base font-bold text-gray-800 dark:text-purple-100 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-purple-50 dark:hover:bg-[#1E1136] px-4 py-3.5 rounded-2xl transition-colors"
+                className="flex items-center justify-between text-base font-bold text-gray-800 dark:text-gray-100 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-purple-50 dark:hover:bg-slate-800 px-4 py-3.5 rounded-2xl transition-colors"
               >
                 <span>{link.name}</span>
                 <span className="text-[#F5B027] text-sm">➔</span>
@@ -197,15 +197,15 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="p-6 bg-gray-50 dark:bg-[#090312] border-t border-gray-200 dark:border-purple-900/60 space-y-3">
+          <div className="p-6 bg-gray-50 dark:bg-slate-950 border-t border-gray-200 dark:border-slate-800 space-y-3">
             <a
               href="https://wa.me/6282132323030?text=Assalamu%27alaikum%20Amanah%20Safar%20Marhaban,%20saya%20ingin%20konsultasi%20paket%20Umrah"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-950 text-white font-bold text-sm py-3.5 rounded-xl shadow-md text-center"
+              className="w-full flex items-center justify-center gap-2 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-900 text-white font-bold text-sm py-3.5 rounded-xl shadow-md text-center"
             >
-              <PhoneCall className="w-4 h-4 text-[#F5B027] dark:text-gray-950" />
+              <PhoneCall className="w-4 h-4 text-[#F5B027] dark:text-gray-900" />
               <span>Konsultasi WA Sekarang</span>
             </a>
           </div>

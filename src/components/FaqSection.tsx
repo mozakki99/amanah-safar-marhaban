@@ -1,82 +1,83 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function FaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
   const faqs = [
     {
-      q: 'Apakah PT Amanah Tangguh Mandiri (Amanah Safar Marhaban) memiliki izin resmi Kemenag RI?',
-      a: 'Ya, PT Amanah Tangguh Mandiri adalah penyelenggara perjalanan ibadah umrah & haji resmi dengan izin Kemenag RI: PPIU (No. 23022300424760012) dan PIHK (No. 23022300424760013).',
+      question: 'Apa saja dokumen yang diperlukan untuk pendaftaran Umrah?',
+      answer: 'Dokumen utama yang wajib disiapkan adalah: Paspor asli yang masih berlaku minimal 7 bulan sebelum tanggal keberangkatan dengan nama minimal 2 kata, Pas foto 4x6 latar belakang putih (fokus muka 80%), Fotokopi KTP & Kartu Keluarga (KK), Buku Nikah (bagi suami istri), dan Sertifikat Vaksin Meningitis (Sertifikat Internasional).',
     },
     {
-      q: 'Bagaimana proses pendaftaran Umrah & pembayaran?',
-      a: 'Pendaftaran dapat dilakukan secara langsung di kantor Yogyakarta atau online melalui WhatsApp. Uang muka (DP) awal sangat terjangkau, dan pelunasan dilakukan maksimal 30 hari sebelum tanggal keberangkatan.',
+      question: 'Bagaimana sistem pembayaran dan pelunasan paket Umrah?',
+      answer: 'Pendaftaran dapat diawali dengan membayar DP (Down Payment) sebesar Rp 5.000.000 per jamaah untuk mengamankan tiket pesawat dan kuota seat. Pelunasan biaya paket dilakukan paling lambat 30 hari sebelum tanggal keberangkatan.',
     },
     {
-      q: 'Maskapai apa yang digunakan untuk penerbangan Umrah?',
-      a: 'Kami mengutamakan penerbangan Direct Flight (tanpa transit) menggunakan Saudia Airlines atau Garuda Indonesia mendarat langsung di Bandara Madinah atau Jeddah.',
+      question: 'Apakah penerbangan Umrah Marhaban benar-benar tanpa transit (Direct Flight)?',
+      answer: 'Ya, mayoritas paket reguler dan VIP kami menggunakan penerbangan Direct Flight tanpa transit (misalnya Saudia Airlines atau Garuda Indonesia) langsung menuju Kota Madinah atau Jeddah sehingga perjalanan jamaah jauh lebih singkat dan nyaman.',
     },
     {
-      q: 'Apakah harga paket sudah termasuk seluruh fasilitas (All-In)?',
-      a: 'Ya, harga yang tercantum sudah meliputi tiket pesawat PP, visa umrah resmi, akomodasi hotel, konsumsi catering 3x sehari menu Indonesia, muthawwif pembimbing, handling, dan perlengkapan ibadah lengkap.',
+      question: 'Apakah ada pendampingan Muthawwif selama di Tanah Suci?',
+      answer: 'Tentu saja. Setiap rombongan jamaah akan didampingi oleh Tour Leader resmi dari Jakarta dan Muthawwif berpengalaman yang berdomisili di Saudi Arabia untuk membimbing seluruh rukun dan tata cara ibadah sesuai Al-Qur\'an dan As-Sunnah.',
     },
     {
-      q: 'Apakah menerima jamaah lansia atau berkebutuhan khusus?',
-      a: 'Sangat bisa. Kami menyediakan fasilitas pendampingan khusus dan pilihan hotel yang berlokasi strategis di pelataran masjid untuk memudahkan mobilitas ibadah jamaah lansia.',
+      question: 'Bagaimana jika paspor saya belum selesai atau perlu bantuan pembuatan?',
+      answer: 'Tim Amanah Safar Marhaban siap memberikan Surat Rekomendasi Resmi Kemenag untuk pembuatan / perpanjangan paspor di kantor Imigrasi setempat.',
     },
   ];
 
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  const toggleFaq = (idx: number) => {
-    setOpenIndex(openIndex === idx ? null : idx);
+  const toggleFaq = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section id="faq" className="py-16 sm:py-28 bg-white dark:bg-[#0B0514] transition-colors duration-300">
+    <section id="faq" className="py-20 sm:py-32 bg-white dark:bg-[#0F0F14] relative transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 bg-purple-100 dark:bg-purple-950/80 text-[#4B2476] dark:text-[#F5B027] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-purple-200 dark:border-purple-800/80">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div className="inline-flex items-center gap-2 bg-purple-100 dark:bg-purple-950/80 text-[#4B2476] dark:text-purple-300 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
             <HelpCircle className="w-4 h-4 text-[#F5B027]" />
-            <span>Pertanyaan Sering Diajukan</span>
+            <span>Pertanyaan Umum</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-sans text-gray-900 dark:text-white tracking-tight">
-            Informasi & <span className="text-[#4B2476] dark:text-[#F5B027]">Jawaban FAQ</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            Frequently Asked <span className="text-[#4B2476] dark:text-[#F5B027]">Questions (FAQ)</span>
           </h2>
-          <p className="text-gray-600 dark:text-purple-200/90 text-sm sm:text-base">
-            Jawaban lengkap seputar pendaftaran, fasilitas, dan pelaksanaan ibadah Umrah bersama Marhaban.
+          <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+            Temukan jawaban atas pertanyaan yang paling sering diajukan calon jamaah.
           </p>
         </div>
 
-        {/* Accordion */}
+        {/* Accordion List */}
         <div className="space-y-4">
-          {faqs.map((faq, idx) => (
-            <div
-              key={idx}
-              className="bg-[#FAFAFD] dark:bg-[#160C26] rounded-2xl border border-gray-200 dark:border-purple-800/60 overflow-hidden transition-all duration-300"
-            >
-              <button
-                onClick={() => toggleFaq(idx)}
-                className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-bold text-gray-900 dark:text-white text-base sm:text-lg focus:outline-none"
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <div
+                key={idx}
+                className="bg-[#FAFAFD] dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 shadow-2xs overflow-hidden transition-colors"
               >
-                <span>{faq.q}</span>
-                <ChevronDown
-                  className={`w-5 h-5 text-[#4B2476] dark:text-[#F5B027] shrink-0 transition-transform duration-300 ${
-                    openIndex === idx ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
+                <button
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-gray-900 dark:text-white text-base sm:text-lg focus:outline-none hover:text-[#4B2476] dark:hover:text-[#F5B027]"
+                >
+                  <span>{faq.question}</span>
+                  <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-slate-800 text-[#4B2476] dark:text-[#F5B027] flex items-center justify-center shrink-0">
+                    {isOpen ? <ChevronUp className="w-5 h-5 text-[#4B2476] dark:text-[#F5B027]" /> : <ChevronDown className="w-5 h-5 text-[#4B2476] dark:text-[#F5B027]" />}
+                  </div>
+                </button>
 
-              {openIndex === idx && (
-                <div className="px-5 sm:px-6 pb-6 text-sm text-gray-600 dark:text-purple-200/85 leading-relaxed border-t border-gray-100 dark:border-purple-900/40 pt-4 bg-white/50 dark:bg-[#1E1136]/50">
-                  {faq.a}
-                </div>
-              )}
-            </div>
-          ))}
+                {isOpen && (
+                  <div className="px-6 pb-6 text-sm text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-slate-800 pt-4 animate-fadeIn">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
       </div>
