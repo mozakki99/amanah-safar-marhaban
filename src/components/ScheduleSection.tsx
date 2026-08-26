@@ -109,7 +109,7 @@ export default function ScheduleSection() {
               </div>
 
               <a
-                href={`https://wa.me/6281234567890?text=${encodeURIComponent(`Assalamu'alaikum Amanah Safar Marhaban, saya mau amankan seat untuk keberangkatan tanggal ${sch.date} (${sch.program})`)}`}
+                href={`https://wa.me/6282132323030?text=${encodeURIComponent(`Assalamu'alaikum Amanah Safar Marhaban, saya mau amankan seat untuk keberangkatan tanggal ${sch.date} (${sch.program})`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3 px-4 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-900 hover:bg-[#371A58] text-white font-bold text-xs rounded-xl shadow-sm transition-colors text-center flex items-center justify-center gap-2"

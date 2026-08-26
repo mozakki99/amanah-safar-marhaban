@@ -198,7 +198,7 @@ export default function PaketUmrahPage() {
                     </button>
 
                     <a
-                      href={`https://wa.me/6281234567890?text=${encodeURIComponent(`Assalamu'alaikum Amanah Safar Marhaban, saya mau booking paket Umrah "${pkg.title}"`)}`}
+                      href={`https://wa.me/6282132323030?text=${encodeURIComponent(`Assalamu'alaikum Amanah Safar Marhaban, saya mau booking paket Umrah "${pkg.title}"`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full py-3 px-3 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-900 hover:bg-[#371A58] text-white font-bold text-xs rounded-xl transition-colors shadow-sm text-center flex items-center justify-center gap-1"

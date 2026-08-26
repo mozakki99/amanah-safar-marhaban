@@ -31,7 +31,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm text-gray-400 leading-relaxed max-w-xl">
-              Biro penyelenggara perjalanan ibadah umrah resmi dan terverifikasi oleh Kemenhaj. Melyani program-program umrah reguler dan private.
+              Biro penyelenggara perjalanan ibadah umrah resmi dan terverifikasi oleh Kemenag. Melayani program-program umrah reguler dan private.
             </p>
 
             <div className="space-y-1.5 bg-purple-950/80 border border-purple-800 p-3.5 rounded-2xl text-xs max-w-xl">

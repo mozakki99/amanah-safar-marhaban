@@ -42,7 +42,7 @@ export default function PaketHajiPage() {
               </a>
 
               <a
-                href="https://wa.me/6281234567890?text=Assalamu%27alaikum%20Amanah%20Safar%20Marhaban,%20saya%20konsultasi%20pendaftaran%20Haji%20Furoda"
+                href="https://wa.me/6282132323030?text=Assalamu%27alaikum%20Amanah%20Safar%20Marhaban,%20saya%20konsultasi%20pendaftaran%20Haji%20Furoda"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold border border-white/30 px-6 py-3.5 rounded-xl transition-all text-sm"
@@ -171,7 +171,7 @@ export default function PaketHajiPage() {
                       </button>
 
                       <a
-                        href={`https://wa.me/6281234567890?text=${encodeURIComponent(`Assalamu'alaikum Amanah Safar Marhaban, saya berminat konsultasi pendaftaran "${pkg.title}"`)}`}
+                        href={`https://wa.me/6282132323030?text=${encodeURIComponent(`Assalamu'alaikum Amanah Safar Marhaban, saya berminat konsultasi pendaftaran "${pkg.title}"`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="py-3 px-3 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-900 text-white font-bold text-xs rounded-xl transition-colors shadow-sm text-center flex items-center justify-center gap-1"
@@ -212,7 +212,7 @@ export default function PaketHajiPage() {
               const msg = encodeURIComponent(
                 `Assalamu'alaikum Amanah Safar Marhaban, saya ${name} dari ${city} (No. HP: ${phone}) ingin berkonsultasi mengenai pendaftaran Haji Furoda VIP.`
               );
-              window.open(`https://wa.me/6281234567890?text=${msg}`, '_blank');
+              window.open(`https://wa.me/6282132323030?text=${msg}`, '_blank');
             }}
             className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4"
           >

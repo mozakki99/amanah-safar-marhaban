@@ -29,7 +29,7 @@ export default function Home() {
       <CostCalculator onOpenBookingFormWithCalc={handleOpenForm} />
       <TestimonialsSection />
       <FaqSection />
-      <WhatsAppFloat onOpenBookingForm={() => handleOpenForm('Konsultasi WA Float')} />
+      <WhatsAppFloat onOpenBookingForm={() => handleOpenForm('Konsultasi Umrah & Haji')} />
 
       {/* Global WhatsApp Lead Form Modal */}
       <BookingFormModal
