@@ -102,8 +102,8 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
               
               <div className="relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80"
-                  alt="Masjidil Haram Ka'bah Makkah"
+                  src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1200&q=80"
+                  alt="Masjidil Haram Ka'bah Makkah Al-Mukarramah"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>

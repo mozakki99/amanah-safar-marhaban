@@ -58,7 +58,7 @@ export const packagesData: PackageItem[] = [
       name: 'Ajyad Makkarim Hotel (Bintang 4)',
       stars: 4,
       distance: 'Pelataran Masjidil Haram',
-      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
       name: 'Grand Plaza Al Madinah (Bintang 4)',
@@ -80,7 +80,7 @@ export const packagesData: PackageItem[] = [
       {
         title: 'Masjidil Haram Makkah',
         subtitle: 'Ibadah Thawaf & Sa\'i di pelataran utama Ka\'bah suci',
-        image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
+        image: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=800&q=80',
       },
       {
         title: 'Masjid Nabawi Madinah',
@@ -88,9 +88,9 @@ export const packagesData: PackageItem[] = [
         image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Pelataran Zamzam Makkah Tower',
+        title: 'Pelataran Makkah Clock Tower',
         subtitle: 'Akses jalan kaki mudah menuju pelataran ibadah',
-        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+        image: 'https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?auto=format&fit=crop&w=800&q=80',
       },
       {
         title: 'Kawasan Ziarah Jabal Uhud',
@@ -210,13 +210,13 @@ export const packagesData: PackageItem[] = [
       name: 'Pullman Zamzam Makkah Tower (Bintang 5)',
       stars: 5,
       distance: 'Pelataran Utama Masjidil Haram',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
       name: 'Frontel Al Harithia Hotel (Bintang 5)',
       stars: 5,
       distance: 'Pelataran Utama Masjid Nabawi',
-      image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1200&q=80',
     },
     includedFacilities: [
       'Tiket Pesawat PP Saudia Airlines Direct Flight',
@@ -232,7 +232,7 @@ export const packagesData: PackageItem[] = [
       {
         title: 'Makkah Clock Tower & Ka\'bah',
         subtitle: 'Pemandangan indah Masjidil Haram dari pelataran hotel',
-        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+        image: 'https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?auto=format&fit=crop&w=800&q=80',
       },
       {
         title: 'Masjid Nabawi Madinah',
@@ -242,12 +242,12 @@ export const packagesData: PackageItem[] = [
       {
         title: 'Masjidil Haram Suasana Malam',
         subtitle: 'Ketenangan ibadah di pelataran Ka\'bah malam hari',
-        image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
+        image: 'https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?auto=format&fit=crop&w=800&q=80',
       },
       {
-        title: 'Perjalanan Kereta Cepat Haramain',
-        subtitle: 'Perjalanan nyaman Madinah ke Makkah hanya 2.5 jam',
-        image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80',
+        title: 'Pelataran Suci Madinah',
+        subtitle: 'Suasana khusyuk ibadah di Masjid Nabawi',
+        image: 'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=800&q=80',
       },
     ],
     itinerary: [
@@ -358,13 +358,13 @@ export const packagesData: PackageItem[] = [
       name: 'Fairmont Makkah Clock Tower (Bintang 5)',
       stars: 5,
       distance: 'Pelataran Ka\'bah Direct View',
-      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
       name: 'Dar Al Taqwa Madinah (Bintang 5)',
       stars: 5,
       distance: 'Depan Pintu Utama Masjid Nabawi',
-      image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1200&q=80',
     },
     includedFacilities: [
       'Layanan Khusus Rombongan Keluarga (Tanpa Jamaah Lain)',
@@ -379,7 +379,7 @@ export const packagesData: PackageItem[] = [
       {
         title: 'Kawasan Ka\'bah Makkah Al-Mukarramah',
         subtitle: 'Pemandangan Ka\'bah indah langsung dari jendela kamar hotel',
-        image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
+        image: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=800&q=80',
       },
       {
         title: 'Masjid Nabawi Madinah',
@@ -438,7 +438,7 @@ export const packagesData: PackageItem[] = [
       name: 'Fairmont Makkah Clock Tower (Bintang 5)',
       stars: 5,
       distance: 'Pelataran Utama Ka\'bah',
-      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
       name: 'Oberoi Madinah Hotel (Bintang 5)',
@@ -459,12 +459,12 @@ export const packagesData: PackageItem[] = [
       {
         title: 'Ka\'bah Makkah Suasana Musim Haji',
         subtitle: 'Pelaksanaan Thawaf & Puncak Ibadah Haji di Masjidil Haram',
-        image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
+        image: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=800&q=80',
       },
       {
         title: 'Masjid Nabawi Madinah Munawwarah',
         subtitle: 'Ziarah awal di Kota Suci Madinah sebelum Puncak Wukuf',
-        image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80',
+        image: 'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=800&q=80',
       },
     ],
     itinerary: [
