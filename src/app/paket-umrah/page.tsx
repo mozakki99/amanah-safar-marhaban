@@ -85,34 +85,43 @@ export default function PaketUmrahPage() {
                       {pkg.subtitle}
                     </p>
 
-                    {/* Facility Box with Explicit Star Ratings */}
-                    <div className="space-y-2 bg-[#FAFAFD] dark:bg-[#1E1136] p-3.5 rounded-xl border border-gray-100 dark:border-purple-800/50 text-xs">
-                      <div className="flex items-center justify-between">
-                        <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200">
+                    {/* Facility Box with Dedicated Unclipped Star Badges */}
+                    <div className="space-y-2.5 bg-[#FAFAFD] dark:bg-[#1E1136] p-3.5 rounded-2xl border border-gray-100 dark:border-purple-800/50 text-xs">
+                      {/* Makkah Hotel Row */}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200 shrink-0">
                           <Building className="w-3.5 h-3.5 text-[#4B2476] dark:text-[#F5B027]" />
                           <span>Makkah:</span>
                         </span>
-                        <span className="font-bold truncate max-w-[170px] text-gray-900 dark:text-white flex items-center gap-1">
-                          {pkg.hotelMakkah.name}
-                        </span>
+                        <div className="flex items-center gap-1.5 min-w-0">
+                          <span className="font-bold truncate text-gray-900 dark:text-white">{pkg.hotelMakkah.name}</span>
+                          <span className="shrink-0 bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 font-extrabold text-[10px] px-2 py-0.5 rounded-md border border-amber-300/40">
+                            ★ {pkg.hotelMakkah.stars}
+                          </span>
+                        </div>
                       </div>
 
-                      <div className="flex items-center justify-between">
-                        <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200">
+                      {/* Madinah Hotel Row */}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200 shrink-0">
                           <Building className="w-3.5 h-3.5 text-[#F5B027]" />
                           <span>Madinah:</span>
                         </span>
-                        <span className="font-bold truncate max-w-[170px] text-gray-900 dark:text-white flex items-center gap-1">
-                          {pkg.hotelMadinah.name}
-                        </span>
+                        <div className="flex items-center gap-1.5 min-w-0">
+                          <span className="font-bold truncate text-gray-900 dark:text-white">{pkg.hotelMadinah.name}</span>
+                          <span className="shrink-0 bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 font-extrabold text-[10px] px-2 py-0.5 rounded-md border border-amber-300/40">
+                            ★ {pkg.hotelMadinah.stars}
+                          </span>
+                        </div>
                       </div>
 
-                      <div className="flex items-center justify-between">
-                        <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200">
+                      {/* Airline Row */}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200 shrink-0">
                           <Plane className="w-3.5 h-3.5 text-blue-500 dark:text-amber-400" />
                           <span>Maskapai:</span>
                         </span>
-                        <span className="font-bold truncate max-w-[170px] text-gray-900 dark:text-white">{pkg.airline.split(' ')[0]} Direct</span>
+                        <span className="font-bold truncate text-gray-900 dark:text-white">{pkg.airline.split(' ')[0]} Direct</span>
                       </div>
                     </div>
 

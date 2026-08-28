@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { PackageItem } from '@/data/packagesData';
-import { X, Star, Calendar, Building, Plane, CheckCircle2, ShieldCheck, PhoneCall, ChevronRight } from 'lucide-react';
+import { X, Calendar, Building, Plane, CheckCircle2, ShieldCheck, PhoneCall, ChevronRight } from 'lucide-react';
 import BookingFormModal from './BookingFormModal';
 
 interface PackageModalProps {
@@ -58,22 +58,22 @@ export default function PackageModal({ packageData, onClose }: PackageModalProps
             </div>
           </div>
 
-          {/* Quick Info Bar with Explicit Hotel Star Ratings */}
+          {/* Quick Info Bar with Dedicated Star Badges */}
           <div className="bg-[#FAF7FC] dark:bg-[#1E1136] px-5 py-3 border-b border-purple-100 dark:border-purple-800/50 flex flex-wrap items-center justify-between gap-3 text-xs shrink-0">
             <div className="flex items-center gap-4 flex-wrap">
               <div className="flex items-center gap-1.5 font-bold text-gray-800 dark:text-purple-100">
                 <Building className="w-4 h-4 text-[#4B2476] dark:text-[#F5B027]" />
                 <span>Makkah: <strong className="text-gray-900 dark:text-white">{packageData.hotelMakkah.name}</strong></span>
-                <span className="inline-flex items-center text-amber-500 font-bold ml-1">
-                  ({[...Array(packageData.hotelMakkah.stars)].map((_, i) => '★').join('')})
+                <span className="shrink-0 bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 font-extrabold text-[10px] px-2 py-0.5 rounded-md border border-amber-300/40">
+                  ★ {packageData.hotelMakkah.stars} Bintang
                 </span>
               </div>
 
               <div className="flex items-center gap-1.5 font-bold text-gray-800 dark:text-purple-100">
                 <Building className="w-4 h-4 text-[#F5B027]" />
                 <span>Madinah: <strong className="text-gray-900 dark:text-white">{packageData.hotelMadinah.name}</strong></span>
-                <span className="inline-flex items-center text-amber-500 font-bold ml-1">
-                  ({[...Array(packageData.hotelMadinah.stars)].map((_, i) => '★').join('')})
+                <span className="shrink-0 bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 font-extrabold text-[10px] px-2 py-0.5 rounded-md border border-amber-300/40">
+                  ★ {packageData.hotelMadinah.stars} Bintang
                 </span>
               </div>
             </div>

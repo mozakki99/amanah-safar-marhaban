@@ -55,13 +55,13 @@ export const packagesData: PackageItem[] = [
     reviewCount: 48,
     airline: 'Saudia Airlines (Direct Flight Madinah)',
     hotelMakkah: {
-      name: 'Ajyad Makkarim Hotel (Bintang 4)',
+      name: 'Ajyad Makkarim Hotel',
       stars: 4,
       distance: 'Pelataran Masjidil Haram',
       image: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
-      name: 'Grand Plaza Al Madinah (Bintang 4)',
+      name: 'Grand Plaza Al Madinah',
       stars: 4,
       distance: 'Pelataran Masjid Nabawi',
       image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
@@ -207,13 +207,13 @@ export const packagesData: PackageItem[] = [
     reviewCount: 32,
     airline: 'Saudia Airlines (Direct Flight Madinah)',
     hotelMakkah: {
-      name: 'Pullman Zamzam Makkah Tower (Bintang 5)',
+      name: 'Pullman Zamzam Tower',
       stars: 5,
       distance: 'Pelataran Utama Masjidil Haram',
       image: 'https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
-      name: 'Frontel Al Harithia Hotel (Bintang 5)',
+      name: 'Frontel Al Harithia Hotel',
       stars: 5,
       distance: 'Pelataran Utama Masjid Nabawi',
       image: 'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1200&q=80',
@@ -355,13 +355,13 @@ export const packagesData: PackageItem[] = [
     reviewCount: 24,
     airline: 'Garuda Indonesia / Saudia Airlines',
     hotelMakkah: {
-      name: 'Fairmont Makkah Clock Tower (Bintang 5)',
+      name: 'Fairmont Makkah Clock Tower',
       stars: 5,
       distance: 'Pelataran Ka\'bah Direct View',
       image: 'https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
-      name: 'Dar Al Taqwa Madinah (Bintang 5)',
+      name: 'Dar Al Taqwa Madinah',
       stars: 5,
       distance: 'Depan Pintu Utama Masjid Nabawi',
       image: 'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1200&q=80',
@@ -435,13 +435,13 @@ export const packagesData: PackageItem[] = [
     reviewCount: 19,
     airline: 'Saudia Airlines / Garuda Indonesia Direct',
     hotelMakkah: {
-      name: 'Fairmont Makkah Clock Tower (Bintang 5)',
+      name: 'Fairmont Makkah Clock Tower',
       stars: 5,
       distance: 'Pelataran Utama Ka\'bah',
       image: 'https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
-      name: 'Oberoi Madinah Hotel (Bintang 5)',
+      name: 'Oberoi Madinah Hotel',
       stars: 5,
       distance: 'Depan Pintu Utama Masjid Nabawi',
       image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
