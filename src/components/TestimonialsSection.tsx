@@ -9,7 +9,7 @@ export default function TestimonialsSection() {
       name: 'H. Ahmad Subandi & Keluarga',
       city: 'Jakarta Selatan',
       package: 'Umrah Reguler VIP 12 Hari',
-      text: 'Alhamdulillah perjalanan Umrah bersama Amanah Safar Marhaban sangat berkesan. Hotel di Makkah persis di depan pelataran Masjidil Haram sehingga orang tua kami yang sepuh tidak lelah sama sekali. Muthawwif masyaAllah sangat sabar membimbing sesuai sunnah.',
+      text: 'Alhamdulillah perjalanan Umrah bersama Amanah Safar Marhaban sangat berkesan. Hotel di Makkah persis di depan pelataran Masjidil Haram sehingga orang tua kami yang sepuh tidak lelah sama sekali. Muthawwif masyaAllah sangat sabar membimbing dengan ramah.',
       rating: 5,
       date: 'Keberangkatan Ramadhan 1447 H',
     },
@@ -50,19 +50,19 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section id="testimonials" className="py-16 sm:py-28 bg-gray-50 dark:bg-slate-950/60 relative overflow-hidden transition-colors duration-300">
+    <section id="testimonials" className="py-16 sm:py-28 bg-gray-50/80 dark:bg-[#0B0514] relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 bg-amber-100 dark:bg-amber-950/60 text-[#4B2476] dark:text-[#F5B027] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 bg-amber-100 dark:bg-amber-950/80 text-[#4B2476] dark:text-[#F5B027] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-amber-200 dark:border-amber-700/60">
             <Heart className="w-4 h-4 text-[#F5B027]" />
             <span>Kisah Kebahagiaan Jamaah</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold font-sans text-gray-900 dark:text-white tracking-tight">
             Apa Kata Jamaah <span className="text-[#4B2476] dark:text-[#F5B027]">Amanah Safar Marhaban</span>?
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+          <p className="text-gray-600 dark:text-purple-200/90 text-sm sm:text-base">
             Ulasan jujur dari jamaah yang telah mempercayakan perjalanan ibadah sucinya bersama kami.
           </p>
         </div>
@@ -75,28 +75,28 @@ export default function TestimonialsSection() {
             {testimonials.map((item, idx) => (
               <div
                 key={idx}
-                className={`min-w-full sm:min-w-full snap-center bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-10 border border-gray-200 dark:border-slate-800 shadow-xl transition-all duration-300 flex flex-col justify-between relative ${
+                className={`min-w-full sm:min-w-full snap-center bg-white dark:bg-[#160C26] rounded-3xl p-6 sm:p-10 border border-gray-200 dark:border-purple-800/60 shadow-xl transition-all duration-300 flex flex-col justify-between relative ${
                   idx === currentIndex ? 'block' : 'hidden sm:hidden'
                 }`}
               >
-                <Quote className="w-12 h-12 text-purple-100 dark:text-slate-800 absolute top-6 right-6 pointer-events-none" />
+                <Quote className="w-12 h-12 text-purple-100 dark:text-purple-900/40 absolute top-6 right-6 pointer-events-none" />
 
                 <div>
                   <div className="flex items-center gap-1 text-[#F5B027] mb-4">
                     {[...Array(item.rating)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-[#F5B027]" />
                     ))}
-                    <span className="text-xs font-bold text-gray-500 dark:text-gray-400 ml-2">{item.date}</span>
+                    <span className="text-xs font-bold text-gray-500 dark:text-purple-300/70 ml-2">{item.date}</span>
                   </div>
 
-                  <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed italic mb-8 relative z-10">
+                  <p className="text-gray-700 dark:text-purple-100 text-base sm:text-lg leading-relaxed italic mb-8 relative z-10">
                     "{item.text}"
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-gray-100 dark:border-slate-800 flex items-center justify-between">
+                <div className="pt-4 border-t border-gray-100 dark:border-purple-900/50 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-[#4B2476] dark:bg-[#F5B027] text-[#F5B027] dark:text-gray-900 font-bold text-lg flex items-center justify-center shadow-md">
+                    <div className="w-12 h-12 rounded-full bg-[#4B2476] dark:bg-[#F5B027] text-[#F5B027] dark:text-gray-950 font-bold text-lg flex items-center justify-center shadow-md">
                       {item.name.charAt(0)}
                     </div>
                     <div>
@@ -104,7 +104,7 @@ export default function TestimonialsSection() {
                         <span>{item.name}</span>
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                       </h3>
-                      <span className="text-xs text-gray-500 dark:text-gray-400 block">{item.city} • <strong className="text-[#4B2476] dark:text-[#F5B027]">{item.package}</strong></span>
+                      <span className="text-xs text-gray-500 dark:text-purple-300/80 block">{item.city} • <strong className="text-[#4B2476] dark:text-[#F5B027]">{item.package}</strong></span>
                     </div>
                   </div>
                 </div>
@@ -117,7 +117,7 @@ export default function TestimonialsSection() {
           <div className="flex items-center justify-center gap-4 mt-6">
             <button
               onClick={prevTestimonial}
-              className="p-3 rounded-full bg-white dark:bg-slate-900 text-[#4B2476] dark:text-[#F5B027] shadow-md border border-gray-200 dark:border-slate-800 hover:bg-purple-50 focus:outline-none"
+              className="p-3 rounded-full bg-white dark:bg-[#251545] text-[#4B2476] dark:text-[#F5B027] shadow-md border border-gray-200 dark:border-purple-700/60 hover:bg-purple-50 dark:hover:bg-[#311C5B] transition-all focus:outline-none"
               aria-label="Testimoni Sebelumnya"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -128,8 +128,8 @@ export default function TestimonialsSection() {
                 <button
                   key={i}
                   onClick={() => setCurrentIndex(i)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    i === currentIndex ? 'bg-[#4B2476] dark:bg-[#F5B027] w-6' : 'bg-gray-300 dark:bg-slate-700'
+                  className={`h-3 rounded-full transition-all ${
+                    i === currentIndex ? 'bg-[#4B2476] dark:bg-[#F5B027] w-7' : 'bg-gray-300 dark:bg-purple-900/60 w-3'
                   }`}
                   aria-label={`Slide ${i + 1}`}
                 />
@@ -138,7 +138,7 @@ export default function TestimonialsSection() {
 
             <button
               onClick={nextTestimonial}
-              className="p-3 rounded-full bg-white dark:bg-slate-900 text-[#4B2476] dark:text-[#F5B027] shadow-md border border-gray-200 dark:border-slate-800 hover:bg-purple-50 focus:outline-none"
+              className="p-3 rounded-full bg-white dark:bg-[#251545] text-[#4B2476] dark:text-[#F5B027] shadow-md border border-gray-200 dark:border-purple-700/60 hover:bg-purple-50 dark:hover:bg-[#311C5B] transition-all focus:outline-none"
               aria-label="Testimoni Selanjutnya"
             >
               <ChevronRight className="w-5 h-5" />

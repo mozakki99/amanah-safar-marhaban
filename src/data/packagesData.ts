@@ -55,13 +55,13 @@ export const packagesData: PackageItem[] = [
     reviewCount: 48,
     airline: 'Saudia Airlines (Direct Flight Madinah)',
     hotelMakkah: {
-      name: 'Ajyad Makkarim Hotel',
+      name: 'Ajyad Makkarim Hotel (Bintang 4)',
       stars: 4,
       distance: 'Pelataran Masjidil Haram',
       image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
-      name: 'Grand Plaza Al Madinah',
+      name: 'Grand Plaza Al Madinah (Bintang 4)',
       stars: 4,
       distance: 'Pelataran Masjid Nabawi',
       image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
@@ -71,8 +71,8 @@ export const packagesData: PackageItem[] = [
       'Visa Umrah Resmi Kemenag RI',
       'Akomodasi Hotel Makkah & Madinah Bintang 4',
       'Full Board Catering Menu Nusantara 3x Sehari',
-      'Pembimbing Ibadah (Muthawwif) & Tour Leader',
-      'Ziarah Kota Makkah, Madinah & Raudah',
+      'Pembimbing Ibadah (Muthawwif) & Tour Leader Berpengalaman',
+      'Ziarah Kota Makkah, Madinah & Raudah Syarifah',
       'Koper Hardcase & Perlengkapan Ibadah Lengkap',
       'Air Zamzam 5 Liter (Jika Diizinkan)',
     ],
@@ -105,7 +105,7 @@ export const packagesData: PackageItem[] = [
         highlight: 'Terbang Direct Saudia',
         activities: [
           'Berkumpul di Bandara Soekarno-Hatta (Terminal 3)',
-          'Prosess pengarahan, pembagian paspor & dokumen',
+          'Proses pengarahan, pembagian paspor & dokumen',
           'Penerbangan Direct Flight menuju Bandara Prince Mohammad bin Abdulaziz Madinah',
           'Tiba di Madinah, proses imigrasi & check-in hotel',
         ],
@@ -207,13 +207,13 @@ export const packagesData: PackageItem[] = [
     reviewCount: 32,
     airline: 'Saudia Airlines (Direct Flight Madinah)',
     hotelMakkah: {
-      name: 'Pullman Zamzam Makkah Tower',
+      name: 'Pullman Zamzam Makkah Tower (Bintang 5)',
       stars: 5,
       distance: 'Pelataran Utama Masjidil Haram',
       image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
-      name: 'Frontel Al Harithia Hotel',
+      name: 'Frontel Al Harithia Hotel (Bintang 5)',
       stars: 5,
       distance: 'Pelataran Utama Masjid Nabawi',
       image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80',
@@ -264,11 +264,11 @@ export const packagesData: PackageItem[] = [
       {
         day: 2,
         title: 'Ziarah Raudah & Makam Rasulullah SAW',
-        highlight: 'Ziarah Syar\'i',
+        highlight: 'Ziarah Ibadah Khusyuk',
         activities: [
           'Shalat Berjamaah di Masjid Nabawi',
           'Masuk Raudah Syarifah sesuai Tasreh resmi',
-          'Kajian sunnah malam hari di hotel',
+          'Kajian keislaman malam hari di hotel',
         ],
       },
       {
@@ -317,7 +317,7 @@ export const packagesData: PackageItem[] = [
       {
         day: 9,
         title: 'Kajian Keislaman & Ibadah Mandiri',
-        highlight: 'Kajian Fiqih',
+        highlight: 'Bimbingan Ibadah',
         activities: ['Kajian bimbingan bersama ustadz pembimbing'],
       },
       {
@@ -355,13 +355,13 @@ export const packagesData: PackageItem[] = [
     reviewCount: 24,
     airline: 'Garuda Indonesia / Saudia Airlines',
     hotelMakkah: {
-      name: 'Fairmont Makkah Clock Royal Tower',
+      name: 'Fairmont Makkah Clock Tower (Bintang 5)',
       stars: 5,
       distance: 'Pelataran Ka\'bah Direct View',
       image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
-      name: 'Dar Al Taqwa Madinah',
+      name: 'Dar Al Taqwa Madinah (Bintang 5)',
       stars: 5,
       distance: 'Depan Pintu Utama Masjid Nabawi',
       image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
@@ -435,13 +435,13 @@ export const packagesData: PackageItem[] = [
     reviewCount: 19,
     airline: 'Saudia Airlines / Garuda Indonesia Direct',
     hotelMakkah: {
-      name: 'Fairmont Makkah Clock Tower',
+      name: 'Fairmont Makkah Clock Tower (Bintang 5)',
       stars: 5,
       distance: 'Pelataran Utama Ka\'bah',
       image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
     },
     hotelMadinah: {
-      name: 'Oberoi Madinah Hotel',
+      name: 'Oberoi Madinah Hotel (Bintang 5)',
       stars: 5,
       distance: 'Depan Pintu Utama Masjid Nabawi',
       image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
@@ -450,7 +450,7 @@ export const packagesData: PackageItem[] = [
       'Visa Furoda / Mujamalah Resmi Kerajaan Arab Saudi',
       'Tenda Ber-AC VIP di Arafah & Mina Dekat Jamarat',
       'Akomodasi Hotel Bintang 5 Makkah & Madinah',
-      'Bimbingan Ibadah Haji Oleh Pembimbing Syari\'ah Senior',
+      'Bimbingan Ibadah Haji Oleh Pembimbing Khusyuk & Senior',
       'Full Board Catering Menu Indonesia di Hotel & Tenda',
       'Bus AC VIP Khusus Rombongan Haji Furoda',
       'Air Zamzam & Perlengkapan Haji Eksklusif',
