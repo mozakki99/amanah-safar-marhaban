@@ -8,27 +8,27 @@ export default function PainPointsSection() {
   const commitments = [
     {
       icon: BookOpen,
-      title: 'Bimbingan Ibadah Khusyuk & Manasik Intensif',
-      subtitle: 'Pendampingan Berpengalaman',
-      description: 'Didampingi oleh Muthawwif & Tour Leader berpengalaman yang siap membimbing setiap rukun umrah dengan sabar, ramah, dan sesuai dengan syariat Islam.',
+      title: 'Bimbingan Ibadah & Manasik Terarah',
+      subtitle: 'Pembimbing Berpengalaman',
+      description: 'Didampingi oleh Pembimbing Ibadah (Muthawwif) dan Tour Leader berpengalaman untuk membantu kelancaran pelaksanaan ibadah jamaah secara baik dan sesuai syariat Islam.',
     },
     {
       icon: Building2,
-      title: 'Kenyamanan Akomodasi Strategis Dekat Masjid',
+      title: 'Akomodasi Hotel Dekat Area Masjid',
       subtitle: 'Kemudahan Akses Ibadah',
-      description: 'Pilihan hotel bintang 4 & 5 berlokasi strategis di area pelataran Makkah & Madinah untuk kemudahan akses ibadah jamaah, terutama bagi orang tua dan lansia.',
+      description: 'Pilihan hotel bintang 4 dan 5 di kawasan Makkah & Madinah yang dipilih untuk memberikan kenyamanan serta kemudahan mobilitas jamaah menuju tempat ibadah.',
     },
     {
       icon: Plane,
-      title: 'Kepastian Penerbangan Maskapai Terpercaya',
-      subtitle: 'Perjalanan Nyaman',
-      description: 'Pengurusan dokumen, pemvisaan resmi Kemenag, serta tiket penerbangan direct flight menggunakan maskapai ternama seperti Saudia Airlines & Garuda Indonesia.',
+      title: 'Pengurusan Dokumen & Maskapai Terjadwal',
+      subtitle: 'Kenyamanan Perjalanan',
+      description: 'Pengurusan visa umrah resmi Kemenag RI, pemesanan tiket penerbangan maskapai ternama (seperti Saudia Airlines & Garuda Indonesia), serta kelengkapan dokumen perjalanan.',
     },
     {
       icon: HeartHandshake,
-      title: 'Kejelasan Biaya & Catering Menu Nusantara',
+      title: 'Transparansi Biaya & Catering Menu Indonesia',
       subtitle: 'Ketenangan Jamaah',
-      description: 'Informasi rincian biaya disampaikan secara terbuka tanpa biaya tersembunyi, lengkap dengan sajian hidangan catering makanan cita rasa Indonesia 3x sehari.',
+      description: 'Informasi rincian paket disampaikan secara jelas sejak awal tanpa biaya terselubung, dilengkapi sajian konsumsi masakan selera Nusantara 3x sehari.',
     },
   ];
 
@@ -50,13 +50,13 @@ export default function PainPointsSection() {
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3">
           <div className="inline-flex items-center gap-2 bg-purple-100 dark:bg-purple-950/80 text-[#4B2476] dark:text-[#F5B027] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-purple-200 dark:border-purple-800/80">
             <Award className="w-4 h-4 text-[#F5B027]" />
-            <span>Pilar Kepercayaan Jamaah</span>
+            <span>Standar Pelayanan</span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold font-sans text-gray-900 dark:text-white tracking-tight leading-tight">
-            Komitmen Pelayanan Ibadah <span className="text-[#4B2476] dark:text-[#F5B027]">Amanah Safar Marhaban</span>
+            Komitmen Pelayanan <span className="text-[#4B2476] dark:text-[#F5B027]">Amanah Safar Marhaban</span>
           </h2>
           <p className="text-gray-600 dark:text-purple-200/90 text-sm sm:text-base">
-            Empat pilar utama ikhtiar kami dalam menghadirkan perjalanan ibadah suci yang tenang, nyaman, dan khusyuk.
+            Prinsip utama kami dalam menghadirkan pelayanan ibadah yang terencana, tertib, dan transparan bagi jamaah.
           </p>
         </div>
 
@@ -90,14 +90,14 @@ export default function PainPointsSection() {
 
                 <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400">
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>Komitmen Resmi Marhaban</span>
+                  <span>Layanan Utama Marhaban</span>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* 2. TAMPILAN MOBILE: Sempurna Interactive Carousel Slider */}
+        {/* 2. TAMPILAN MOBILE: Interactive Carousel Slider */}
         <div className="sm:hidden space-y-4">
           <div className="relative overflow-hidden rounded-3xl bg-[#FAFAFD] dark:bg-[#160C26] p-6 border border-gray-200 dark:border-purple-800/60 shadow-md min-h-[240px] flex flex-col justify-between">
             <AnimatePresence mode="wait">
@@ -133,7 +133,7 @@ export default function PainPointsSection() {
             {/* Slider Controls Bar */}
             <div className="flex items-center justify-between pt-4 border-t border-gray-200/80 dark:border-purple-900/50">
               <span className="text-xs font-extrabold text-[#4B2476] dark:text-[#F5B027]">
-                Pilar {activeMobileIndex + 1} dari {commitments.length}
+                Layanan {activeMobileIndex + 1} dari {commitments.length}
               </span>
 
               <div className="flex items-center gap-2">

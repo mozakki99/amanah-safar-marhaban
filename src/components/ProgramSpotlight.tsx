@@ -53,7 +53,7 @@ export default function ProgramSpotlight({ onOpenBookingForm }: ProgramSpotlight
               Program <span className="text-[#4B2476] dark:text-[#F5B027]">Umrah & Haji Marhaban</span>
             </h2>
             <p className="text-gray-600 dark:text-purple-200/90 text-sm sm:text-base">
-              Pilihan jadwal terdekat dengan fasilitas lengkap, hotel strategis bintang 4 & 5, dan penerbangan Direct Flight.
+              Pilihan jadwal terdekat dengan fasilitas terencana, hotel strategis bintang 4 & 5, dan penerbangan maskapai ternama.
             </p>
           </div>
 
@@ -168,7 +168,7 @@ export default function ProgramSpotlight({ onOpenBookingForm }: ProgramSpotlight
                               <Plane className="w-3.5 h-3.5 text-blue-500 dark:text-amber-400" />
                               <span>Maskapai:</span>
                             </span>
-                            <span className="font-bold truncate text-gray-900 dark:text-white">{pkg.airline.split(' ')[0]} Direct</span>
+                            <span className="font-bold truncate text-gray-900 dark:text-white">{pkg.airline.split(' ')[0]}</span>
                           </div>
                         </div>
 
