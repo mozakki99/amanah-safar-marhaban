@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, Star, ArrowRight, PhoneCall } from 'lucide-react';
+import { ShieldCheck, Star, ArrowRight, PhoneCall, Award, Users, CheckCircle2 } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBookingForm: (topic?: string) => void;
@@ -30,7 +30,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
   return (
     <section id="hero" className="relative bg-gradient-to-b from-[#FAF7FC] via-white to-gray-50 dark:from-[#130724] dark:via-[#0B0514] dark:to-[#08030F] py-10 sm:py-24 overflow-hidden transition-colors duration-300">
       
-      {/* Background Decorative Blur */}
+      {/* Background Decorative Ambient Blur */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none opacity-30 dark:opacity-60">
         <div className="absolute top-5 left-5 w-72 sm:w-96 h-72 sm:h-96 bg-purple-300/40 dark:bg-purple-700/30 rounded-full blur-3xl"></div>
         <div className="absolute bottom-5 right-5 w-72 sm:w-80 h-72 sm:h-80 bg-amber-300/30 dark:bg-amber-600/20 rounded-full blur-3xl"></div>
@@ -39,7 +39,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           
-          {/* Left Content */}
+          {/* Left Content Column */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-left">
             
             {/* Headline Proporsional & Bebas Clipping di HP */}
@@ -84,7 +84,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                 <ArrowRight className="w-4 h-4 text-[#F5B027] dark:text-gray-950" />
               </Link>
 
-              {/* Tombol 2: Konsultasi via WhatsApp -> Triggers Form Modal */}
+              {/* Tombol 2: Konsultasi via WhatsApp */}
               <button
                 onClick={() => onOpenBookingForm('Konsultasi Hero Section')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-amber-50 dark:bg-[#1E1136] hover:bg-amber-100 dark:hover:bg-[#2A184A] text-[#4B2476] dark:text-purple-200 font-extrabold border-2 border-[#F5B027] dark:border-amber-400 px-7 py-3.5 sm:px-8 sm:py-4 rounded-2xl shadow-md transition-all text-sm sm:text-base text-center"
@@ -96,45 +96,113 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
           </div>
 
-          {/* Right Visual Card */}
-          <div className="lg:col-span-5 relative mt-2 lg:mt-0">
-            <div className="relative bg-white dark:bg-[#160C26] rounded-3xl p-4 sm:p-5 shadow-2xl border border-purple-100 dark:border-purple-800/60 overflow-hidden">
+          {/* Right Visual Column (Enhanced & Animated Ka'bah Showcase) */}
+          <div className="lg:col-span-5 relative mt-4 lg:mt-0">
+            
+            {/* Golden Ambient Glow Aura behind Card */}
+            <motion.div
+              animate={{
+                scale: [1, 1.08, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+              className="absolute -inset-2 bg-gradient-to-r from-[#F5B027]/30 via-purple-600/30 to-[#4B2476]/30 rounded-[2.5rem] blur-2xl -z-10"
+            ></motion.div>
+
+            {/* Main Visual Container */}
+            <div className="relative bg-white dark:bg-[#160C26] rounded-3xl p-4 sm:p-5 shadow-2xl border border-purple-100 dark:border-purple-800/60 overflow-visible group">
               
-              <div className="relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden">
-                <img
+              {/* Floating Top-Right Badge: PPIU Legal Status */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute -top-4 -right-2 sm:-right-4 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-3.5 py-2 rounded-2xl shadow-xl border border-amber-300/60 dark:border-amber-400/40 flex items-center gap-2"
+              >
+                <div className="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-[#4B2476] dark:text-[#F5B027] flex items-center justify-center font-bold">
+                  <ShieldCheck className="w-4 h-4 text-[#4B2476] dark:text-[#F5B027]" />
+                </div>
+                <div>
+                  <span className="block text-[10px] font-extrabold text-amber-900 dark:text-amber-300 uppercase tracking-wider">Izin Resmi PPIU</span>
+                  <span className="block text-[11px] font-bold text-gray-900 dark:text-white">Kemenag RI</span>
+                </div>
+              </motion.div>
+
+              {/* Floating Bottom-Left Badge: Ratings & Reviews */}
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute -bottom-4 -left-2 sm:-left-4 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl shadow-xl border border-purple-200/80 dark:border-purple-700/60 flex items-center gap-3"
+              >
+                <div className="flex -space-x-2 overflow-hidden">
+                  <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-purple-900 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Jamaah 1" />
+                  <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-purple-900 object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Jamaah 2" />
+                  <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-purple-900 object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80" alt="Jamaah 3" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-1 text-[#F5B027]">
+                    <Star className="w-3.5 h-3.5 fill-[#F5B027]" />
+                    <span className="text-xs font-extrabold text-gray-900 dark:text-white">5.0 / 5.0</span>
+                  </div>
+                  <span className="block text-[10px] text-gray-500 dark:text-purple-200/80 font-medium">480+ Ulasan Puas Jamaah</span>
+                </div>
+              </motion.div>
+
+              {/* Ka'bah Animated Showcase Image Box */}
+              <div className="relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden bg-purple-950/40">
+                <motion.img
+                  animate={{ scale: [1, 1.06, 1] }}
+                  transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
                   src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1200&q=80"
                   alt="Masjidil Haram Ka'bah Makkah Al-Mukarramah"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                
+                {/* Gradient Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
 
-                <div className="absolute top-3.5 left-3.5 bg-white/95 dark:bg-[#12091F]/90 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-md border border-white/10">
-                  <ShieldCheck className="w-4 h-4 text-[#4B2476] dark:text-[#F5B027]" />
-                  <span className="text-xs font-bold text-[#4B2476] dark:text-purple-100">Verifikasi Resmi Kemenag</span>
+                {/* Sub-badge inside image */}
+                <div className="absolute top-3.5 left-3.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-md border border-white/20">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#F5B027]" />
+                  <span className="text-xs font-bold text-white">Pendampingan Syariat</span>
                 </div>
 
-                <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white">
-                  <div className="flex items-center gap-1 text-[#F5B027] mb-1">
+                {/* Image Overlay Footer */}
+                <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white space-y-1">
+                  <div className="flex items-center gap-1 text-[#F5B027]">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-[#F5B027]" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#F5B027]" />
                     ))}
                     <span className="text-xs text-white font-bold ml-1">Layanan Berpengalaman</span>
                   </div>
-                  <h3 className="font-bold text-base sm:text-lg leading-snug">Pengalaman Ibadah Nyaman & Khusyuk</h3>
+                  <h3 className="font-extrabold text-base sm:text-lg leading-snug">
+                    Pengalaman Ibadah Nyaman & Khusyuk
+                  </h3>
                 </div>
               </div>
 
+              {/* Departure Info Bottom Bar with Live Pulse */}
               <div className="mt-3.5 bg-[#F9F6FC] dark:bg-[#20133A] rounded-2xl p-3.5 border border-purple-100 dark:border-purple-800/50 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#4B2476] dark:bg-[#F5B027] text-[#F5B027] dark:text-gray-950 font-bold text-lg flex items-center justify-center shadow-md">
-                    M
+                  <div className="relative">
+                    <div className="w-10 h-10 rounded-xl bg-[#4B2476] dark:bg-[#F5B027] text-[#F5B027] dark:text-gray-950 font-extrabold text-base flex items-center justify-center shadow-md">
+                      <Award className="w-5 h-5" />
+                    </div>
+                    <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                    </span>
                   </div>
                   <div>
                     <span className="block text-[11px] font-semibold text-gray-500 dark:text-purple-300/80">Pemberangkatan Terdekat</span>
                     <span className="block text-xs sm:text-sm font-bold text-gray-900 dark:text-white">Musim Umrah 1448 H / 2026</span>
                   </div>
                 </div>
-                <span className="bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 text-[11px] font-bold px-2.5 py-1 rounded-lg border border-amber-300/30">
+
+                <span className="bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 text-[11px] font-bold px-2.5 py-1 rounded-lg border border-amber-300/40 shrink-0">
                   Pendaftaran Buka
                 </span>
               </div>
