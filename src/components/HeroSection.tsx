@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, Star, ArrowRight, PhoneCall, Award, CheckCircle2, RotateCcw } from 'lucide-react';
+import { ShieldCheck, Star, ArrowRight, PhoneCall, Award, CheckCircle2, Sparkles, Compass } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBookingForm: (topic?: string) => void;
@@ -20,12 +20,45 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
   const [index, setIndex] = useState(0);
 
+  // Hero Right Side Photo Carousel Slides
+  const heroSlides = [
+    {
+      url: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1200&q=80',
+      title: 'Masjidil Haram & Ka\'bah Suci',
+      location: 'Makkah Al-Mukarramah',
+      badge: 'Thawaf Khusyuk & Tertib',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
+      title: 'Masjid Nabawi & Raudah Syarifah',
+      location: 'Madinah Munawwarah',
+      badge: 'Ziarah Penuh Keberkahan',
+    },
+    {
+      url: 'https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?auto=format&fit=crop&w=1200&q=80',
+      title: 'Pelataran Hotel Strategis Dekat Masjid',
+      location: 'Akomodasi Bintang 4 & 5',
+      badge: 'Kemudahan Akses Orang Tua & Lansia',
+    },
+  ];
+
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  // Headline rotator timer
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % lineTwoPhrases.length);
     }, 2800);
     return () => clearInterval(timer);
   }, [lineTwoPhrases.length]);
+
+  // Image slide timer
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setSlideIndex((prev) => (prev + 1) % heroSlides.length);
+    }, 4500);
+    return () => clearInterval(slideTimer);
+  }, [heroSlides.length]);
 
   return (
     <section id="hero" className="relative bg-gradient-to-b from-[#FAF7FC] via-white to-gray-50 dark:from-[#130724] dark:via-[#0B0514] dark:to-[#08030F] py-10 sm:py-24 overflow-hidden transition-colors duration-300">
@@ -96,157 +129,82 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
           </div>
 
-          {/* Right Visual Column (Animated Ka'bah Showcase + Interactive Thawaf Orbit) */}
+          {/* Right Visual Column (Luxury Photo Carousel + Glassmorphism Showcase) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             
-            {/* Golden Ambient Glow Aura behind Card */}
-            <motion.div
-              animate={{
-                scale: [1, 1.08, 1],
-                opacity: [0.3, 0.5, 0.3],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-              className="absolute -inset-2 bg-gradient-to-r from-[#F5B027]/30 via-purple-600/30 to-[#4B2476]/30 rounded-[2.5rem] blur-2xl -z-10"
-            ></motion.div>
+            {/* Ambient Background Glow */}
+            <div className="absolute -inset-3 bg-gradient-to-r from-amber-400/25 via-purple-600/30 to-[#4B2476]/30 rounded-[2.5rem] blur-2xl pointer-events-none"></div>
 
-            {/* Main Visual Container */}
-            <div className="relative bg-white dark:bg-[#160C26] rounded-3xl p-4 sm:p-5 shadow-2xl border border-purple-100 dark:border-purple-800/60 overflow-visible group">
+            {/* Main Premium Visual Card */}
+            <div className="relative bg-white dark:bg-[#160C26] rounded-3xl p-4 sm:p-5 shadow-2xl border border-purple-100 dark:border-purple-800/60 overflow-visible">
               
-              {/* Floating Top-Right Badge: PPIU Legal Status */}
+              {/* Floating Top Badge: PPIU Kemenag */}
               <motion.div
-                animate={{ y: [0, -8, 0] }}
+                animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-4 -right-2 sm:-right-4 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-3.5 py-2 rounded-2xl shadow-xl border border-amber-300/60 dark:border-amber-400/40 flex items-center gap-2"
+                className="absolute -top-4 left-4 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-3.5 py-2 rounded-2xl shadow-lg border border-amber-300/60 dark:border-amber-400/40 flex items-center gap-2"
               >
-                <div className="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-[#4B2476] dark:text-[#F5B027] flex items-center justify-center font-bold">
-                  <ShieldCheck className="w-4 h-4 text-[#4B2476] dark:text-[#F5B027]" />
-                </div>
-                <div>
-                  <span className="block text-[10px] font-extrabold text-amber-900 dark:text-amber-300 uppercase tracking-wider">Izin Resmi PPIU</span>
-                  <span className="block text-[11px] font-bold text-gray-900 dark:text-white">Kemenag RI</span>
-                </div>
+                <ShieldCheck className="w-4 h-4 text-[#4B2476] dark:text-[#F5B027]" />
+                <span className="text-xs font-bold text-gray-900 dark:text-white">PPIU Kemenag: <strong className="text-[#4B2476] dark:text-[#F5B027]">23022300424760012</strong></span>
               </motion.div>
 
-              {/* Floating Bottom-Left Badge: Ratings & Reviews */}
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 4.8, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -bottom-4 -left-2 sm:-left-4 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl shadow-xl border border-purple-200/80 dark:border-purple-700/60 flex items-center gap-3"
-              >
-                <div className="flex -space-x-2 overflow-hidden">
-                  <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-purple-900 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Jamaah 1" />
-                  <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-purple-900 object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Jamaah 2" />
-                  <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white dark:ring-purple-900 object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=100&q=80" alt="Jamaah 3" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-1 text-[#F5B027]">
-                    <Star className="w-3.5 h-3.5 fill-[#F5B027]" />
-                    <span className="text-xs font-extrabold text-gray-900 dark:text-white">5.0 / 5.0</span>
-                  </div>
-                  <span className="block text-[10px] text-gray-500 dark:text-purple-200/80 font-medium">480+ Ulasan Puas Jamaah</span>
-                </div>
-              </motion.div>
-
-              {/* Ka'bah Box with Interactive Thawaf Orbit Overlay */}
-              <div className="relative h-72 sm:h-84 w-full rounded-2xl overflow-hidden bg-gradient-to-b from-[#2E144D] via-[#1E0C36] to-[#0D0518] flex items-center justify-center p-4">
-                
-                {/* Background Ka'bah Atmosphere Photo */}
-                <motion.img
-                  animate={{ scale: [1, 1.05, 1], opacity: [0.35, 0.45, 0.35] }}
-                  transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-                  src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1200&q=80"
-                  alt="Latar Masjidil Haram Makkah"
-                  className="absolute inset-0 w-full h-full object-cover mix-blend-overlay pointer-events-none"
-                />
-
-                {/* Ambient Radial Spotlight */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,176,39,0.18)_0%,transparent_70%)] pointer-events-none"></div>
-
-                {/* ANIMATED THAWAF ORBIT & KA'BAH MODEL */}
-                <div className="relative w-52 h-52 sm:w-60 sm:h-60 flex items-center justify-center pointer-events-none">
-                  
-                  {/* Outer Orbit Ring 1 (Thawaf Jamaah Rotator) */}
+              {/* Photo Carousel Container with Smooth Crossfade */}
+              <div className="relative h-72 sm:h-88 w-full rounded-2xl overflow-hidden bg-purple-950/40 shadow-inner">
+                <AnimatePresence mode="wait">
                   <motion.div
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                    className="absolute inset-0 rounded-full border border-amber-400/40 border-dashed"
+                    key={slideIndex}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="absolute inset-0 w-full h-full"
                   >
-                    {/* Thawaf Label Badge on Orbit */}
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F5B027] text-gray-950 px-2 py-0.5 rounded-full text-[9px] font-extrabold shadow-md flex items-center gap-1 border border-white/40">
-                      <RotateCcw className="w-2.5 h-2.5 text-gray-950" />
-                      <span>Animasi Thawaf</span>
+                    <img
+                      src={heroSlides[slideIndex].url}
+                      alt={heroSlides[slideIndex].title}
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Dark Gradient Overlay for Readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+
+                    {/* Top Right Floating Pill Tag inside Carousel */}
+                    <div className="absolute top-3.5 right-3.5 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-md border border-white/20">
+                      <Sparkles className="w-3.5 h-3.5 text-[#F5B027]" />
+                      <span className="text-xs font-bold text-white">{heroSlides[slideIndex].badge}</span>
                     </div>
 
-                    {/* Animated Jamaah Orbit Particles */}
-                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.9)] border border-amber-300"></div>
-                    <div className="absolute top-1/2 -left-1.5 -translate-y-1/2 w-2.5 h-2.5 bg-amber-300 rounded-full shadow-[0_0_8px_rgba(245,176,39,0.9)]"></div>
-                    <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-2.5 h-2.5 bg-white rounded-full shadow-md"></div>
-                  </motion.div>
-
-                  {/* Inner Orbit Ring 2 */}
-                  <motion.div
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 13, repeat: Infinity, ease: 'linear' }}
-                    className="absolute inset-5 rounded-full border border-purple-300/30"
-                  >
-                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-amber-400 rounded-full shadow-md"></div>
-                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full"></div>
-                    <div className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-white rounded-full"></div>
-                    <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2.5 h-2.5 bg-amber-300 rounded-full"></div>
-                  </motion.div>
-
-                  {/* 3D Stylized Ka'bah Central Cube */}
-                  <motion.div
-                    animate={{ y: [0, -5, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                    className="relative w-20 h-24 sm:w-24 sm:h-28 bg-gradient-to-b from-[#1E1729] via-[#0E0916] to-[#040207] rounded-xl border-2 border-[#F5B027] shadow-[0_0_30px_rgba(245,176,39,0.5)] flex flex-col items-center justify-between p-2 z-10"
-                  >
-                    {/* Gold Kiswah Belt (Pita Emas Ka'bah) */}
-                    <div className="w-full h-3 sm:h-3.5 bg-[#F5B027] rounded-xs shadow-inner flex items-center justify-center border-t border-b border-amber-200">
-                      <div className="w-4/5 h-0.5 bg-amber-950/80 rounded-full"></div>
-                    </div>
-
-                    {/* Ka'bah Golden Door (Pintu Ka'bah) */}
-                    <div className="w-4 sm:w-5 h-7 sm:h-9 bg-gradient-to-b from-amber-200 via-[#F5B027] to-amber-600 rounded-t-sm border border-amber-100 self-end mr-2 shadow-md flex items-center justify-center">
-                      <div className="w-0.5 h-4 bg-amber-950/80"></div>
-                    </div>
-
-                    {/* Ka'bah Bottom Text */}
-                    <div className="w-full text-center pb-0.5">
-                      <span className="text-[9px] font-extrabold text-[#F5B027] tracking-widest uppercase block">Ka'bah Suci</span>
+                    {/* Bottom Caption inside Carousel */}
+                    <div className="absolute bottom-4 left-4 right-4 text-white space-y-1">
+                      <div className="flex items-center gap-1 text-[#F5B027]">
+                        <Compass className="w-3.5 h-3.5 text-[#F5B027]" />
+                        <span className="text-xs font-bold uppercase tracking-wider text-amber-300">{heroSlides[slideIndex].location}</span>
+                      </div>
+                      <h3 className="font-extrabold text-base sm:text-xl leading-snug">
+                        {heroSlides[slideIndex].title}
+                      </h3>
                     </div>
                   </motion.div>
+                </AnimatePresence>
 
-                </div>
-
-                {/* Sub-badge top left */}
-                <div className="absolute top-3.5 left-3.5 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-md border border-white/20 z-10">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#F5B027]" />
-                  <span className="text-xs font-bold text-white">Pendampingan Syariat</span>
-                </div>
-
-                {/* Image Overlay Footer */}
-                <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white space-y-1 z-10">
-                  <div className="flex items-center gap-1 text-[#F5B027]">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-[#F5B027]" />
-                    ))}
-                    <span className="text-xs text-white font-bold ml-1">Bimbingan Khusyuk & Sabar</span>
-                  </div>
-                  <h3 className="font-extrabold text-base sm:text-lg leading-snug">
-                    Simulasi Thawaf Khusyuk di Pelataran Suci
-                  </h3>
+                {/* Carousel Navigation Dots Indicator */}
+                <div className="absolute top-4 left-4 flex items-center gap-1.5 z-10">
+                  {heroSlides.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSlideIndex(idx)}
+                      className={`h-2 rounded-full transition-all ${
+                        slideIndex === idx ? 'w-6 bg-[#F5B027]' : 'w-2 bg-white/50'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
 
-              {/* Departure Info Bottom Bar with Live Pulse */}
+              {/* Bottom Schedule & Status Card */}
               <div className="mt-3.5 bg-[#F9F6FC] dark:bg-[#20133A] rounded-2xl p-3.5 border border-purple-100 dark:border-purple-800/50 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="relative">
+                  <div className="relative shrink-0">
                     <div className="w-10 h-10 rounded-xl bg-[#4B2476] dark:bg-[#F5B027] text-[#F5B027] dark:text-gray-950 font-extrabold text-base flex items-center justify-center shadow-md">
                       <Award className="w-5 h-5" />
                     </div>
@@ -261,7 +219,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                   </div>
                 </div>
 
-                <span className="bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 text-[11px] font-bold px-2.5 py-1 rounded-lg border border-amber-300/40 shrink-0">
+                <span className="bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 text-[11px] font-bold px-3 py-1 rounded-xl border border-amber-300/40 shrink-0">
                   Pendaftaran Buka
                 </span>
               </div>
