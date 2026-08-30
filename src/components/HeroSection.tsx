@@ -1,7 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, ArrowRight, PhoneCall, Award, Sparkles, Compass } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -9,6 +10,23 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
+  // Dynamic headline phrases for line 2
+  const lineTwoPhrases = [
+    'dengan Travel Resmi',
+    'Perjalanan Aman',
+    'Ibadah Nyaman',
+    'Pulang Penuh Kesan',
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % lineTwoPhrases.length);
+    }, 2800);
+    return () => clearInterval(timer);
+  }, [lineTwoPhrases.length]);
+
   return (
     <section id="hero" className="relative bg-gradient-to-b from-[#FAF7FC] via-white to-gray-50 dark:from-[#130724] dark:via-[#0B0514] dark:to-[#08030F] py-12 sm:py-24 overflow-hidden transition-colors duration-300">
       
@@ -24,15 +42,27 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
           {/* Left Content Column */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-left">
             
-            {/* Headline Static & Pristine */}
+            {/* Headline with Animated Rotator Line 2 */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-sans text-gray-900 dark:text-white tracking-tight leading-[1.2]">
               <span className="block text-gray-900 dark:text-white">
                 Wujudkan Umrah Impian
               </span>
 
-              <span className="block mt-1 sm:mt-2 text-[#4B2476] dark:text-[#F5B027] relative z-10 leading-tight">
-                Ibadah Nyaman & Khusyuk
-                <span className="absolute bottom-0.5 sm:bottom-1 left-0 w-full h-2.5 sm:h-3.5 bg-[#F5B027]/40 dark:bg-amber-400/30 -z-10 rounded-full"></span>
+              <span className="block mt-1 sm:mt-2 text-[#4B2476] dark:text-[#F5B027] min-h-[1.3em] overflow-visible">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.4 }}
+                    className="inline-block max-w-full bg-gradient-to-r from-[#4B2476] via-purple-700 to-[#65339B] dark:from-[#F5B027] dark:via-amber-300 dark:to-yellow-400 bg-clip-text text-transparent relative z-10 leading-tight"
+                  >
+                    {lineTwoPhrases[index]}
+                    {/* Garis Highlight */}
+                    <span className="absolute bottom-0.5 sm:bottom-1 left-0 w-full h-2.5 sm:h-3.5 bg-[#F5B027]/40 dark:bg-amber-400/30 -z-10 rounded-full"></span>
+                  </motion.span>
+                </AnimatePresence>
               </span>
             </h1>
 
