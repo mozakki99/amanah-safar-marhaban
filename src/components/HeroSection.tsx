@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, Star, ArrowRight, PhoneCall, Award, Sparkles, Compass, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ShieldCheck, ArrowRight, PhoneCall, Award, Sparkles, Compass, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBookingForm: (topic?: string) => void;
@@ -20,39 +20,35 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
   const [index, setIndex] = useState(0);
 
-  // 4 Hero Slides matching the 4 Pixabay themes provided by the user
+  // 4 Hero Slides using exact Pixabay images provided by the user
   const heroSlides = [
     {
       id: 'pixabay-3782640',
-      url: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
+      url: '/images/pixabay-madinah-3782640.jpg',
       title: 'Masjid Nabawi Madinah Munawwarah',
       location: 'Madinah Munawwarah',
       badge: 'Keindahan Kota Nabi',
-      pixabayLink: 'https://pixabay.com/id/photos/madinah-agama-haji-muhammad-masjid-3782640/',
     },
     {
       id: 'pixabay-3347602',
-      url: 'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1200&q=80',
+      url: '/images/pixabay-nabawi-3347602.jpg',
       title: 'Pelataran Payung Suci Nabawi',
       location: 'Madinah Munawwarah',
       badge: 'Ketenangan Beribadah',
-      pixabayLink: 'https://pixabay.com/id/photos/masjid-nabawi-medina-3347602/',
     },
     {
       id: 'pixabay-4372290',
-      url: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1200&q=80',
+      url: '/images/pixabay-kabah-4372290.jpg',
       title: 'Ka\'bah Suci Makkah Al-Mukarramah',
       location: 'Makkah Al-Mukarramah',
       badge: 'Thawaf Khusyuk & Tertib',
-      pixabayLink: 'https://pixabay.com/id/photos/kabah-ziarah-mekah-masjid-islam-4372290/',
     },
     {
       id: 'pixabay-7552281',
-      url: 'https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?auto=format&fit=crop&w=1200&q=80',
+      url: '/images/pixabay-kabah-7552281.jpg',
       title: 'Suasana Suci Umrah & Haji Khusus',
       location: 'Makkah Al-Mukarramah',
       badge: 'Perjalanan Ibadah Bermakna',
-      pixabayLink: 'https://pixabay.com/id/photos/haji-muslim-kabah-makkah-umroh-7552281/',
     },
   ];
 
@@ -75,7 +71,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
   }, [heroSlides.length]);
 
   return (
-    <section id="hero" className="relative bg-gradient-to-b from-[#FAF7FC] via-white to-gray-50 dark:from-[#130724] dark:via-[#0B0514] dark:to-[#08030F] py-10 sm:py-24 overflow-hidden transition-colors duration-300">
+    <section id="hero" className="relative bg-gradient-to-b from-[#FAF7FC] via-white to-gray-50 dark:from-[#130724] dark:via-[#0B0514] dark:to-[#08030F] py-8 sm:py-24 overflow-hidden transition-colors duration-300">
       
       {/* Background Decorative Ambient Blur */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none opacity-30 dark:opacity-60">
@@ -120,7 +116,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
               Wujudkan rindu ke Tanah Suci tanpa cemas bersama travel resmi Amanah Safar Marhaban. Nikmati fleksibilitas memilih paket umrah reguler, privat, atau mandiri. Kami upayakan pelayanan maksimal sepenuh hati.
             </p>
 
-            {/* Dual Action Buttons */}
+            {/* Dual Action Buttons (Mobile Responsive Grid/Flex) */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
               {/* Tombol 1: Lihat Katalog Umrah */}
               <Link
@@ -143,7 +139,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
           </div>
 
-          {/* Right Visual Column (4 Pixabay Theme Slides Showcase) */}
+          {/* Right Visual Column (Pixabay Photos Showcase) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             
             {/* Ambient Background Glow */}

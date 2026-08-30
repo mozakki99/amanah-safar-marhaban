@@ -42,12 +42,12 @@ export default function BookingFormModal({
     const message = `Assalamu'alaikum Amanah Safar Marhaban,
 
 Saya ingin berkonsultasi / mendaftar:
-👤 *Nama*: ${fullName}
-📱 *No. WA*: ${phone}
-📍 *Kota*: ${city}
-🎯 *${topicText}*
-📅 *Rencana Keberangkatan*: ${departurePlan}
-${notes ? `📝 *Catatan/Pertanyaan*: ${notes}` : ''}
+- Nama Lengkap: ${fullName}
+- No. WhatsApp: ${phone}
+- Kota Domisili: ${city}
+- ${topicText}
+- Rencana Keberangkatan: ${departurePlan}
+${notes ? `- Catatan/Pertanyaan: ${notes}` : ''}
 
 Mohon informasi rincian pendaftaran & kuota seat. Terima kasih.`;
 
@@ -189,7 +189,7 @@ Mohon informasi rincian pendaftaran & kuota seat. Terima kasih.`;
         </form>
 
         <p className="text-[10px] text-gray-400 text-center mt-4">
-          🔒 Data Anda aman & terlindungi. Resmi terdaftar Kemenag RI (PT Amanah Tangguh Mandiri).
+          Resmi terdaftar Kemenag RI (PT Amanah Tangguh Mandiri).
         </p>
 
       </div>
