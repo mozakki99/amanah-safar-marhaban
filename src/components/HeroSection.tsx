@@ -42,7 +42,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Content Column */}
-          <div className="lg:col-span-6 space-y-6 sm:space-y-7 text-left">
+          <div className="lg:col-span-6 space-y-6 sm:space-y-7 text-center lg:text-left flex flex-col items-center lg:items-start">
             
             {/* Top Pill Category Badge */}
             <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-emerald-200/80 dark:border-emerald-800/60 shadow-2xs">
@@ -75,12 +75,12 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-purple-200/90 leading-relaxed max-w-xl">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-purple-200/90 leading-relaxed max-w-xl text-center lg:text-left">
               Wujudkan rindu ke Tanah Suci tanpa cemas bersama travel resmi Amanah Safar Marhaban. Nikmati fleksibilitas memilih paket umrah reguler, privat, atau mandiri dengan penerbangan langsung tanpa transit.
             </p>
 
             {/* Dual Action Pill Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2 w-full sm:w-auto justify-center lg:justify-start">
               <Link
                 href="/paket-umrah"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#4B2476] hover:bg-[#371A58] dark:bg-[#F5B027] dark:hover:bg-amber-400 dark:text-gray-950 text-white font-extrabold px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all text-sm sm:text-base text-center group"
