@@ -10,12 +10,12 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
-  // Frasa dinamis baris ke-2 (Realistic Professional Copywriting)
+  // Frasa dinamis baris ke-2 (User Approved Copywriting)
   const lineTwoPhrases = [
-    'dengan Tenang & Nyaman',
-    'bersama Marhaban',
-    'penerbangan Maskapai Ternama',
-    'layanan Ibadah Khusyuk',
+    'dengan Travel Resmi',
+    'Perjalanan Aman',
+    'Ibadah Nyaman',
+    'Pulang Penuh Kesan',
   ];
 
   const [index, setIndex] = useState(0);
@@ -70,7 +70,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
             {/* Sub-headline */}
             <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-purple-200/90 leading-relaxed max-w-2xl">
-              Layanan penyelenggaraan perjalanan ibadah Umrah dan Haji Khusus bersama <strong className="text-gray-900 dark:text-amber-300">Amanah Safar Marhaban</strong>. Penerbangan maskapai ternama, pilihan hotel di area strategis, serta pendampingan pembimbing ibadah berpengalaman.
+              Wujudkan rindu ke Tanah Suci tanpa cemas bersama travel resmi Amanah Safar Marhaban. Nikmati fleksibilitas memilih paket umrah reguler, privat, atau mandiri. Kami upayakan pelayanan maksimal sepenuh hati.
             </p>
 
             {/* Dual Action Buttons */}
