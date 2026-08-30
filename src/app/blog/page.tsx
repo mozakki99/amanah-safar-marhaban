@@ -34,7 +34,7 @@ export default function BlogIndexPage() {
           </h1>
 
           <p className="text-sm sm:text-base text-gray-600 dark:text-purple-200/90 leading-relaxed">
-            Artikel rujukan tepercaya seputar tips perjalanan, manasik ibadah sesuai Sunnah, legalitas Kemenag RI, serta kabar terbaru Tanah Suci Makkah & Madinah.
+            Artikel rujukan tepercaya seputar tips perjalanan, manasik ibadah sesuai Sunnah, legalitas Kemenhaj RI, serta kabar terbaru Tanah Suci Makkah & Madinah.
           </p>
         </div>
 

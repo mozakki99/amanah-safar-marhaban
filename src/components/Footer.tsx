@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MapPin, Phone, Mail, ShieldCheck, Heart, Globe, MessageCircle, Share2 } from 'lucide-react';
+import { MapPin, Phone, Mail, ShieldCheck, Globe, MessageCircle, Share2 } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -31,13 +31,13 @@ export default function Footer() {
             </Link>
 
             <p className="text-sm text-gray-400 leading-relaxed max-w-xl">
-              Biro penyelenggara perjalanan ibadah umrah resmi dan terverifikasi oleh Kemenag. Melayani program-program umrah reguler dan private.
+              Hadir di Yogyakarta sebagai cabang resmi Amanah Safar Bogor, Amanah Safar Marhaban siap menjadi teman perjalanan Anda menuju Baitullah. Berbekal legalitas resmi dan verifikasi Kemenhaj, kami melayani program umrah reguler maupun private agar Anda bisa fokus beribadah dengan hati yang tenang dan lapang.
             </p>
 
             <div className="space-y-1.5 bg-purple-950/80 border border-purple-800 p-3.5 rounded-2xl text-xs max-w-xl">
               <div className="flex items-center gap-2 text-amber-400 font-bold">
                 <ShieldCheck className="w-4 h-4 text-[#F5B027] shrink-0" />
-                <span>Izin Resmi Kemenag RI (PT Amanah Tangguh Mandiri)</span>
+                <span>Izin Resmi Kemenhaj RI (PT Amanah Tangguh Mandiri)</span>
               </div>
               <div className="text-gray-300 space-y-0.5 pl-6 font-mono text-[11px]">
                 <div>PPIU : <strong>23022300424760012</strong></div>
@@ -62,7 +62,7 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-white font-bold uppercase tracking-wider text-xs">Kantor & Kontak</h4>
+            <h4 className="text-white font-bold uppercase tracking-wider text-xs">Kantor &amp; Kontak</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#F5B027] shrink-0 mt-1" />

@@ -47,7 +47,7 @@ export default function AuthorityBar() {
               <h4 className="font-extrabold text-sm text-white leading-tight">
                 PT Amanah Tangguh Mandiri
               </h4>
-              <span className="text-xs text-purple-200">Izin Resmi Kemenag RI (PPIU & PIHK)</span>
+              <span className="text-xs text-purple-200">Izin Resmi Kemenhaj RI (PPIU & PIHK)</span>
             </div>
           </div>
 

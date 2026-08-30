@@ -7,7 +7,7 @@ export default function WhyUsSection() {
   const reasons = [
     {
       icon: ShieldCheck,
-      title: 'Legalitas Resmi Kemenag RI',
+      title: 'Legalitas Resmi Kemenhaj RI',
       description: 'Terdaftar secara resmi sebagai PPIU (23022300424760012) & PIHK (23022300424760013) di bawah PT Amanah Tangguh Mandiri.',
       highlight: 'Terverifikasi SISKOPATUH',
     },
@@ -75,13 +75,13 @@ export default function WhyUsSection() {
                 PT Amanah Tangguh Mandiri (Amanah Safar Marhaban)
               </h3>
               <p className="text-purple-100 text-sm sm:text-base leading-relaxed">
-                Penyelenggara Perjalanan Ibadah Umrah (PPIU) dan Ibadah Haji Khusus (PIHK) terdaftar resmi di Kementerian Agama RI. Informasi jadwal dan reservasi transparan terhubung pada sistem Kemenag.
+                Penyelenggara Perjalanan Ibadah Umrah (PPIU) dan Ibadah Haji Khusus (PIHK) terdaftar resmi di Kementerian Agama RI. Informasi jadwal dan reservasi transparan terhubung pada sistem Kemenhaj.
               </p>
             </div>
 
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 text-center">
-                <span className="block text-xs text-purple-200 uppercase font-semibold">PPIU Kemenag RI</span>
+                <span className="block text-xs text-purple-200 uppercase font-semibold">PPIU Kemenhaj RI</span>
                 <span className="block text-lg font-extrabold text-[#F5B027] font-mono mt-0.5">23022300424760012</span>
               </div>
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 text-center">

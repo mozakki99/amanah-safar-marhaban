@@ -111,7 +111,7 @@ Mohon bantuan penyusunan estimasi biaya & pilihan rutenya. Terima kasih.`;
               {/* PPIU Guarantee Badge */}
               <div className="inline-flex items-center gap-2 bg-purple-950/80 px-4 py-2 rounded-xl text-xs font-bold text-amber-300 border border-purple-700/60">
                 <ShieldCheck className="w-4 h-4 text-[#F5B027]" />
-                <span>PPIU Resmi Kemenag RI: <strong>23022300424760012</strong></span>
+                <span>PPIU Resmi Kemenhaj RI: <strong>23022300424760012</strong></span>
               </div>
 
             </div>

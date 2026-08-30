@@ -5,8 +5,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Amanah Safar Marhaban | Travel Umrah & Haji Resmi Kemenag',
-  description: 'Wujudkan Umrah impian dengan aman bersama Marhaban. Travel Umrah & Haji Khusus resmi Kemenag RI (PPIU: 23022300424760012), penerbangan direct, hotel bintang dekat Masjidil Haram & Nabawi.',
+  title: 'Amanah Safar Marhaban | Travel Umrah & Haji Resmi Kemenhaj',
+  description: 'Wujudkan Umrah impian dengan aman bersama Marhaban. Travel Umrah & Haji Khusus resmi Kemenhaj RI (PPIU: 23022300424760012), penerbangan direct, hotel bintang dekat Masjidil Haram & Nabawi.',
   keywords: ['Umrah Marhaban', 'Amanah Safar Marhaban', 'Travel Umrah Resmi', 'Umrah Reguler', 'Umrah Private', 'Haji Furoda', 'Bimbingan Sunnah'],
 };
 

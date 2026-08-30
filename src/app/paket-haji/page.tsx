@@ -29,7 +29,7 @@ export default function PaketHajiPage() {
             </h1>
 
             <p className="text-purple-100 text-sm sm:text-base leading-relaxed">
-              Tunaikan rukun Islam kelima tanpa perlu menunggu antrean puluhan tahun. Menggunakan **Visa Mujamalah Resmi Kerajaan Arab Saudi** yang terdaftar secara sah di Kemenag RI (PIHK).
+              Tunaikan rukun Islam kelima tanpa perlu menunggu antrean puluhan tahun. Menggunakan **Visa Mujamalah Resmi Kerajaan Arab Saudi** yang terdaftar secara sah di Kemenhaj RI (PIHK).
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">

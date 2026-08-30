@@ -35,7 +35,7 @@ export default function CostCalculator() {
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-bold text-amber-300 pt-1">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-[#F5B027]" />
-                  <span>PPIU Kemenag: 23022300424760012</span>
+                  <span>PPIU Kemenhaj: 23022300424760012</span>
                 </span>
                 <span className="flex items-center gap-1.5">
                   <HeartHandshake className="w-4 h-4 text-[#F5B027]" />

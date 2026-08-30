@@ -25,7 +25,7 @@ export default function FaqSection() {
     },
     {
       question: 'Bagaimana jika paspor saya belum selesai atau perlu bantuan pembuatan?',
-      answer: 'Tim Amanah Safar Marhaban siap memberikan Surat Rekomendasi Resmi Kemenag untuk pembuatan / perpanjangan paspor di kantor Imigrasi setempat.',
+      answer: 'Tim Amanah Safar Marhaban siap memberikan Surat Rekomendasi Resmi Kemenhaj untuk pembuatan / perpanjangan paspor di kantor Imigrasi setempat.',
     },
   ];
 

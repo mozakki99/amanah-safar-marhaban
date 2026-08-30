@@ -299,7 +299,7 @@ Mohon informasi rincian pendaftaran & kuota seat. Terima kasih.`;
         </form>
 
         <p className="text-[10px] text-gray-400 text-center mt-3 shrink-0">
-          Data Anda terjamin aman & terlindungi. PPIU Kemenag RI (PT Amanah Tangguh Mandiri).
+          Data Anda terjamin aman & terlindungi. PPIU Kemenhaj RI (PT Amanah Tangguh Mandiri).
         </p>
 
       </div>

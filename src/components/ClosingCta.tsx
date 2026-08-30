@@ -39,7 +39,7 @@ export default function ClosingCta({ onOpenBookingForm }: ClosingCtaProps) {
           </div>
 
           <p className="text-xs text-purple-200 pt-2 font-mono">
-            PPIU: 23022300424760012 • PIHK: 23022300424760013 • Berizin Resmi Kemenag RI
+            PPIU: 23022300424760012 • PIHK: 23022300424760013 • Berizin Resmi Kemenhaj RI
           </p>
 
         </div>

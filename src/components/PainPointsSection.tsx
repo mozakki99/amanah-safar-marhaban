@@ -16,7 +16,7 @@ export default function PainPointsSection() {
       icon: ShieldCheck,
       title: 'Terdaftar Resmi, Hati Lebih Tenang',
       subtitle: 'Legalitas Terjamin',
-      description: 'Kami sangat mengerti pentingnya rasa aman saat memilih travel. Amanah Safar Marhaban telah memiliki izin resmi penyelenggara ibadah Kemenag RI.',
+      description: 'Kami sangat mengerti pentingnya rasa aman saat memilih travel. Amanah Safar Marhaban telah memiliki izin resmi penyelenggara ibadah Kemenhaj RI.',
     },
     {
       icon: MessageCircle,
@@ -58,7 +58,7 @@ export default function PainPointsSection() {
           </h2>
 
           <p className="text-gray-600 dark:text-purple-200/90 text-xs sm:text-base leading-relaxed px-3">
-            Nilai-nilai utama Amanah Safar Marhaban dalam mendampingi perjalanan suci Anda dengan legalitas Kemenag terjamin, bimbingan syariat khusyuk, dan pelayanan sepenuh hati.
+            Nilai-nilai utama Amanah Safar Marhaban dalam mendampingi perjalanan suci Anda dengan legalitas Kemenhaj terjamin, bimbingan syariat khusyuk, dan pelayanan sepenuh hati.
           </p>
         </div>
 

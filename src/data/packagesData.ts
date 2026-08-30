@@ -68,7 +68,7 @@ export const packagesData: PackageItem[] = [
     },
     includedFacilities: [
       'Tiket Pesawat PP Saudia Airlines',
-      'Visa Umrah Resmi Kemenag RI',
+      'Visa Umrah Resmi Kemenhaj RI',
       'Akomodasi Hotel Makkah & Madinah Bintang 4',
       'Full Board Catering Menu Nusantara 3x Sehari',
       'Pembimbing Ibadah (Muthawwif) & Tour Leader Berpengalaman',
@@ -212,7 +212,7 @@ export const packagesData: PackageItem[] = [
     },
     includedFacilities: [
       'Tiket Pesawat PP Saudia Airlines Direct',
-      'Visa Umrah Resmi Kemenag RI',
+      'Visa Umrah Resmi Kemenhaj RI',
       'Hotel Bintang 5 Pelataran Haram Makkah & Madinah',
       'Perjalanan Kereta Cepat Haramain Express (Madinah - Makkah)',
       'Full Board Buffet International & Indonesia 3x Sehari',
@@ -347,7 +347,7 @@ export const packagesData: PackageItem[] = [
     },
     includedFacilities: [
       'Tiket Pesawat PP',
-      'Visa Umrah Resmi Kemenag RI',
+      'Visa Umrah Resmi Kemenhaj RI',
       'Hotel Bintang 3 Makkah & Madinah',
       'Full Board Catering Menu Indonesia 3x Sehari',
       'Shuttle Bus 24 Jam Makkah',
@@ -445,7 +445,7 @@ export const packagesData: PackageItem[] = [
     },
     includedFacilities: [
       'Tiket Pesawat PP Garuda Indonesia',
-      'Visa Umrah Resmi Kemenag RI',
+      'Visa Umrah Resmi Kemenhaj RI',
       'Hotel Bintang 5 & 4 Dekat Masjid',
       'Full Board Catering Menu Nusantara 3x Sehari',
       'Perlengkapan Umrah Eksklusif',
@@ -542,7 +542,7 @@ export const packagesData: PackageItem[] = [
     },
     includedFacilities: [
       'Tiket Pesawat PP Saudia Airlines',
-      'Visa Umrah Resmi Kemenag RI',
+      'Visa Umrah Resmi Kemenhaj RI',
       'Akomodasi Hotel Bintang 4',
       'Full Board Catering Menu Indonesia',
     ],
@@ -632,7 +632,7 @@ export const packagesData: PackageItem[] = [
     },
     includedFacilities: [
       'Tiket Pesawat PP Saudia Airlines',
-      'Visa Umrah Resmi Kemenag RI',
+      'Visa Umrah Resmi Kemenhaj RI',
       'Akomodasi Longstay 22 Hari Bintang 4',
       'Full Board Catering Menu Indonesia 3x Sehari',
       'Pembimbing Ibadah Khusus Program Longstay',
@@ -721,7 +721,7 @@ export const packagesData: PackageItem[] = [
     },
     includedFacilities: [
       'Tiket Pesawat PP Saudia Airlines',
-      'Visa Umrah Resmi Kemenag RI',
+      'Visa Umrah Resmi Kemenhaj RI',
       'Hotel Bintang 5 Pelataran Masjid',
       'Menu Iftar & Sahur Spesial Ramadhan',
     ],
@@ -854,7 +854,7 @@ export const packagesData: PackageItem[] = [
     id: 'haji-furoda-vip',
     type: 'haji',
     title: 'Program Haji Furoda / Mujamalah VIP',
-    subtitle: 'Ibadah Haji Khusus menggunakan Visa Mujamalah Resmi Kerajaan Arab Saudi yang terdaftar di Kemenag RI tanpa antrean.',
+    subtitle: 'Ibadah Haji Khusus menggunakan Visa Mujamalah Resmi Kerajaan Arab Saudi yang terdaftar di Kemenhaj RI tanpa antrean.',
     badgeText: 'Haji Furoda',
     price: 'USD 19.500',
     priceNote: 'Visa Resmi Furoda',

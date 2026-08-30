@@ -27,7 +27,7 @@ export const articlesData: ArticleItem[] = [
       <p>Langkah pertama sebelum berangkat adalah memastikan dokumen perjalanan Anda sudah lengkap dan aktif. Pemerintah Arab Saudi kini menerapkan syarat ketat terkait paspor dan visa umrah elektronik.</p>
       <ul>
         <li><strong>Paspor RI:</strong> Masa berlaku minimal 6 bulan sebelum tanggal keberangkatan dengan nama minimal 2 suku kata.</li>
-        <li><strong>Sertifikat Vaksin:</strong> Memenuhi standar regulasi kesehatan internasional Kemenkes RI & Kemenag.</li>
+        <li><strong>Sertifikat Vaksin:</strong> Memenuhi standar regulasi kesehatan internasional Kemenkes RI & Kemenhaj.</li>
         <li><strong>Pasfoto Resmi:</strong> Foto latar putih fokus 80% wajah untuk proses penerbitan Visa Umrah.</li>
       </ul>
 
@@ -51,20 +51,20 @@ export const articlesData: ArticleItem[] = [
   },
   {
     slug: 'tips-memilih-travel-umrah-resmi-kemenag',
-    title: 'Tips Memilih Travel Umrah Resmi Kemenag Agar Terhindar dari Penipuan',
+    title: 'Tips Memilih Travel Umrah Resmi Kemenhaj Agar Terhindar dari Penipuan',
     category: 'Tips Travel',
     date: '25 Agustus 2026',
     readTime: '6 menit baca',
     author: 'Tim Regulasi & Keamanan Marhaban',
-    excerpt: 'Jangan tergiur harga murah tanpa kepastian. Pelajari 5 Pasti Umrah Kemenag RI dan cara memverifikasi izin resmi PPIU travel umrah pilihan keluarga Anda.',
+    excerpt: 'Jangan tergiur harga murah tanpa kepastian. Pelajari 5 Pasti Umrah Kemenhaj RI dan cara memverifikasi izin resmi PPIU travel umrah pilihan keluarga Anda.',
     coverImage: '/images/pixabay-madinah-3782640.jpg',
     recommendedPackageId: 'umrah-hemat-b3',
     contentHtml: `
-      <h2>Memahami Prinsip 5 Pasti Umrah Kemenag RI</h2>
+      <h2>Memahami Prinsip 5 Pasti Umrah Kemenhaj RI</h2>
       <p>Kementerian Agama Republik Indonesia mengimbau seluruh calon jamaah untuk selalu memverifikasi travel umrah berdasarkan standar <strong>5 Pasti Umrah</strong>:</p>
 
       <ul>
-        <li><strong>Pasti Travelnya Berizin PPIU:</strong> Cek nomor izin resmi PPIU di aplikasi Umrah Cerdas Kemenag. PT Amanah Tangguh Mandiri (Marhaban) terdaftar resmi dengan PPIU <code>23022300424760012</code>.</li>
+        <li><strong>Pasti Travelnya Berizin PPIU:</strong> Cek nomor izin resmi PPIU di aplikasi Umrah Cerdas Kemenhaj. PT Amanah Tangguh Mandiri (Marhaban) terdaftar resmi dengan PPIU <code>23022300424760012</code>.</li>
         <li><strong>Pasti Jadwal Penerbangannya:</strong> Tiket pesawat maskapai direct (Saudia / Garuda) sudah terbit penerbitannya.</li>
         <li><strong>Pasti Harga dan Paket Pelayanannya:</strong> Harga All-In tanpa biaya tersembunyi saat di Tanah Suci.</li>
         <li><strong>Pasti Hotel dan Akomodasinya:</strong> Kontrak hotel bintang 3/4/5 di Makkah & Madinah jelas dan dapat dikonfirmasi.</li>
@@ -72,7 +72,7 @@ export const articlesData: ArticleItem[] = [
       </ul>
 
       <h2>Hati-Hati dengan Penawaran Umrah Murah yang Tidak Masuk Akal</h2>
-      <p>Biaya referensi minimal umrah resmi Kemenag adalah Rp 26 - 28 Juta. Jika menemukan penawaran di bawah harga standar dengan jaminan berangkat berbulan-bulan tanpa kepastian tiket, jamaah patut waspada.</p>
+      <p>Biaya referensi minimal umrah resmi Kemenhaj adalah Rp 26 - 28 Juta. Jika menemukan penawaran di bawah harga standar dengan jaminan berangkat berbulan-bulan tanpa kepastian tiket, jamaah patut waspada.</p>
     `,
   },
   {

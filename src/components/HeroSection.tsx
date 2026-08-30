@@ -131,7 +131,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                 />
               </motion.div>
 
-              {/* Floating Metric Badge 1: Top Left (PPIU Kemenag RI / Legalitas Terjamin) */}
+              {/* Floating Metric Badge 1: Top Left (PPIU Kemenhaj RI / Legalitas Terjamin) */}
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="block text-xs font-extrabold text-gray-900 dark:text-white">PPIU Kemenag RI</span>
+                  <span className="block text-xs font-extrabold text-gray-900 dark:text-white">PPIU Kemenhaj RI</span>
                   <span className="block text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">Legalitas Terjamin</span>
                 </div>
               </motion.div>
@@ -194,12 +194,12 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
             <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 sm:gap-6">
               <div className="flex items-center gap-1.5 bg-white dark:bg-[#160C26] px-3.5 py-1.5 rounded-xl border border-gray-200/80 dark:border-purple-800/50 shadow-2xs">
                 <ShieldCheck className="w-4 h-4 text-[#4B2476] dark:text-[#F5B027]" />
-                <span className="text-xs font-extrabold text-gray-800 dark:text-gray-200">PPIU Kemenag RI</span>
+                <span className="text-xs font-extrabold text-gray-800 dark:text-gray-200">PPIU Kemenhaj RI</span>
               </div>
 
               <div className="flex items-center gap-1.5 bg-white dark:bg-[#160C26] px-3.5 py-1.5 rounded-xl border border-gray-200/80 dark:border-purple-800/50 shadow-2xs">
                 <Award className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                <span className="text-xs font-extrabold text-gray-800 dark:text-gray-200">PIHK Kemenag RI</span>
+                <span className="text-xs font-extrabold text-gray-800 dark:text-gray-200">PIHK Kemenhaj RI</span>
               </div>
 
               <div className="flex items-center gap-1.5 bg-white dark:bg-[#160C26] px-3.5 py-1.5 rounded-xl border border-gray-200/80 dark:border-purple-800/50 shadow-2xs">
