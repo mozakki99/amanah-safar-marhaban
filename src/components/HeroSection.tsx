@@ -120,11 +120,6 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                 {/* Gradient Overlay for Readable Text */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
 
-                {/* Top Right Tag: Direct Flight */}
-                <div className="absolute top-3.5 right-3.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-md border border-white/20">
-                  <Plane className="w-3.5 h-3.5 text-[#F5B027]" />
-                  <span className="text-xs font-bold text-white">Direct Flight Saudia / Garuda</span>
-                </div>
 
                 {/* Bottom Caption */}
                 <div className="absolute bottom-4 left-4 right-4 text-white space-y-1">
