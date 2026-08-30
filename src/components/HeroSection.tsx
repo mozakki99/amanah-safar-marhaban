@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, Star, ArrowRight, PhoneCall, Award, CheckCircle2, Sparkles, Compass } from 'lucide-react';
+import { ShieldCheck, Star, ArrowRight, PhoneCall, Award, Sparkles, Compass, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBookingForm: (topic?: string) => void;
@@ -20,25 +20,39 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
   const [index, setIndex] = useState(0);
 
-  // Hero Right Side Photo Carousel Slides
+  // 4 Hero Slides matching the 4 Pixabay themes provided by the user
   const heroSlides = [
     {
+      id: 'pixabay-3782640',
+      url: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
+      title: 'Masjid Nabawi Madinah Munawwarah',
+      location: 'Madinah Munawwarah',
+      badge: 'Keindahan Kota Nabi',
+      pixabayLink: 'https://pixabay.com/id/photos/madinah-agama-haji-muhammad-masjid-3782640/',
+    },
+    {
+      id: 'pixabay-3347602',
+      url: 'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=1200&q=80',
+      title: 'Pelataran Payung Suci Nabawi',
+      location: 'Madinah Munawwarah',
+      badge: 'Ketenangan Beribadah',
+      pixabayLink: 'https://pixabay.com/id/photos/masjid-nabawi-medina-3347602/',
+    },
+    {
+      id: 'pixabay-4372290',
       url: 'https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1200&q=80',
-      title: 'Masjidil Haram & Ka\'bah Suci',
+      title: 'Ka\'bah Suci Makkah Al-Mukarramah',
       location: 'Makkah Al-Mukarramah',
       badge: 'Thawaf Khusyuk & Tertib',
+      pixabayLink: 'https://pixabay.com/id/photos/kabah-ziarah-mekah-masjid-islam-4372290/',
     },
     {
-      url: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1200&q=80',
-      title: 'Masjid Nabawi & Raudah Syarifah',
-      location: 'Madinah Munawwarah',
-      badge: 'Ziarah Penuh Keberkahan',
-    },
-    {
+      id: 'pixabay-7552281',
       url: 'https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?auto=format&fit=crop&w=1200&q=80',
-      title: 'Pelataran Hotel Strategis Dekat Masjid',
-      location: 'Akomodasi Bintang 4 & 5',
-      badge: 'Kemudahan Akses Orang Tua & Lansia',
+      title: 'Suasana Suci Umrah & Haji Khusus',
+      location: 'Makkah Al-Mukarramah',
+      badge: 'Perjalanan Ibadah Bermakna',
+      pixabayLink: 'https://pixabay.com/id/photos/haji-muslim-kabah-makkah-umroh-7552281/',
     },
   ];
 
@@ -52,11 +66,11 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
     return () => clearInterval(timer);
   }, [lineTwoPhrases.length]);
 
-  // Image slide timer
+  // Image slide timer (Auto-play 5s)
   useEffect(() => {
     const slideTimer = setInterval(() => {
       setSlideIndex((prev) => (prev + 1) % heroSlides.length);
-    }, 4500);
+    }, 5000);
     return () => clearInterval(slideTimer);
   }, [heroSlides.length]);
 
@@ -129,13 +143,13 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
           </div>
 
-          {/* Right Visual Column (Luxury Photo Carousel + Glassmorphism Showcase) */}
+          {/* Right Visual Column (4 Pixabay Theme Slides Showcase) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             
             {/* Ambient Background Glow */}
             <div className="absolute -inset-3 bg-gradient-to-r from-amber-400/25 via-purple-600/30 to-[#4B2476]/30 rounded-[2.5rem] blur-2xl pointer-events-none"></div>
 
-            {/* Main Premium Visual Card */}
+            {/* Main Visual Showcase Card */}
             <div className="relative bg-white dark:bg-[#160C26] rounded-3xl p-4 sm:p-5 shadow-2xl border border-purple-100 dark:border-purple-800/60 overflow-visible">
               
               {/* Floating Top Badge: PPIU Kemenag */}
@@ -148,15 +162,15 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                 <span className="text-xs font-bold text-gray-900 dark:text-white">PPIU Kemenag: <strong className="text-[#4B2476] dark:text-[#F5B027]">23022300424760012</strong></span>
               </motion.div>
 
-              {/* Photo Carousel Container with Smooth Crossfade */}
-              <div className="relative h-72 sm:h-88 w-full rounded-2xl overflow-hidden bg-purple-950/40 shadow-inner">
+              {/* Photo Showcase Container with Smooth Crossfade */}
+              <div className="relative h-72 sm:h-88 w-full rounded-2xl overflow-hidden bg-purple-950/40 shadow-inner group">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={slideIndex}
                     initial={{ opacity: 0, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.7 }}
                     className="absolute inset-0 w-full h-full"
                   >
                     <img
@@ -168,14 +182,14 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                     {/* Dark Gradient Overlay for Readability */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
 
-                    {/* Top Right Floating Pill Tag inside Carousel */}
-                    <div className="absolute top-3.5 right-3.5 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-md border border-white/20">
+                    {/* Top Right Floating Pill Tag inside Showcase */}
+                    <div className="absolute top-3.5 right-3.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-md border border-white/20">
                       <Sparkles className="w-3.5 h-3.5 text-[#F5B027]" />
                       <span className="text-xs font-bold text-white">{heroSlides[slideIndex].badge}</span>
                     </div>
 
-                    {/* Bottom Caption inside Carousel */}
-                    <div className="absolute bottom-4 left-4 right-4 text-white space-y-1">
+                    {/* Bottom Caption inside Showcase */}
+                    <div className="absolute bottom-4 left-4 right-4 text-white space-y-1.5">
                       <div className="flex items-center gap-1 text-[#F5B027]">
                         <Compass className="w-3.5 h-3.5 text-[#F5B027]" />
                         <span className="text-xs font-bold uppercase tracking-wider text-amber-300">{heroSlides[slideIndex].location}</span>
@@ -186,6 +200,21 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                     </div>
                   </motion.div>
                 </AnimatePresence>
+
+                {/* Left & Right Manual Slide Arrow Controls */}
+                <button
+                  onClick={() => setSlideIndex((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1))}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 backdrop-blur-md text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 z-20 border border-white/20"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+
+                <button
+                  onClick={() => setSlideIndex((prev) => (prev + 1) % heroSlides.length)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 backdrop-blur-md text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 z-20 border border-white/20"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
 
                 {/* Carousel Navigation Dots Indicator */}
                 <div className="absolute top-4 left-4 flex items-center gap-1.5 z-10">
