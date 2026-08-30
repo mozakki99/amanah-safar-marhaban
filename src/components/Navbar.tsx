@@ -45,7 +45,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Bar with Exact Official PPIU & PIHK Numbers */}
+      {/* Top Bar with Official PPIU & PIHK Numbers */}
       <div className="bg-[#4B2476] dark:bg-[#200D38] text-white text-[11px] sm:text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-2 leading-tight">
         <ShieldCheck className="w-3.5 h-3.5 text-[#F5B027] shrink-0" />
         <span className="truncate">
@@ -63,9 +63,9 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Logo Brand */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 bg-white rounded-xl p-0.5 border border-purple-100 flex items-center justify-center overflow-hidden shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+          {/* Logo Brand - Clean & Minimalist */}
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-xl p-0.5 border border-purple-100 flex items-center justify-center overflow-hidden shrink-0 shadow-xs group-hover:scale-105 transition-transform">
               <Image
                 src="/logo.jpg"
                 alt="Amanah Safar Marhaban Logo"
@@ -76,14 +76,9 @@ export default function Navbar() {
               />
             </div>
 
-            <div className="flex flex-col">
-              <span className="font-sans font-extrabold text-base sm:text-lg tracking-tight text-[#4B2476] dark:text-purple-300 leading-none">
-                Amanah Safar Marhaban
-              </span>
-              <span className="text-[10px] text-gray-500 dark:text-purple-300/70 font-semibold tracking-wider uppercase mt-1">
-                Travel Umrah & Haji Khusus Resmi
-              </span>
-            </div>
+            <span className="font-sans font-extrabold text-base sm:text-lg tracking-tight text-[#4B2476] dark:text-purple-300">
+              Amanah Safar Marhaban
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
