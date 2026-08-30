@@ -46,14 +46,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Bar with Official PPIU & PIHK Numbers */}
-      <div className="bg-[#4B2476] dark:bg-[#200D38] text-white text-[11px] sm:text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-2 leading-tight">
-        <ShieldCheck className="w-3.5 h-3.5 text-[#F5B027] shrink-0" />
-        <span className="truncate">
-          PT Amanah Tangguh Mandiri • PPIU: 23022300424760012 | PIHK: 23022300424760013
-        </span>
-      </div>
-
       {/* Main Header */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
