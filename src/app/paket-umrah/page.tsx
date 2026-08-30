@@ -18,11 +18,21 @@ export default function PaketUmrahPage() {
   const [selectedStars, setSelectedStars] = useState('');
   const [selectedDuration, setSelectedDuration] = useState('');
 
-  // Extract unique departure months from packages data
-  const availableMonths = useMemo(() => {
-    const months = umrahPackages.map((p) => p.departureDate.trim());
-    return Array.from(new Set(months));
-  }, [umrahPackages]);
+  // Complete List of All 12 Months
+  const allMonths = [
+    'Januari',
+    'Februari',
+    'Maret',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'November',
+    'Desember',
+  ];
 
   // Filtered packages logic
   const filteredPackages = useMemo(() => {
@@ -39,9 +49,14 @@ export default function PaketUmrahPage() {
         }
       }
 
-      // 2. Month Filter
-      if (selectedMonth && pkg.departureDate.trim() !== selectedMonth.trim()) {
-        return false;
+      // 2. Month Filter (matches if departureDate contains month name or is custom private)
+      if (selectedMonth) {
+        const monthQuery = selectedMonth.toLowerCase();
+        const departureLower = pkg.departureDate.toLowerCase();
+        const isCustomPrivate = departureLower.includes('request') || departureLower.includes('setiap bulan');
+        if (!departureLower.includes(monthQuery) && !isCustomPrivate) {
+          return false;
+        }
       }
 
       // 3. Hotel Stars Filter (matches if either Makkah or Madinah has target stars)
@@ -81,7 +96,7 @@ export default function PaketUmrahPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-3">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-[#F5B027] border border-white/20">
             <Luggage className="w-4 h-4" />
-            <span>Program Resmi Umrah 1448 H / 2026</span>
+            <span>Program Resmi Umrah 1448 H / 2026 - 2027</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold font-sans tracking-tight">
             Katalog Paket <span className="text-[#F5B027]">Umrah Reguler & Private</span>
@@ -130,7 +145,7 @@ export default function PaketUmrahPage() {
               />
             </div>
 
-            {/* 2. Month Select Dropdown */}
+            {/* 2. Month Select Dropdown (Complete 12 Months) */}
             <div className="relative">
               <Calendar className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-purple-300 pointer-events-none" />
               <select
@@ -138,10 +153,10 @@ export default function PaketUmrahPage() {
                 onChange={(e) => setSelectedMonth(e.target.value)}
                 className="w-full pl-10 pr-8 py-2.5 bg-white dark:bg-[#251545] border border-gray-200 dark:border-purple-700/60 rounded-xl text-xs sm:text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027] appearance-none"
               >
-                <option value="">Semua Bulan Keberangkatan</option>
-                {availableMonths.map((m, idx) => (
+                <option value="">Semua Bulan (Januari - Desember)</option>
+                {allMonths.map((m, idx) => (
                   <option key={idx} value={m}>
-                    {m}
+                    Bulan {m}
                   </option>
                 ))}
               </select>
@@ -317,15 +332,24 @@ export default function PaketUmrahPage() {
             </div>
             <h3 className="text-lg font-bold text-gray-900 dark:text-white">Tidak Ada Paket Yang Sesuai Filter</h3>
             <p className="text-xs sm:text-sm text-gray-500 dark:text-purple-200/70 max-w-md mx-auto">
-              Maaf, tidak ditemukan program umrah untuk pencarian kata kunci atau pilihan filter Anda. Coba atur ulang filter pencarian Anda.
+              Maaf, tidak ditemukan program umrah untuk bulan <strong>{selectedMonth}</strong> atau kata kunci pilihan Anda. Anda dapat mengajukan tanggal khusus dengan memesan <strong>Umrah Private VIP</strong>.
             </p>
-            <button
-              onClick={handleResetFilters}
-              className="inline-flex items-center gap-2 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-950 text-white font-bold px-6 py-2.5 rounded-xl text-xs shadow-md hover:bg-[#371A58] dark:hover:bg-amber-400 transition-all"
-            >
-              <RefreshCw className="w-4 h-4" />
-              <span>Reset Filter Pencarian</span>
-            </button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <button
+                onClick={handleResetFilters}
+                className="inline-flex items-center gap-2 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-950 text-white font-bold px-6 py-2.5 rounded-xl text-xs shadow-md hover:bg-[#371A58] dark:hover:bg-amber-400 transition-all"
+              >
+                <RefreshCw className="w-4 h-4" />
+                <span>Reset Filter Pencarian</span>
+              </button>
+
+              <button
+                onClick={() => handleOpenBookingForm('Request Tanggal Umrah Private Custom')}
+                className="inline-flex items-center gap-2 bg-amber-100 dark:bg-purple-900/60 text-[#4B2476] dark:text-[#F5B027] font-bold px-6 py-2.5 rounded-xl text-xs border border-amber-300 dark:border-purple-700 hover:bg-amber-200 transition-all"
+              >
+                <span>Request Tanggal Private WA</span>
+              </button>
+            </div>
           </div>
         )}
       </main>
