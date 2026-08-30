@@ -92,7 +92,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
               </Link>
 
               <button
-                onClick={() => onOpenBookingForm('Konsultasi Hero Section')}
+                onClick={() => onOpenBookingForm()}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white dark:bg-[#1E1136] hover:bg-gray-50 dark:hover:bg-[#2A184A] text-gray-800 dark:text-purple-200 font-bold border border-gray-300 dark:border-purple-700/60 px-6 py-3.5 rounded-full shadow-2xs hover:shadow-md transition-all text-sm sm:text-base text-center"
               >
                 <PhoneCall className="w-4 h-4 text-[#F5B027]" />
@@ -102,19 +102,19 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
           </div>
 
-          {/* Right Visual Column: Floating Transparent 3D Saudia Airplane with Smooth Soaring Animation */}
-          <div className="lg:col-span-6 relative mt-6 lg:mt-0">
+          {/* Right Visual Column: Floating Transparent 3D Saudia Airplane */}
+          <div className="lg:col-span-6 relative mt-4 lg:mt-0">
             
             {/* Ambient Backlight Glow behind Plane */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-tr from-purple-500/30 via-amber-400/30 to-emerald-400/25 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-80 h-72 sm:h-80 bg-gradient-to-tr from-purple-500/30 via-amber-400/30 to-emerald-400/25 rounded-full blur-3xl pointer-events-none"></div>
 
             {/* Floating Visual Container */}
-            <div className="relative overflow-visible py-4 min-h-[360px] sm:min-h-[420px] flex items-center justify-center">
+            <div className="relative overflow-visible py-2 sm:py-4 flex flex-col items-center justify-center">
               
               {/* Animated Floating Transparent 3D Saudia Airplane PNG */}
               <motion.div
                 animate={{
-                  y: [0, -14, 0],
+                  y: [0, -12, 0],
                   rotate: [0, 1.2, 0],
                 }}
                 transition={{
@@ -122,62 +122,86 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
-                className="relative z-10 w-full flex justify-center"
+                className="relative z-10 w-full flex justify-center px-2"
               >
                 <img
                   src="/images/saudia-airplane-transparent.png"
                   alt="Pesawat Saudia Airlines Terbang Menuju Tanah Suci"
-                  className="w-full h-auto object-contain max-h-[440px] drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto object-contain max-h-[300px] sm:max-h-[440px] drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                 />
               </motion.div>
 
-              {/* Floating Metric Badge 1: Top Left (PPIU Kemenhaj RI / Legalitas Terjamin) */}
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                className="absolute top-2 left-0 sm:-left-3 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl shadow-xl border border-gray-100 dark:border-purple-800/60 flex items-center gap-2.5"
-              >
-                <div className="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-[#4B2476] dark:text-[#F5B027] flex items-center justify-center font-bold shrink-0">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="block text-xs font-extrabold text-gray-900 dark:text-white">PPIU Kemenhaj RI</span>
-                  <span className="block text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">Legalitas Terjamin</span>
-                </div>
-              </motion.div>
+              {/* 1. DESKTOP FLOATING BADGES (absolute overlays on sm and larger) */}
+              <div className="hidden sm:block">
+                {/* Badge 1: Top Left */}
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  className="absolute top-2 -left-3 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl shadow-xl border border-gray-100 dark:border-purple-800/60 flex items-center gap-2.5"
+                >
+                  <div className="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-[#4B2476] dark:text-[#F5B027] flex items-center justify-center font-bold shrink-0">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="block text-xs font-extrabold text-gray-900 dark:text-white">PPIU Kemenhaj RI</span>
+                    <span className="block text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">Legalitas Terjamin</span>
+                  </div>
+                </motion.div>
 
-              {/* Floating Metric Badge 2: Middle Right (98% Kepuasan Jamaah) */}
-              <motion.div
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="absolute top-1/3 right-0 sm:-right-4 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl shadow-xl border border-gray-100 dark:border-purple-800/60 flex items-center gap-2.5"
-              >
-                <div className="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-500 flex items-center justify-center font-bold shrink-0">
-                  <Star className="w-4 h-4 fill-amber-400" />
-                </div>
-                <div>
-                  <span className="block text-xs font-extrabold text-gray-900 dark:text-white">98% Satisfied</span>
-                  <span className="block text-[10px] font-bold text-gray-600 dark:text-purple-200/80">Kepuasan Jamaah</span>
-                </div>
-              </motion.div>
+                {/* Badge 2: Middle Right */}
+                <motion.div
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  className="absolute top-1/3 -right-4 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl shadow-xl border border-gray-100 dark:border-purple-800/60 flex items-center gap-2.5"
+                >
+                  <div className="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-500 flex items-center justify-center font-bold shrink-0">
+                    <Star className="w-4 h-4 fill-amber-400" />
+                  </div>
+                  <div>
+                    <span className="block text-xs font-extrabold text-gray-900 dark:text-white">98% Satisfied</span>
+                    <span className="block text-[10px] font-bold text-gray-600 dark:text-purple-200/80">Kepuasan Jamaah</span>
+                  </div>
+                </motion.div>
 
-              {/* Floating Metric Badge 3: Bottom Left (+10.000 Jamaah) */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-                className="absolute bottom-2 left-4 sm:left-6 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-4 py-2.5 rounded-2xl shadow-xl border border-purple-100 dark:border-purple-800/60 flex items-center gap-3"
-              >
-                <div className="w-8 h-8 rounded-xl bg-[#4B2476]/10 dark:bg-purple-900/60 text-[#4B2476] dark:text-[#F5B027] flex items-center justify-center font-bold shrink-0">
-                  <Users className="w-4 h-4" />
+                {/* Badge 3: Bottom Left */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.5 }}
+                  className="absolute bottom-2 left-6 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-4 py-2.5 rounded-2xl shadow-xl border border-purple-100 dark:border-purple-800/60 flex items-center gap-3"
+                >
+                  <div className="w-8 h-8 rounded-xl bg-[#4B2476]/10 dark:bg-purple-900/60 text-[#4B2476] dark:text-[#F5B027] flex items-center justify-center font-bold shrink-0">
+                    <Users className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="block text-xs font-extrabold text-gray-900 dark:text-white">+10.000 Jamaah</span>
+                    <span className="block text-[10px] font-semibold text-gray-500 dark:text-purple-300/80">Telah Diberangkatkan</span>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* 2. MOBILE CLEAN BADGES (Grid directly below the airplane so zero overlap!) */}
+              <div className="sm:hidden grid grid-cols-3 gap-2 w-full mt-4 z-20">
+                <div className="bg-white/95 dark:bg-[#1C0E33]/95 p-2 rounded-2xl shadow-md border border-purple-100 dark:border-purple-800/60 flex flex-col items-center text-center">
+                  <ShieldCheck className="w-4 h-4 text-[#4B2476] dark:text-[#F5B027] mb-0.5" />
+                  <span className="text-[10px] font-extrabold text-gray-900 dark:text-white">PPIU Kemenhaj</span>
+                  <span className="text-[9px] font-semibold text-emerald-600 dark:text-emerald-400">Terdaftar</span>
                 </div>
-                <div>
-                  <span className="block text-xs font-extrabold text-gray-900 dark:text-white">+10.000 Jamaah</span>
-                  <span className="block text-[10px] font-semibold text-gray-500 dark:text-purple-300/80">Telah Diberangkatkan</span>
+
+                <div className="bg-white/95 dark:bg-[#1C0E33]/95 p-2 rounded-2xl shadow-md border border-purple-100 dark:border-purple-800/60 flex flex-col items-center text-center">
+                  <Star className="w-4 h-4 text-amber-500 fill-amber-400 mb-0.5" />
+                  <span className="text-[10px] font-extrabold text-gray-900 dark:text-white">98% Satisfied</span>
+                  <span className="text-[9px] font-bold text-gray-500 dark:text-purple-300">Kepuasan</span>
                 </div>
-              </motion.div>
+
+                <div className="bg-white/95 dark:bg-[#1C0E33]/95 p-2 rounded-2xl shadow-md border border-purple-100 dark:border-purple-800/60 flex flex-col items-center text-center">
+                  <Users className="w-4 h-4 text-[#4B2476] dark:text-[#F5B027] mb-0.5" />
+                  <span className="text-[10px] font-extrabold text-gray-900 dark:text-white">+10.000</span>
+                  <span className="text-[9px] font-semibold text-gray-500 dark:text-purple-300">Jamaah</span>
+                </div>
+              </div>
 
             </div>
           </div>
