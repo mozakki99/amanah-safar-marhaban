@@ -50,15 +50,15 @@ export default function PainPointsSection() {
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14 space-y-2.5">
           <div className="inline-flex items-center gap-1.5 bg-purple-100 dark:bg-purple-950/80 text-[#4B2476] dark:text-[#F5B027] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-purple-200 dark:border-purple-800/80">
             <Award className="w-3.5 h-3.5 text-[#F5B027]" />
-            <span>Komitmen Marhaban</span>
+            <span>Komitmen Pelayanan Marhaban</span>
           </div>
           
           <h2 className="text-xl sm:text-3xl font-extrabold font-sans text-gray-900 dark:text-white tracking-tight leading-snug px-2">
-            Memilih Travel Umrah <span className="text-[#4B2476] dark:text-[#F5B027]">Tanpa Ragu</span>
+            Komitmen Layanan <span className="text-[#4B2476] dark:text-[#F5B027]">Umrah &amp; Haji Khusus</span>
           </h2>
 
           <p className="text-gray-600 dark:text-purple-200/90 text-xs sm:text-base leading-relaxed px-3">
-            Amanah Safar Marhaban siap mengurus setiap detail keberangkatan Anda secara transparan dan sepenuh hati, agar Anda bisa fokus sepenuhnya pada ibadah.
+            Nilai-nilai utama Amanah Safar Marhaban dalam mendampingi perjalanan suci Anda dengan legalitas Kemenag terjamin, bimbingan syariat khusyuk, dan pelayanan sepenuh hati.
           </p>
         </div>
 

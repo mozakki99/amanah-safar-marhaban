@@ -94,12 +94,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright */}
-        <div className="pt-8 text-center text-xs text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-8 text-center text-xs text-gray-500">
           <p>© {new Date().getFullYear()} PT Amanah Tangguh Mandiri (Amanah Safar Marhaban). Hak Cipta Dilindungi.</p>
-          <div className="flex items-center gap-1">
-            <span>Dibuat dengan khusyuk untuk Jamaah Indonesia</span>
-            <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500 inline ml-1" />
-          </div>
         </div>
 
       </div>
