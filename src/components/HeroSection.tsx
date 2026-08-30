@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, ArrowRight, PhoneCall, Sparkles, TrendingUp, Star, Users, CheckCircle2, Award } from 'lucide-react';
+import { ShieldCheck, ArrowRight, PhoneCall, Sparkles, Star, Users, CheckCircle2, Award } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBookingForm: (topic?: string) => void;
@@ -102,44 +102,52 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
           </div>
 
-          {/* Right Visual Column: 3D Saudia Airplane Soaring with Floating Metric Badges */}
+          {/* Right Visual Column: Floating Transparent 3D Saudia Airplane with Smooth Soaring Animation */}
           <div className="lg:col-span-6 relative mt-6 lg:mt-0">
             
-            {/* Ambient Backlight Blur */}
-            <div className="absolute -inset-4 bg-gradient-to-tr from-purple-500/20 via-amber-400/25 to-emerald-400/20 rounded-[3rem] blur-3xl pointer-events-none"></div>
+            {/* Ambient Backlight Glow behind Plane */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-tr from-purple-500/30 via-amber-400/30 to-emerald-400/25 rounded-full blur-3xl pointer-events-none"></div>
 
-            {/* Showcase Container */}
-            <div className="relative rounded-3xl p-3 sm:p-5 overflow-visible">
+            {/* Floating Visual Container */}
+            <div className="relative overflow-visible py-4 min-h-[360px] sm:min-h-[420px] flex items-center justify-center">
               
-              {/* 3D Saudia Airplane Image */}
-              <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-b from-sky-50/60 via-purple-50/40 to-white dark:from-[#180B30] dark:via-[#130725] dark:to-[#0B0514] border border-purple-100 dark:border-purple-800/60">
+              {/* Animated Floating Transparent 3D Saudia Airplane PNG */}
+              <motion.div
+                animate={{
+                  y: [0, -14, 0],
+                  rotate: [0, 1.2, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+                className="relative z-10 w-full flex justify-center"
+              >
                 <img
-                  src="/images/saudia-airplane-hero.png"
+                  src="/images/saudia-airplane-transparent.png"
                   alt="Pesawat Saudia Airlines Terbang Menuju Tanah Suci"
-                  className="w-full h-auto object-cover max-h-[440px] rounded-2xl hover:scale-[1.02] transition-transform duration-700"
+                  className="w-full h-auto object-contain max-h-[440px] drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                 />
-              </div>
+              </motion.div>
 
-              {/* Floating Metric Badge 1: Top Left (+100% Pasti Berangkat) */}
+              {/* Floating Metric Badge 1: Top Left (PPIU Kemenag RI / Legalitas Terjamin) */}
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="absolute top-4 left-0 sm:-left-3 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl shadow-xl border border-gray-100 dark:border-purple-800/60 flex items-center gap-2.5"
+                className="absolute top-2 left-0 sm:-left-3 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-3.5 py-2.5 rounded-2xl shadow-xl border border-gray-100 dark:border-purple-800/60 flex items-center gap-2.5"
               >
-                <div className="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold shrink-0">
-                  <TrendingUp className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-xl bg-purple-100 dark:bg-purple-950 text-[#4B2476] dark:text-[#F5B027] flex items-center justify-center font-bold shrink-0">
+                  <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-xs font-extrabold text-emerald-600 dark:text-emerald-400">+100%</span>
-                    <span className="text-[10px] font-bold bg-emerald-50 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded">Resmi</span>
-                  </div>
-                  <span className="block text-[11px] font-bold text-gray-700 dark:text-gray-200">Pasti Berangkat</span>
+                  <span className="block text-xs font-extrabold text-gray-900 dark:text-white">PPIU Kemenag RI</span>
+                  <span className="block text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">Legalitas Terjamin</span>
                 </div>
               </motion.div>
 
-              {/* Floating Metric Badge 2: Middle Right (4.9★ Rating Kepuasan) */}
+              {/* Floating Metric Badge 2: Middle Right (98% Kepuasan Jamaah) */}
               <motion.div
                 initial={{ opacity: 0, x: 10 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -150,10 +158,8 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                   <Star className="w-4 h-4 fill-amber-400" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-1">
-                    <span className="text-xs font-extrabold text-gray-900 dark:text-white">98%</span>
-                  </div>
-                  <span className="block text-[11px] font-bold text-gray-600 dark:text-purple-200/80">Kepuasan Jamaah</span>
+                  <span className="block text-xs font-extrabold text-gray-900 dark:text-white">98% Satisfied</span>
+                  <span className="block text-[10px] font-bold text-gray-600 dark:text-purple-200/80">Kepuasan Jamaah</span>
                 </div>
               </motion.div>
 
@@ -162,7 +168,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
-                className="absolute -bottom-2 left-4 sm:left-6 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-4 py-2.5 rounded-2xl shadow-xl border border-purple-100 dark:border-purple-800/60 flex items-center gap-3"
+                className="absolute bottom-2 left-4 sm:left-6 z-20 bg-white/95 dark:bg-[#1C0E33]/95 backdrop-blur-xl px-4 py-2.5 rounded-2xl shadow-xl border border-purple-100 dark:border-purple-800/60 flex items-center gap-3"
               >
                 <div className="w-8 h-8 rounded-xl bg-[#4B2476]/10 dark:bg-purple-900/60 text-[#4B2476] dark:text-[#F5B027] flex items-center justify-center font-bold shrink-0">
                   <Users className="w-4 h-4" />
