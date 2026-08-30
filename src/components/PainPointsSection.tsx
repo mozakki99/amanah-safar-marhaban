@@ -1,34 +1,34 @@
 'use client';
 
 import React, { useState } from 'react';
-import { BookOpen, Building2, Plane, HeartHandshake, Award, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { BookOpen, ShieldCheck, MessageCircle, HeartHandshake, Award, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function PainPointsSection() {
   const commitments = [
     {
       icon: BookOpen,
-      title: 'Bimbingan Ibadah & Manasik Terarah',
+      title: 'Bimbingan Ibadah yang Tenang & Sesuai Sunnah',
       subtitle: 'Pembimbing Berpengalaman',
-      description: 'Didampingi oleh Pembimbing Ibadah (Muthawwif) dan Tour Leader berpengalaman untuk membantu kelancaran pelaksanaan ibadah jamaah secara baik dan sesuai syariat Islam.',
+      description: 'Anda tidak perlu khawatir tentang tata cara ibadah di Tanah Suci. Muthawwif kami akan mendampingi dan memandu rukun ibadah Anda dengan sabar, agar Anda bisa beribadah dengan tenang dan khusyuk.',
     },
     {
-      icon: Building2,
-      title: 'Akomodasi Hotel Dekat Area Masjid',
-      subtitle: 'Kemudahan Akses Ibadah',
-      description: 'Pilihan hotel bintang 4 dan 5 di kawasan Makkah & Madinah yang dipilih untuk memberikan kenyamanan serta kemudahan mobilitas jamaah menuju tempat ibadah.',
+      icon: ShieldCheck,
+      title: 'Terdaftar Resmi, Hati Lebih Tenang',
+      subtitle: 'Legalitas Terjamin',
+      description: 'Kami sangat mengerti pentingnya rasa aman saat memilih travel. Amanah Safar Marhaban telah memiliki izin resmi penyelenggara ibadah. Anda cukup meluruskan niat, biarkan kami yang menjaga amanah ini dengan sebaik-baiknya.',
     },
     {
-      icon: Plane,
-      title: 'Pengurusan Dokumen & Maskapai Terjadwal',
-      subtitle: 'Kenyamanan Perjalanan',
-      description: 'Pengurusan visa umrah resmi Kemenag RI, pemesanan tiket penerbangan maskapai ternama (seperti Saudia Airlines & Garuda Indonesia), serta kelengkapan dokumen perjalanan.',
+      icon: MessageCircle,
+      title: 'Teman Diskusi Sebelum Berangkat',
+      subtitle: 'Layanan Konsultasi Ramah',
+      description: 'Masih ragu atau ada kekhawatiran tertentu? Jangan sungkan untuk bertanya. Tim kami siap mendengarkan dan membantu memberikan solusi layaknya keluarga sendiri, tanpa ada tekanan atau keharusan untuk langsung mendaftar.',
     },
     {
       icon: HeartHandshake,
-      title: 'Transparansi Biaya & Catering Menu Indonesia',
-      subtitle: 'Ketenangan Jamaah',
-      description: 'Informasi rincian paket disampaikan secara jelas sejak awal tanpa biaya terselubung, dilengkapi sajian konsumsi masakan selera Nusantara 3x sehari.',
+      title: 'Sigap Mendampingi dalam Setiap Dinamika',
+      subtitle: 'Komunikasi & Pendampingan Responsif',
+      description: 'Kami menyadari perjalanan jauh seringkali memiliki dinamikanya tersendiri. Jika terjadi penyesuaian di luar kendali, tim kami berkomitmen untuk selalu berkomunikasi secara transparan, sigap mencari solusi, dan tidak akan membiarkan Anda kebingungan sendirian.',
     },
   ];
 
@@ -50,13 +50,15 @@ export default function PainPointsSection() {
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3">
           <div className="inline-flex items-center gap-2 bg-purple-100 dark:bg-purple-950/80 text-[#4B2476] dark:text-[#F5B027] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-purple-200 dark:border-purple-800/80">
             <Award className="w-4 h-4 text-[#F5B027]" />
-            <span>Standar Pelayanan</span>
+            <span>Komitmen Marhaban</span>
           </div>
+          
           <h2 className="text-2xl sm:text-4xl font-extrabold font-sans text-gray-900 dark:text-white tracking-tight leading-tight">
-            Komitmen Pelayanan <span className="text-[#4B2476] dark:text-[#F5B027]">Amanah Safar Marhaban</span>
+            Kami Paham, Memilih Travel Umrah <span className="text-[#4B2476] dark:text-[#F5B027]">Kadang Membingungkan</span>
           </h2>
-          <p className="text-gray-600 dark:text-purple-200/90 text-sm sm:text-base">
-            Prinsip utama kami dalam menghadirkan pelayanan ibadah yang terencana, tertib, dan transparan bagi jamaah.
+
+          <p className="text-gray-600 dark:text-purple-200/90 text-sm sm:text-base leading-relaxed">
+            Ada banyak pilihan baik di luar sana, dan wajar jika Anda ingin mencari yang paling amanah untuk perjalanan suci ini. Izinkan Amanah Safar Marhaban hadir untuk melegakan hati Anda. Kami berkomitmen mengurus setiap detail keberangkatan dengan transparan dan sepenuh hati, agar Anda bisa fokus sepenuhnya pada ibadah.
           </p>
         </div>
 
@@ -97,9 +99,9 @@ export default function PainPointsSection() {
           })}
         </div>
 
-        {/* 2. TAMPILAN MOBILE: Interactive Carousel Slider */}
+        {/* 2. TAMPILAN MOBILE: Sempurna Interactive Carousel Slider */}
         <div className="sm:hidden space-y-4">
-          <div className="relative overflow-hidden rounded-3xl bg-[#FAFAFD] dark:bg-[#160C26] p-6 border border-gray-200 dark:border-purple-800/60 shadow-md min-h-[240px] flex flex-col justify-between">
+          <div className="relative overflow-hidden rounded-3xl bg-[#FAFAFD] dark:bg-[#160C26] p-6 border border-gray-200 dark:border-purple-800/60 shadow-md min-h-[260px] flex flex-col justify-between">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeMobileIndex}
@@ -133,7 +135,7 @@ export default function PainPointsSection() {
             {/* Slider Controls Bar */}
             <div className="flex items-center justify-between pt-4 border-t border-gray-200/80 dark:border-purple-900/50">
               <span className="text-xs font-extrabold text-[#4B2476] dark:text-[#F5B027]">
-                Layanan {activeMobileIndex + 1} dari {commitments.length}
+                Komitmen {activeMobileIndex + 1} dari {commitments.length}
               </span>
 
               <div className="flex items-center gap-2">
