@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from '@/context/ThemeContext';
-import { PhoneCall, Menu, X, Sun, Moon, ChevronDown, Sparkles, Crown, Plane } from 'lucide-react';
+import { PhoneCall, Menu, X, Sun, Moon, ChevronDown, Sparkles, Plane } from 'lucide-react';
 import BookingFormModal from './BookingFormModal';
 
 export default function Navbar() {
@@ -48,28 +48,22 @@ export default function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  const programSubItems = [
+  const umrahSubItems = [
     {
-      name: 'Paket Umrah',
+      name: 'Reguler',
       href: '/paket-umrah',
-      desc: 'Program Umrah Reguler Bintang 3, 4, 5',
+      desc: 'Paket Umrah Hemat, Reguler & VIP Bintang 3-5',
       icon: Plane,
     },
     {
-      name: 'Umrah Private',
+      name: 'Private',
       href: '/rancang-umrah',
-      desc: 'Perjalanan Mandiri & Rombongan Keluarga',
+      desc: 'Rancang Umrah Mandiri & Rombongan Keluarga',
       icon: Sparkles,
-    },
-    {
-      name: 'Paket Haji VIP',
-      href: '/paket-haji',
-      desc: 'Haji Furoda & Haji Plus Tanpa Antre',
-      icon: Crown,
     },
   ];
 
-  const isProgramActive = programSubItems.some((item) => pathname === item.href);
+  const isUmrahActive = umrahSubItems.some((item) => pathname === item.href);
 
   return (
     <>
@@ -101,7 +95,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop Navigation with Dropdown */}
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             
             {/* Beranda */}
@@ -116,19 +110,19 @@ export default function Navbar() {
               Beranda
             </Link>
 
-            {/* Dropdown Program Ibadah */}
+            {/* Dropdown Paket Umrah */}
             <div className="relative" ref={dropdownRef}>
               <button
                 type="button"
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 onMouseEnter={() => setDropdownOpen(true)}
                 className={`px-3.5 py-2 rounded-full text-xs xl:text-sm font-bold transition-all flex items-center gap-1.5 ${
-                  isProgramActive || dropdownOpen
+                  isUmrahActive || dropdownOpen
                     ? 'text-[#4B2476] dark:text-[#F5B027] bg-purple-50 dark:bg-purple-950/60'
                     : 'text-gray-700 dark:text-gray-200 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-gray-50 dark:hover:bg-slate-800'
                 }`}
               >
-                <span>Program Ibadah</span>
+                <span>Paket Umrah</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-[#F5B027]' : ''}`} />
               </button>
 
@@ -136,9 +130,9 @@ export default function Navbar() {
               {dropdownOpen && (
                 <div
                   onMouseLeave={() => setDropdownOpen(false)}
-                  className="absolute left-0 top-full mt-1.5 w-64 bg-white dark:bg-[#160C26] rounded-2xl shadow-xl border border-purple-100 dark:border-purple-800/60 p-2 space-y-1 animate-fadeIn z-50"
+                  className="absolute left-0 top-full mt-1.5 w-60 bg-white dark:bg-[#160C26] rounded-2xl shadow-xl border border-purple-100 dark:border-purple-800/60 p-2 space-y-1 animate-fadeIn z-50"
                 >
-                  {programSubItems.map((sub) => {
+                  {umrahSubItems.map((sub) => {
                     const IconComp = sub.icon;
                     const isSubActive = pathname === sub.href;
                     return (
@@ -165,6 +159,18 @@ export default function Navbar() {
                 </div>
               )}
             </div>
+
+            {/* Paket Haji */}
+            <Link
+              href="/paket-haji"
+              className={`px-3.5 py-2 rounded-full text-xs xl:text-sm font-bold transition-all ${
+                pathname === '/paket-haji'
+                  ? 'text-[#4B2476] dark:text-[#F5B027] bg-purple-50 dark:bg-purple-950/60'
+                  : 'text-gray-700 dark:text-gray-200 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-gray-50 dark:hover:bg-slate-800'
+              }`}
+            >
+              Paket Haji
+            </Link>
 
             {/* Blog */}
             <Link
@@ -283,20 +289,20 @@ export default function Navbar() {
               <span className="text-[#F5B027] text-sm">➔</span>
             </Link>
 
-            {/* Mobile Expandable Program Ibadah */}
+            {/* Mobile Expandable Paket Umrah */}
             <div className="space-y-1">
               <button
                 type="button"
                 onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
                 className="w-full flex items-center justify-between text-base font-bold text-[#4B2476] dark:text-[#F5B027] bg-purple-50 dark:bg-purple-950/60 px-4 py-3 rounded-2xl"
               >
-                <span>Program Ibadah</span>
+                <span>Paket Umrah</span>
                 <ChevronDown className={`w-5 h-5 transition-transform ${mobileDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {mobileDropdownOpen && (
                 <div className="pl-4 space-y-1.5 pt-1">
-                  {programSubItems.map((sub) => (
+                  {umrahSubItems.map((sub) => (
                     <Link
                       key={sub.name}
                       href={sub.href}
@@ -312,11 +318,20 @@ export default function Navbar() {
             </div>
 
             <Link
+              href="/paket-haji"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between text-base font-bold text-gray-800 dark:text-gray-100 px-4 py-3 rounded-2xl hover:bg-purple-50 dark:hover:bg-slate-800"
+            >
+              <span>Paket Haji</span>
+              <span className="text-[#F5B027] text-sm">➔</span>
+            </Link>
+
+            <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between text-base font-bold text-gray-800 dark:text-gray-100 px-4 py-3 rounded-2xl hover:bg-purple-50 dark:hover:bg-slate-800"
             >
-              <span>Blog & Artikel</span>
+              <span>Blog</span>
               <span className="text-[#F5B027] text-sm">➔</span>
             </Link>
 
