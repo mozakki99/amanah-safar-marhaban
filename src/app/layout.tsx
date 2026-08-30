@@ -3,7 +3,6 @@ import './globals.css';
 import { ThemeProvider } from '@/context/ThemeContext';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import WhatsAppFloat from '@/components/WhatsAppFloat';
 
 export const metadata: Metadata = {
   title: 'Amanah Safar Marhaban | Travel Umrah & Haji Resmi Kemenag',
@@ -23,7 +22,6 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
           <Footer />
-          <WhatsAppFloat />
         </ThemeProvider>
       </body>
     </html>

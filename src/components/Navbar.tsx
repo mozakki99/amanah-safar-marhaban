@@ -6,10 +6,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from '@/context/ThemeContext';
 import { PhoneCall, Menu, X, ShieldCheck, Sun, Moon } from 'lucide-react';
+import BookingFormModal from './BookingFormModal';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
 
@@ -36,7 +38,7 @@ export default function Navbar() {
     { name: 'Beranda', href: '/' },
     { name: 'Paket Umrah', href: '/paket-umrah' },
     { name: 'Paket Haji', href: '/paket-haji' },
-    { name: 'Keunggulan', href: '/#why-us' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Testimoni', href: '/#testimonials' },
     { name: 'FAQ', href: '/#faq' },
   ];
@@ -61,42 +63,47 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
-          {/* Logo Brand: Single-Line Modern Sans Text */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-            <div className="relative w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-xl p-0.5 border border-purple-100 shadow-2xs flex items-center justify-center overflow-hidden shrink-0">
+          {/* Logo Brand */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-10 h-10 bg-white rounded-xl p-0.5 border border-purple-100 flex items-center justify-center overflow-hidden shrink-0 shadow-xs group-hover:scale-105 transition-transform">
               <Image
                 src="/logo.jpg"
-                alt="Logo Amanah Safar Marhaban"
-                width={36}
-                height={36}
-                className="object-contain transform group-hover:scale-105 transition-transform duration-300"
+                alt="Amanah Safar Marhaban Logo"
+                width={40}
+                height={40}
+                className="object-contain"
                 priority
               />
             </div>
-            
-            <span className="font-sans font-bold text-base sm:text-lg text-[#4B2476] dark:text-purple-300 tracking-tight whitespace-nowrap">
-              Amanah Safar Marhaban
-            </span>
+
+            <div className="flex flex-col">
+              <span className="font-sans font-extrabold text-base sm:text-lg tracking-tight text-[#4B2476] dark:text-purple-300 leading-none">
+                Amanah Safar Marhaban
+              </span>
+              <span className="text-[10px] text-gray-500 dark:text-purple-300/70 font-semibold tracking-wider uppercase mt-1">
+                Travel Umrah & Haji Khusus Resmi
+              </span>
+            </div>
           </Link>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-sm font-semibold transition-colors py-1 relative group ${
+                  className={`px-3.5 py-2 rounded-full text-xs xl:text-sm font-bold transition-all relative ${
                     isActive
-                      ? 'text-[#4B2476] dark:text-[#F5B027]'
-                      : 'text-gray-700 dark:text-gray-200 hover:text-[#4B2476] dark:hover:text-[#F5B027]'
+                      ? 'text-[#4B2476] dark:text-[#F5B027] bg-purple-50 dark:bg-purple-950/60'
+                      : 'text-gray-700 dark:text-gray-200 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-gray-50 dark:hover:bg-slate-800'
                   }`}
                 >
                   {link.name}
                   <span
-                    className={`absolute bottom-0 left-0 h-0.5 bg-[#F5B027] transition-all duration-300 ${
-                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-[#F5B027] rounded-full transition-all duration-300 ${
+                      isActive ? 'opacity-100' : 'opacity-0 scale-x-0'
                     }`}
                   ></span>
                 </Link>
@@ -119,15 +126,13 @@ export default function Navbar() {
               )}
             </button>
 
-            <a
-              href="https://wa.me/6282132323030?text=Assalamu%27alaikum%20Amanah%20Safar%20Marhaban,%20saya%20ingin%20konsultasi%20paket%20Umrah"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setIsBookingOpen(true)}
               className="inline-flex items-center gap-2 bg-[#4B2476] hover:bg-[#371A58] dark:bg-[#F5B027] dark:hover:bg-amber-500 dark:text-gray-900 text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-2xs hover:shadow-md transition-all"
             >
               <PhoneCall className="w-3.5 h-3.5 text-[#F5B027] dark:text-gray-900" />
               <span>Konsultasi Gratis</span>
-            </a>
+            </button>
           </div>
 
           {/* Mobile Actions */}
@@ -198,19 +203,25 @@ export default function Navbar() {
           </div>
 
           <div className="p-6 bg-gray-50 dark:bg-slate-950 border-t border-gray-200 dark:border-slate-800 space-y-3">
-            <a
-              href="https://wa.me/6282132323030?text=Assalamu%27alaikum%20Amanah%20Safar%20Marhaban,%20saya%20ingin%20konsultasi%20paket%20Umrah"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMobileMenuOpen(false)}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setIsBookingOpen(true);
+              }}
               className="w-full flex items-center justify-center gap-2 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-900 text-white font-bold text-sm py-3.5 rounded-xl shadow-md text-center"
             >
               <PhoneCall className="w-4 h-4 text-[#F5B027] dark:text-gray-900" />
               <span>Konsultasi WA Sekarang</span>
-            </a>
+            </button>
           </div>
         </div>
       )}
+
+      {/* Booking Modal */}
+      <BookingFormModal
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+      />
     </>
   );
 }

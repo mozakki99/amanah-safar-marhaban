@@ -53,7 +53,7 @@ export default function Footer() {
               <li><Link href="/" className="hover:text-[#F5B027] transition-colors">Beranda</Link></li>
               <li><Link href="/paket-umrah" className="hover:text-[#F5B027] transition-colors">Katalog Paket Umrah</Link></li>
               <li><Link href="/paket-haji" className="hover:text-[#F5B027] transition-colors">Program Haji VIP</Link></li>
-              <li><a href="/#why-us" className="hover:text-[#F5B027] transition-colors">Keunggulan & Legalitas</a></li>
+              <li><Link href="/blog" className="hover:text-[#F5B027] transition-colors">Blog & Wawasan</Link></li>
               <li><a href="/#testimonials" className="hover:text-[#F5B027] transition-colors">Testimoni Jamaah</a></li>
               <li><a href="/#faq" className="hover:text-[#F5B027] transition-colors">FAQ</a></li>
             </ul>
