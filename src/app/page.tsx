@@ -9,7 +9,6 @@ import CostCalculator from '@/components/CostCalculator';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import FaqSection from '@/components/FaqSection';
 import BookingFormModal from '@/components/BookingFormModal';
-import WhatsAppFloat from '@/components/WhatsAppFloat';
 
 export default function Home() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -26,10 +25,9 @@ export default function Home() {
       <AuthorityBar />
       <PainPointsSection />
       <ProgramSpotlight onOpenBookingForm={handleOpenForm} />
-      <CostCalculator onOpenBookingFormWithCalc={handleOpenForm} />
+      <CostCalculator />
       <TestimonialsSection />
       <FaqSection />
-      <WhatsAppFloat onOpenBookingForm={() => handleOpenForm('Konsultasi Umrah & Haji')} />
 
       {/* Global WhatsApp Lead Form Modal */}
       <BookingFormModal
