@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, ArrowRight, PhoneCall, Award, Sparkles, Compass } from 'lucide-react';
+import { ShieldCheck, ArrowRight, PhoneCall, Award, Plane } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBookingForm: (topic?: string) => void;
@@ -92,7 +92,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
           </div>
 
-          {/* Right Visual Column (Static Clean Ka'bah Image Showcase) */}
+          {/* Right Visual Column (Airplane Window View Showcase) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             
             {/* Ambient Glow behind Card */}
@@ -109,31 +109,31 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                 </span>
               </div>
 
-              {/* High-Res Static Ka'bah Image Container */}
+              {/* Airplane Window Photo Container */}
               <div className="relative h-72 sm:h-88 w-full rounded-2xl overflow-hidden bg-purple-950/40 shadow-inner group">
                 <img
-                  src="/images/pixabay-kabah-4372290.jpg"
-                  alt="Ka'bah Suci Makkah Al-Mukarramah"
-                  className="w-full h-full object-cover"
+                  src="/images/airplane-window-2.jpg"
+                  alt="Terbang Nyaman Menuju Tanah Suci dari Jendela Pesawat"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 
                 {/* Gradient Overlay for Readable Text */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
 
-                {/* Top Right Tag */}
+                {/* Top Right Tag: Direct Flight */}
                 <div className="absolute top-3.5 right-3.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-md border border-white/20">
-                  <Sparkles className="w-3.5 h-3.5 text-[#F5B027]" />
-                  <span className="text-xs font-bold text-white">Thawaf Khusyuk &amp; Tertib</span>
+                  <Plane className="w-3.5 h-3.5 text-[#F5B027]" />
+                  <span className="text-xs font-bold text-white">Direct Flight Saudia / Garuda</span>
                 </div>
 
                 {/* Bottom Caption */}
                 <div className="absolute bottom-4 left-4 right-4 text-white space-y-1">
-                  <div className="flex items-center gap-1 text-[#F5B027]">
-                    <Compass className="w-3.5 h-3.5 text-[#F5B027]" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-amber-300">Makkah Al-Mukarramah</span>
+                  <div className="flex items-center gap-1.5 text-[#F5B027]">
+                    <Plane className="w-3.5 h-3.5 text-[#F5B027]" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-amber-300">Perjalanan Suci</span>
                   </div>
                   <h3 className="font-extrabold text-base sm:text-xl leading-snug">
-                    Ka'bah Suci Makkah Al-Mukarramah
+                    Terbang Nyaman Menuju Tanah Suci
                   </h3>
                 </div>
               </div>
