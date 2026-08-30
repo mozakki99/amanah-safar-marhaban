@@ -125,7 +125,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                 className="relative z-10 w-full flex justify-center px-2"
               >
                 <img
-                  src="/images/saudia-airplane-transparent.png"
+                  src="/images/saudia-airplane-nosmoke-v2.png"
                   alt="Pesawat Saudia Airlines Terbang Menuju Tanah Suci"
                   className="w-full h-auto object-contain max-h-[300px] sm:max-h-[440px] drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                 />
