@@ -208,36 +208,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
         </div>
 
-        {/* Trusted By Logos Bar (Bottom of Hero Section) */}
-        <div className="pt-6 sm:pt-8 border-t border-purple-100/80 dark:border-purple-900/40">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-purple-300/70 shrink-0">
-              Terdaftar Resmi &amp; Bekerja Sama:
-            </span>
 
-            <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 sm:gap-6">
-              <div className="flex items-center gap-1.5 bg-white dark:bg-[#160C26] px-3.5 py-1.5 rounded-xl border border-gray-200/80 dark:border-purple-800/50 shadow-2xs">
-                <ShieldCheck className="w-4 h-4 text-[#4B2476] dark:text-[#F5B027]" />
-                <span className="text-xs font-extrabold text-gray-800 dark:text-gray-200">PPIU Kemenhaj RI</span>
-              </div>
-
-              <div className="flex items-center gap-1.5 bg-white dark:bg-[#160C26] px-3.5 py-1.5 rounded-xl border border-gray-200/80 dark:border-purple-800/50 shadow-2xs">
-                <Award className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                <span className="text-xs font-extrabold text-gray-800 dark:text-gray-200">PIHK Kemenhaj RI</span>
-              </div>
-
-              <div className="flex items-center gap-1.5 bg-white dark:bg-[#160C26] px-3.5 py-1.5 rounded-xl border border-gray-200/80 dark:border-purple-800/50 shadow-2xs">
-                <CheckCircle2 className="w-4 h-4 text-amber-500" />
-                <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Saudia Airlines</span>
-              </div>
-
-              <div className="flex items-center gap-1.5 bg-white dark:bg-[#160C26] px-3.5 py-1.5 rounded-xl border border-gray-200/80 dark:border-purple-800/50 shadow-2xs">
-                <CheckCircle2 className="w-4 h-4 text-amber-500" />
-                <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Garuda Indonesia</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div>
     </section>
