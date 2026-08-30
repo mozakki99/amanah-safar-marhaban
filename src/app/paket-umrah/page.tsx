@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import PackageModal from '@/components/PackageModal';
 import BookingFormModal from '@/components/BookingFormModal';
 import { packagesData, PackageItem } from '@/data/packagesData';
-import { Luggage, Star, Building, Plane, ArrowRight, Search, Calendar, Filter, RefreshCw } from 'lucide-react';
+import { Luggage, Star, Building, Plane, ArrowRight, Search, Calendar, Filter, RefreshCw, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function PaketUmrahPage() {
   const umrahPackages = useMemo(() => packagesData.filter((p) => p.type !== 'haji'), []);
@@ -18,7 +18,16 @@ export default function PaketUmrahPage() {
   const [selectedStars, setSelectedStars] = useState('');
   const [selectedDuration, setSelectedDuration] = useState('');
 
-  // Complete List of All 12 Months
+  // Pagination State
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+
+  // Reset pagination to page 1 whenever any filter changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery, selectedMonth, selectedStars, selectedDuration]);
+
+  // Direct 12 Months Names (No 'Bulan' prefix)
   const allMonths = [
     'Januari',
     'Februari',
@@ -68,19 +77,34 @@ export default function PaketUmrahPage() {
       }
 
       // 4. Duration Filter
-      if (selectedDuration && !pkg.duration.toLowerCase().includes(selectedDuration.toLowerCase())) {
-        return false;
+      if (selectedDuration) {
+        if (selectedDuration === 'longstay') {
+          const isLongstay = pkg.duration.toLowerCase().includes('longstay') || parseInt(pkg.duration, 10) >= 20;
+          if (!isLongstay) return false;
+        } else {
+          if (!pkg.duration.toLowerCase().includes(selectedDuration.toLowerCase())) {
+            return false;
+          }
+        }
       }
 
       return true;
     });
   }, [umrahPackages, searchQuery, selectedMonth, selectedStars, selectedDuration]);
 
+  // Paginated Sliced Items
+  const totalPages = Math.max(1, Math.ceil(filteredPackages.length / itemsPerPage));
+  const paginatedPackages = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return filteredPackages.slice(startIndex, startIndex + itemsPerPage);
+  }, [filteredPackages, currentPage, itemsPerPage]);
+
   const handleResetFilters = () => {
     setSearchQuery('');
     setSelectedMonth('');
     setSelectedStars('');
     setSelectedDuration('');
+    setCurrentPage(1);
   };
 
   const handleOpenBookingForm = (packageName: string) => {
@@ -102,7 +126,7 @@ export default function PaketUmrahPage() {
             Katalog Paket <span className="text-[#F5B027]">Umrah Reguler & Private</span>
           </h1>
           <p className="text-purple-200 text-sm sm:text-base max-w-2xl mx-auto">
-            Penerbangan maskapai ternama, hotel bintang 4 & 5 dekat pelataran masjid, serta pendampingan pembimbing ibadah berpengalaman.
+            Penerbangan maskapai ternama, hotel bintang 3, 4 & 5 dekat pelataran masjid, serta pendampingan pembimbing ibadah berpengalaman.
           </p>
         </div>
       </section>
@@ -145,7 +169,7 @@ export default function PaketUmrahPage() {
               />
             </div>
 
-            {/* 2. Month Select Dropdown (Complete 12 Months) */}
+            {/* 2. Month Select Dropdown (Direct Month Names without 'BULAN') */}
             <div className="relative">
               <Calendar className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-purple-300 pointer-events-none" />
               <select
@@ -153,16 +177,16 @@ export default function PaketUmrahPage() {
                 onChange={(e) => setSelectedMonth(e.target.value)}
                 className="w-full pl-10 pr-8 py-2.5 bg-white dark:bg-[#251545] border border-gray-200 dark:border-purple-700/60 rounded-xl text-xs sm:text-sm text-gray-900 dark:text-white focus:outline-none focus:border-[#4B2476] dark:focus:border-[#F5B027] appearance-none"
               >
-                <option value="">Semua Bulan (Januari - Desember)</option>
+                <option value="">Semua Keberangkatan</option>
                 {allMonths.map((m, idx) => (
                   <option key={idx} value={m}>
-                    Bulan {m}
+                    {m}
                   </option>
                 ))}
               </select>
             </div>
 
-            {/* 3. Hotel Stars Dropdown */}
+            {/* 3. Hotel Stars Dropdown (Including Bintang 3) */}
             <div className="relative">
               <Building className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-purple-300 pointer-events-none" />
               <select
@@ -173,10 +197,11 @@ export default function PaketUmrahPage() {
                 <option value="">Semua Bintang Hotel</option>
                 <option value="5">Hotel Bintang 5</option>
                 <option value="4">Hotel Bintang 4</option>
+                <option value="3">Hotel Bintang 3</option>
               </select>
             </div>
 
-            {/* 4. Duration Dropdown */}
+            {/* 4. Duration Dropdown (Including Longstay) */}
             <div className="relative">
               <Luggage className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-purple-300 pointer-events-none" />
               <select
@@ -188,6 +213,7 @@ export default function PaketUmrahPage() {
                 <option value="9 Hari">9 Hari</option>
                 <option value="12 Hari">12 Hari</option>
                 <option value="16 Hari">16 Hari</option>
+                <option value="longstay">Longstay (20+ Hari)</option>
               </select>
             </div>
 
@@ -195,134 +221,185 @@ export default function PaketUmrahPage() {
 
           {/* Results Summary Bar */}
           <div className="flex items-center justify-between text-xs text-gray-500 dark:text-purple-300/80 pt-1">
-            <span>Menampilkan <strong>{filteredPackages.length}</strong> dari <strong>{umrahPackages.length}</strong> program umrah</span>
+            <span>Menampilkan <strong>{paginatedPackages.length}</strong> dari <strong>{filteredPackages.length}</strong> program umrah</span>
+            <span>Halaman <strong>{currentPage}</strong> dari <strong>{totalPages}</strong></span>
           </div>
 
         </div>
 
         {/* Catalog Grid */}
         {filteredPackages.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPackages.map((pkg) => (
-              <div
-                key={pkg.id}
-                className="bg-white dark:bg-[#160C26] rounded-3xl overflow-hidden border border-gray-200 dark:border-purple-800/60 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative"
-              >
-                {pkg.badgeText && (
-                  <div className="absolute top-4 left-4 z-10 bg-[#F5B027] text-gray-950 font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-md">
-                    {pkg.badgeText}
-                  </div>
-                )}
+          <div className="space-y-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {paginatedPackages.map((pkg) => (
+                <div
+                  key={pkg.id}
+                  className="bg-white dark:bg-[#160C26] rounded-3xl overflow-hidden border border-gray-200 dark:border-purple-800/60 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative"
+                >
+                  {pkg.badgeText && (
+                    <div className="absolute top-4 left-4 z-10 bg-[#F5B027] text-gray-950 font-extrabold text-xs px-3.5 py-1.5 rounded-full shadow-md">
+                      {pkg.badgeText}
+                    </div>
+                  )}
 
-                <div>
-                  {/* Image Header */}
-                  <div className="relative h-56 w-full overflow-hidden bg-gray-100 dark:bg-purple-950/50">
-                    <img
-                      src={pkg.hotelMakkah.image}
-                      alt={pkg.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                  <div>
+                    {/* Image Header */}
+                    <div className="relative h-56 w-full overflow-hidden bg-gray-100 dark:bg-purple-950/50">
+                      <img
+                        src={pkg.hotelMakkah.image}
+                        alt={pkg.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
-                    <div className="absolute bottom-3 left-4 right-4 text-white flex items-center justify-between">
-                      <span className="text-xs bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md text-amber-300 font-bold border border-white/10">
-                        {pkg.duration}
-                      </span>
-                      <div className="flex items-center gap-1 text-[#F5B027] text-xs font-bold">
-                        <Star className="w-3.5 h-3.5 fill-[#F5B027]" />
-                        <span>{pkg.rating} ({pkg.reviewCount})</span>
+                      <div className="absolute bottom-3 left-4 right-4 text-white flex items-center justify-between">
+                        <span className="text-xs bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-md text-amber-300 font-bold border border-white/10">
+                          {pkg.duration}
+                        </span>
+                        <div className="flex items-center gap-1 text-[#F5B027] text-xs font-bold">
+                          <Star className="w-3.5 h-3.5 fill-[#F5B027]" />
+                          <span>{pkg.rating} ({pkg.reviewCount})</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Body */}
+                    <div className="p-6 space-y-4">
+                      <h3 className="font-extrabold text-xl text-gray-900 dark:text-white group-hover:text-[#4B2476] dark:group-hover:text-[#F5B027] transition-colors leading-snug">
+                        {pkg.title}
+                      </h3>
+
+                      <p className="text-xs text-gray-600 dark:text-purple-200/80 line-clamp-2">
+                        {pkg.subtitle}
+                      </p>
+
+                      {/* Facility Box with Dedicated Unclipped Star Badges */}
+                      <div className="space-y-2.5 bg-[#FAFAFD] dark:bg-[#1E1136] p-3.5 rounded-2xl border border-gray-100 dark:border-purple-800/50 text-xs">
+                        {/* Makkah Hotel Row */}
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200 shrink-0">
+                            <Building className="w-3.5 h-3.5 text-[#4B2476] dark:text-[#F5B027]" />
+                            <span>Makkah:</span>
+                          </span>
+                          <div className="flex items-center gap-1.5 min-w-0">
+                            <span className="font-bold truncate text-gray-900 dark:text-white">{pkg.hotelMakkah.name}</span>
+                            <span className="shrink-0 bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 font-extrabold text-[10px] px-2 py-0.5 rounded-md border border-amber-300/40">
+                              ★ {pkg.hotelMakkah.stars}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Madinah Hotel Row */}
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200 shrink-0">
+                            <Building className="w-3.5 h-3.5 text-[#F5B027]" />
+                            <span>Madinah:</span>
+                          </span>
+                          <div className="flex items-center gap-1.5 min-w-0">
+                            <span className="font-bold truncate text-gray-900 dark:text-white">{pkg.hotelMadinah.name}</span>
+                            <span className="shrink-0 bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 font-extrabold text-[10px] px-2 py-0.5 rounded-md border border-amber-300/40">
+                              ★ {pkg.hotelMadinah.stars}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Airline Row */}
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200 shrink-0">
+                            <Plane className="w-3.5 h-3.5 text-blue-500 dark:text-amber-400" />
+                            <span>Maskapai:</span>
+                          </span>
+                          <span className="font-bold truncate text-gray-900 dark:text-white">{pkg.airline.split(' ')[0]}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between text-xs pt-1">
+                        <span className="text-gray-500 dark:text-purple-300/80">Jadwal: {pkg.departureDate}</span>
+                        <span className="text-amber-800 dark:text-amber-300 font-bold bg-amber-50 dark:bg-amber-950/80 px-2 py-0.5 rounded border border-amber-200 dark:border-amber-700/80">
+                          Sisa {pkg.seatLeft} Seat
+                        </span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Body */}
-                  <div className="p-6 space-y-4">
-                    <h3 className="font-extrabold text-xl text-gray-900 dark:text-white group-hover:text-[#4B2476] dark:group-hover:text-[#F5B027] transition-colors leading-snug">
-                      {pkg.title}
-                    </h3>
-
-                    <p className="text-xs text-gray-600 dark:text-purple-200/80 line-clamp-2">
-                      {pkg.subtitle}
-                    </p>
-
-                    {/* Facility Box with Dedicated Unclipped Star Badges */}
-                    <div className="space-y-2.5 bg-[#FAFAFD] dark:bg-[#1E1136] p-3.5 rounded-2xl border border-gray-100 dark:border-purple-800/50 text-xs">
-                      {/* Makkah Hotel Row */}
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200 shrink-0">
-                          <Building className="w-3.5 h-3.5 text-[#4B2476] dark:text-[#F5B027]" />
-                          <span>Makkah:</span>
-                        </span>
-                        <div className="flex items-center gap-1.5 min-w-0">
-                          <span className="font-bold truncate text-gray-900 dark:text-white">{pkg.hotelMakkah.name}</span>
-                          <span className="shrink-0 bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 font-extrabold text-[10px] px-2 py-0.5 rounded-md border border-amber-300/40">
-                            ★ {pkg.hotelMakkah.stars}
-                          </span>
-                        </div>
+                  {/* Footer */}
+                  <div className="p-6 pt-0 border-t border-gray-100 dark:border-purple-900/40 mt-2 space-y-3">
+                    <div className="flex items-baseline justify-between pt-3">
+                      <div>
+                        <span className="text-xs text-gray-400 dark:text-purple-300/70 block font-medium">Mulai Dari</span>
+                        <span className="text-2xl font-extrabold text-[#4B2476] dark:text-[#F5B027]">{pkg.price}</span>
                       </div>
-
-                      {/* Madinah Hotel Row */}
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200 shrink-0">
-                          <Building className="w-3.5 h-3.5 text-[#F5B027]" />
-                          <span>Madinah:</span>
-                        </span>
-                        <div className="flex items-center gap-1.5 min-w-0">
-                          <span className="font-bold truncate text-gray-900 dark:text-white">{pkg.hotelMadinah.name}</span>
-                          <span className="shrink-0 bg-amber-100 dark:bg-amber-950/80 text-amber-900 dark:text-amber-300 font-extrabold text-[10px] px-2 py-0.5 rounded-md border border-amber-300/40">
-                            ★ {pkg.hotelMadinah.stars}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Airline Row */}
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="flex items-center gap-1.5 font-medium text-gray-700 dark:text-purple-200 shrink-0">
-                          <Plane className="w-3.5 h-3.5 text-blue-500 dark:text-amber-400" />
-                          <span>Maskapai:</span>
-                        </span>
-                        <span className="font-bold truncate text-gray-900 dark:text-white">{pkg.airline.split(' ')[0]}</span>
-                      </div>
+                      <span className="text-xs text-gray-500 dark:text-purple-300/70">{pkg.priceNote.split('/')[1] || 'pax'}</span>
                     </div>
 
-                    <div className="flex items-center justify-between text-xs pt-1">
-                      <span className="text-gray-500 dark:text-purple-300/80">Jadwal: {pkg.departureDate}</span>
-                      <span className="text-amber-800 dark:text-amber-300 font-bold bg-amber-50 dark:bg-amber-950/80 px-2 py-0.5 rounded border border-amber-200 dark:border-amber-700/80">
-                        Sisa {pkg.seatLeft} Seat
-                      </span>
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        onClick={() => setSelectedPackage(pkg)}
+                        className="w-full py-3 px-3 bg-purple-50 dark:bg-[#251545] hover:bg-purple-100 dark:hover:bg-[#311C5B] text-[#4B2476] dark:text-purple-200 font-bold text-xs rounded-xl transition-colors border border-purple-200 dark:border-purple-700/60 text-center"
+                      >
+                        Detail & Itinerary
+                      </button>
+
+                      <button
+                        onClick={() => handleOpenBookingForm(pkg.title)}
+                        className="w-full py-3 px-3 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-950 hover:bg-[#371A58] dark:hover:bg-amber-400 text-white font-bold text-xs rounded-xl transition-colors shadow-sm text-center flex items-center justify-center gap-1"
+                      >
+                        <span>Booking WA</span>
+                        <ArrowRight className="w-3.5 h-3.5 text-[#F5B027] dark:text-gray-950" />
+                      </button>
                     </div>
                   </div>
                 </div>
+              ))}
+            </div>
 
-                {/* Footer */}
-                <div className="p-6 pt-0 border-t border-gray-100 dark:border-purple-900/40 mt-2 space-y-3">
-                  <div className="flex items-baseline justify-between pt-3">
-                    <div>
-                      <span className="text-xs text-gray-400 dark:text-purple-300/70 block font-medium">Mulai Dari</span>
-                      <span className="text-2xl font-extrabold text-[#4B2476] dark:text-[#F5B027]">{pkg.price}</span>
-                    </div>
-                    <span className="text-xs text-gray-500 dark:text-purple-300/70">{pkg.priceNote.split('/')[1] || 'pax'}</span>
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-gray-200 dark:border-purple-900/50">
+                <span className="text-xs font-semibold text-gray-500 dark:text-purple-300/80">
+                  Menampilkan Halaman <strong>{currentPage}</strong> dari <strong>{totalPages}</strong> ({filteredPackages.length} paket total)
+                </span>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+                    disabled={currentPage === 1}
+                    className="px-3.5 py-2 rounded-xl bg-white dark:bg-[#251545] border border-gray-200 dark:border-purple-700/60 text-xs font-bold text-gray-800 dark:text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-purple-50 dark:hover:bg-[#311C5B] transition-all flex items-center gap-1"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                    <span>Sebelumnya</span>
+                  </button>
+
+                  <div className="flex items-center gap-1">
+                    {[...Array(totalPages)].map((_, idx) => {
+                      const pageNum = idx + 1;
+                      return (
+                        <button
+                          key={pageNum}
+                          onClick={() => setCurrentPage(pageNum)}
+                          className={`w-8 h-8 rounded-xl text-xs font-extrabold transition-all ${
+                            currentPage === pageNum
+                              ? 'bg-[#4B2476] dark:bg-[#F5B027] text-white dark:text-gray-950 shadow-md'
+                              : 'bg-white dark:bg-[#251545] text-gray-700 dark:text-purple-200 border border-gray-200 dark:border-purple-700/60 hover:bg-purple-50'
+                          }`}
+                        >
+                          {pageNum}
+                        </button>
+                      );
+                    })}
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2">
-                    <button
-                      onClick={() => setSelectedPackage(pkg)}
-                      className="w-full py-3 px-3 bg-purple-50 dark:bg-[#251545] hover:bg-purple-100 dark:hover:bg-[#311C5B] text-[#4B2476] dark:text-purple-200 font-bold text-xs rounded-xl transition-colors border border-purple-200 dark:border-purple-700/60 text-center"
-                    >
-                      Detail & Itinerary
-                    </button>
-
-                    <button
-                      onClick={() => handleOpenBookingForm(pkg.title)}
-                      className="w-full py-3 px-3 bg-[#4B2476] dark:bg-[#F5B027] dark:text-gray-950 hover:bg-[#371A58] dark:hover:bg-amber-400 text-white font-bold text-xs rounded-xl transition-colors shadow-sm text-center flex items-center justify-center gap-1"
-                    >
-                      <span>Booking WA</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#F5B027] dark:text-gray-950" />
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
+                    disabled={currentPage === totalPages}
+                    className="px-3.5 py-2 rounded-xl bg-white dark:bg-[#251545] border border-gray-200 dark:border-purple-700/60 text-xs font-bold text-gray-800 dark:text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-purple-50 dark:hover:bg-[#311C5B] transition-all flex items-center gap-1"
+                  >
+                    <span>Selanjutnya</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
-            ))}
+            )}
           </div>
         ) : (
           /* Empty State when no match */
@@ -332,7 +409,7 @@ export default function PaketUmrahPage() {
             </div>
             <h3 className="text-lg font-bold text-gray-900 dark:text-white">Tidak Ada Paket Yang Sesuai Filter</h3>
             <p className="text-xs sm:text-sm text-gray-500 dark:text-purple-200/70 max-w-md mx-auto">
-              Maaf, tidak ditemukan program umrah untuk bulan <strong>{selectedMonth}</strong> atau kata kunci pilihan Anda. Anda dapat mengajukan tanggal khusus dengan memesan <strong>Umrah Private VIP</strong>.
+              Maaf, tidak ditemukan program umrah untuk pilihan filter Anda. Anda dapat mengajukan tanggal atau fasilitas khusus dengan memesan <strong>Umrah Private VIP</strong>.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <button
