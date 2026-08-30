@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, Star, ArrowRight, PhoneCall, Award, Users, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Star, ArrowRight, PhoneCall, Award, CheckCircle2, RotateCcw } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenBookingForm: (topic?: string) => void;
@@ -96,7 +96,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
           </div>
 
-          {/* Right Visual Column (Enhanced & Animated Ka'bah Showcase) */}
+          {/* Right Visual Column (Animated Ka'bah Showcase + Interactive Thawaf Orbit) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             
             {/* Golden Ambient Glow Aura behind Card */}
@@ -151,35 +151,94 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
                 </div>
               </motion.div>
 
-              {/* Ka'bah Animated Showcase Image Box */}
-              <div className="relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden bg-purple-950/40">
+              {/* Ka'bah Box with Interactive Thawaf Orbit Overlay */}
+              <div className="relative h-72 sm:h-84 w-full rounded-2xl overflow-hidden bg-gradient-to-b from-[#2E144D] via-[#1E0C36] to-[#0D0518] flex items-center justify-center p-4">
+                
+                {/* Background Ka'bah Atmosphere Photo */}
                 <motion.img
-                  animate={{ scale: [1, 1.06, 1] }}
+                  animate={{ scale: [1, 1.05, 1], opacity: [0.35, 0.45, 0.35] }}
                   transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
                   src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=1200&q=80"
-                  alt="Masjidil Haram Ka'bah Makkah Al-Mukarramah"
-                  className="w-full h-full object-cover"
+                  alt="Latar Masjidil Haram Makkah"
+                  className="absolute inset-0 w-full h-full object-cover mix-blend-overlay pointer-events-none"
                 />
-                
-                {/* Gradient Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent"></div>
 
-                {/* Sub-badge inside image */}
-                <div className="absolute top-3.5 left-3.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-md border border-white/20">
+                {/* Ambient Radial Spotlight */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,176,39,0.18)_0%,transparent_70%)] pointer-events-none"></div>
+
+                {/* ANIMATED THAWAF ORBIT & KA'BAH MODEL */}
+                <div className="relative w-52 h-52 sm:w-60 sm:h-60 flex items-center justify-center pointer-events-none">
+                  
+                  {/* Outer Orbit Ring 1 (Thawaf Jamaah Rotator) */}
+                  <motion.div
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                    className="absolute inset-0 rounded-full border border-amber-400/40 border-dashed"
+                  >
+                    {/* Thawaf Label Badge on Orbit */}
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#F5B027] text-gray-950 px-2 py-0.5 rounded-full text-[9px] font-extrabold shadow-md flex items-center gap-1 border border-white/40">
+                      <RotateCcw className="w-2.5 h-2.5 text-gray-950" />
+                      <span>Animasi Thawaf</span>
+                    </div>
+
+                    {/* Animated Jamaah Orbit Particles */}
+                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.9)] border border-amber-300"></div>
+                    <div className="absolute top-1/2 -left-1.5 -translate-y-1/2 w-2.5 h-2.5 bg-amber-300 rounded-full shadow-[0_0_8px_rgba(245,176,39,0.9)]"></div>
+                    <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-2.5 h-2.5 bg-white rounded-full shadow-md"></div>
+                  </motion.div>
+
+                  {/* Inner Orbit Ring 2 */}
+                  <motion.div
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 13, repeat: Infinity, ease: 'linear' }}
+                    className="absolute inset-5 rounded-full border border-purple-300/30"
+                  >
+                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-amber-400 rounded-full shadow-md"></div>
+                    <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rounded-full"></div>
+                    <div className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-white rounded-full"></div>
+                    <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2.5 h-2.5 bg-amber-300 rounded-full"></div>
+                  </motion.div>
+
+                  {/* 3D Stylized Ka'bah Central Cube */}
+                  <motion.div
+                    animate={{ y: [0, -5, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                    className="relative w-20 h-24 sm:w-24 sm:h-28 bg-gradient-to-b from-[#1E1729] via-[#0E0916] to-[#040207] rounded-xl border-2 border-[#F5B027] shadow-[0_0_30px_rgba(245,176,39,0.5)] flex flex-col items-center justify-between p-2 z-10"
+                  >
+                    {/* Gold Kiswah Belt (Pita Emas Ka'bah) */}
+                    <div className="w-full h-3 sm:h-3.5 bg-[#F5B027] rounded-xs shadow-inner flex items-center justify-center border-t border-b border-amber-200">
+                      <div className="w-4/5 h-0.5 bg-amber-950/80 rounded-full"></div>
+                    </div>
+
+                    {/* Ka'bah Golden Door (Pintu Ka'bah) */}
+                    <div className="w-4 sm:w-5 h-7 sm:h-9 bg-gradient-to-b from-amber-200 via-[#F5B027] to-amber-600 rounded-t-sm border border-amber-100 self-end mr-2 shadow-md flex items-center justify-center">
+                      <div className="w-0.5 h-4 bg-amber-950/80"></div>
+                    </div>
+
+                    {/* Ka'bah Bottom Text */}
+                    <div className="w-full text-center pb-0.5">
+                      <span className="text-[9px] font-extrabold text-[#F5B027] tracking-widest uppercase block">Ka'bah Suci</span>
+                    </div>
+                  </motion.div>
+
+                </div>
+
+                {/* Sub-badge top left */}
+                <div className="absolute top-3.5 left-3.5 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-md border border-white/20 z-10">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#F5B027]" />
                   <span className="text-xs font-bold text-white">Pendampingan Syariat</span>
                 </div>
 
                 {/* Image Overlay Footer */}
-                <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white space-y-1">
+                <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white space-y-1 z-10">
                   <div className="flex items-center gap-1 text-[#F5B027]">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-3.5 h-3.5 fill-[#F5B027]" />
                     ))}
-                    <span className="text-xs text-white font-bold ml-1">Layanan Berpengalaman</span>
+                    <span className="text-xs text-white font-bold ml-1">Bimbingan Khusyuk & Sabar</span>
                   </div>
                   <h3 className="font-extrabold text-base sm:text-lg leading-snug">
-                    Pengalaman Ibadah Nyaman & Khusyuk
+                    Simulasi Thawaf Khusyuk di Pelataran Suci
                   </h3>
                 </div>
               </div>
