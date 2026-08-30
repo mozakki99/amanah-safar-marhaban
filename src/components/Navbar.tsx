@@ -37,6 +37,7 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Beranda', href: '/' },
     { name: 'Paket Umrah', href: '/paket-umrah' },
+    { name: 'Umrah Private', href: '/rancang-umrah' },
     { name: 'Paket Haji', href: '/paket-haji' },
     { name: 'Blog', href: '/blog' },
     { name: 'Testimoni', href: '/#testimonials' },
