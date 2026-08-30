@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Sparkles, Star, Building, Plane, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { packagesData, PackageItem } from '@/data/packagesData';
 import PackageModal from './PackageModal';
@@ -229,6 +230,17 @@ export default function ProgramSpotlight({ onOpenBookingForm }: ProgramSpotlight
             ))}
           </div>
         )}
+
+        {/* Tombol Lihat Program Lainnya */}
+        <div className="text-center mt-10 sm:mt-12">
+          <Link
+            href="/paket-umrah"
+            className="inline-flex items-center justify-center gap-2 bg-[#4B2476] hover:bg-[#371A58] dark:bg-[#F5B027] dark:hover:bg-amber-400 text-white dark:text-gray-950 font-extrabold px-8 py-3.5 sm:px-10 sm:py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-sm sm:text-base group"
+          >
+            <span>Lihat Program Lainnya</span>
+            <ArrowRight className="w-4 h-4 text-[#F5B027] dark:text-gray-950 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
 
       </div>
 
