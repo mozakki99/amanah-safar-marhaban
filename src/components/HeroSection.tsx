@@ -20,31 +20,31 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
   const [index, setIndex] = useState(0);
 
-  // 4 Hero Slides using exact Pixabay images provided by the user
+  // 4 Hero Slides using authentic Makkah & Madinah images with perfectly matched captions
   const heroSlides = [
     {
-      id: 'pixabay-3782640',
-      url: '/images/pixabay-madinah-3782640.jpg',
-      title: 'Masjid Nabawi Madinah Munawwarah',
-      location: 'Madinah Munawwarah',
-      badge: 'Keindahan Kota Nabi',
-    },
-    {
-      id: 'pixabay-3347602',
-      url: '/images/pixabay-nabawi-3347602.jpg',
-      title: 'Pelataran Payung Suci Nabawi',
-      location: 'Madinah Munawwarah',
-      badge: 'Ketenangan Beribadah',
-    },
-    {
-      id: 'pixabay-4372290',
+      id: 'slide-kabah',
       url: '/images/pixabay-kabah-4372290.jpg',
       title: 'Ka\'bah Suci Makkah Al-Mukarramah',
       location: 'Makkah Al-Mukarramah',
       badge: 'Thawaf Khusyuk & Tertib',
     },
     {
-      id: 'pixabay-7552281',
+      id: 'slide-madinah',
+      url: '/images/pixabay-madinah-3782640.jpg',
+      title: 'Masjid Nabawi Madinah Munawwarah',
+      location: 'Madinah Munawwarah',
+      badge: 'Keindahan Kota Nabi',
+    },
+    {
+      id: 'slide-payung-nabawi',
+      url: '/images/pixabay-nabawi-3347602.jpg',
+      title: 'Pelataran Payung Suci Nabawi',
+      location: 'Madinah Munawwarah',
+      badge: 'Ketenangan Beribadah',
+    },
+    {
+      id: 'slide-makkah-clock',
       url: '/images/pixabay-kabah-7552281.jpg',
       title: 'Suasana Suci Umrah & Haji Khusus',
       location: 'Makkah Al-Mukarramah',
@@ -116,7 +116,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
               Wujudkan rindu ke Tanah Suci tanpa cemas bersama travel resmi Amanah Safar Marhaban. Nikmati fleksibilitas memilih paket umrah reguler, privat, atau mandiri. Kami upayakan pelayanan maksimal sepenuh hati.
             </p>
 
-            {/* Dual Action Buttons (Mobile Responsive Grid/Flex) */}
+            {/* Dual Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-1">
               {/* Tombol 1: Lihat Katalog Umrah */}
               <Link
@@ -139,7 +139,7 @@ export default function HeroSection({ onOpenBookingForm }: HeroSectionProps) {
 
           </div>
 
-          {/* Right Visual Column (Pixabay Photos Showcase) */}
+          {/* Right Visual Column (Photos Showcase) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             
             {/* Ambient Background Glow */}
