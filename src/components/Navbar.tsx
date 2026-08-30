@@ -1,19 +1,23 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from '@/context/ThemeContext';
-import { PhoneCall, Menu, X, ShieldCheck, Sun, Moon } from 'lucide-react';
+import { PhoneCall, Menu, X, Sun, Moon, ChevronDown, Sparkles, Crown, Plane } from 'lucide-react';
 import BookingFormModal from './BookingFormModal';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  
   const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +25,16 @@ export default function Navbar() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -34,15 +48,28 @@ export default function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  const navLinks = [
-    { name: 'Beranda', href: '/' },
-    { name: 'Paket Umrah', href: '/paket-umrah' },
-    { name: 'Umrah Private', href: '/rancang-umrah' },
-    { name: 'Paket Haji', href: '/paket-haji' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Testimoni', href: '/#testimonials' },
-    { name: 'FAQ', href: '/#faq' },
+  const programSubItems = [
+    {
+      name: 'Paket Umrah',
+      href: '/paket-umrah',
+      desc: 'Program Umrah Reguler Bintang 3, 4, 5',
+      icon: Plane,
+    },
+    {
+      name: 'Umrah Private',
+      href: '/rancang-umrah',
+      desc: 'Perjalanan Mandiri & Rombongan Keluarga',
+      icon: Sparkles,
+    },
+    {
+      name: 'Paket Haji VIP',
+      href: '/paket-haji',
+      desc: 'Haji Furoda & Haji Plus Tanpa Antre',
+      icon: Crown,
+    },
   ];
+
+  const isProgramActive = programSubItems.some((item) => pathname === item.href);
 
   return (
     <>
@@ -74,29 +101,99 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with Dropdown */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`px-3.5 py-2 rounded-full text-xs xl:text-sm font-bold transition-all relative ${
-                    isActive
-                      ? 'text-[#4B2476] dark:text-[#F5B027] bg-purple-50 dark:bg-purple-950/60'
-                      : 'text-gray-700 dark:text-gray-200 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-gray-50 dark:hover:bg-slate-800'
-                  }`}
+            
+            {/* Beranda */}
+            <Link
+              href="/"
+              className={`px-3.5 py-2 rounded-full text-xs xl:text-sm font-bold transition-all ${
+                pathname === '/'
+                  ? 'text-[#4B2476] dark:text-[#F5B027] bg-purple-50 dark:bg-purple-950/60'
+                  : 'text-gray-700 dark:text-gray-200 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-gray-50 dark:hover:bg-slate-800'
+              }`}
+            >
+              Beranda
+            </Link>
+
+            {/* Dropdown Program Ibadah */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                type="button"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                onMouseEnter={() => setDropdownOpen(true)}
+                className={`px-3.5 py-2 rounded-full text-xs xl:text-sm font-bold transition-all flex items-center gap-1.5 ${
+                  isProgramActive || dropdownOpen
+                    ? 'text-[#4B2476] dark:text-[#F5B027] bg-purple-50 dark:bg-purple-950/60'
+                    : 'text-gray-700 dark:text-gray-200 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-gray-50 dark:hover:bg-slate-800'
+                }`}
+              >
+                <span>Program Ibadah</span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-[#F5B027]' : ''}`} />
+              </button>
+
+              {/* Dropdown Menu Box */}
+              {dropdownOpen && (
+                <div
+                  onMouseLeave={() => setDropdownOpen(false)}
+                  className="absolute left-0 top-full mt-1.5 w-64 bg-white dark:bg-[#160C26] rounded-2xl shadow-xl border border-purple-100 dark:border-purple-800/60 p-2 space-y-1 animate-fadeIn z-50"
                 >
-                  {link.name}
-                  <span
-                    className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-[#F5B027] rounded-full transition-all duration-300 ${
-                      isActive ? 'opacity-100' : 'opacity-0 scale-x-0'
-                    }`}
-                  ></span>
-                </Link>
-              );
-            })}
+                  {programSubItems.map((sub) => {
+                    const IconComp = sub.icon;
+                    const isSubActive = pathname === sub.href;
+                    return (
+                      <Link
+                        key={sub.name}
+                        href={sub.href}
+                        onClick={() => setDropdownOpen(false)}
+                        className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                          isSubActive
+                            ? 'bg-purple-50 dark:bg-purple-900/40 text-[#4B2476] dark:text-[#F5B027]'
+                            : 'hover:bg-purple-50/70 dark:hover:bg-purple-950/50 text-gray-800 dark:text-gray-200'
+                        }`}
+                      >
+                        <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/60 text-[#4B2476] dark:text-[#F5B027] shrink-0 mt-0.5">
+                          <IconComp className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <div className="font-extrabold text-xs sm:text-sm leading-snug">{sub.name}</div>
+                          <div className="text-[11px] text-gray-500 dark:text-purple-200/70 font-normal">{sub.desc}</div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Blog */}
+            <Link
+              href="/blog"
+              className={`px-3.5 py-2 rounded-full text-xs xl:text-sm font-bold transition-all ${
+                pathname === '/blog'
+                  ? 'text-[#4B2476] dark:text-[#F5B027] bg-purple-50 dark:bg-purple-950/60'
+                  : 'text-gray-700 dark:text-gray-200 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-gray-50 dark:hover:bg-slate-800'
+              }`}
+            >
+              Blog
+            </Link>
+
+            {/* Testimoni */}
+            <Link
+              href="/#testimonials"
+              className="px-3.5 py-2 rounded-full text-xs xl:text-sm font-bold text-gray-700 dark:text-gray-200 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-gray-50 dark:hover:bg-slate-800 transition-all"
+            >
+              Testimoni
+            </Link>
+
+            {/* FAQ */}
+            <Link
+              href="/#faq"
+              className="px-3.5 py-2 rounded-full text-xs xl:text-sm font-bold text-gray-700 dark:text-gray-200 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-gray-50 dark:hover:bg-slate-800 transition-all"
+            >
+              FAQ
+            </Link>
+
           </nav>
 
           {/* Desktop Actions */}
@@ -177,17 +274,69 @@ export default function Navbar() {
           </div>
 
           <div className="px-6 py-6 overflow-y-auto space-y-2 flex-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between text-base font-bold text-gray-800 dark:text-gray-100 hover:text-[#4B2476] dark:hover:text-[#F5B027] hover:bg-purple-50 dark:hover:bg-slate-800 px-4 py-3.5 rounded-2xl transition-colors"
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between text-base font-bold text-gray-800 dark:text-gray-100 px-4 py-3 rounded-2xl hover:bg-purple-50 dark:hover:bg-slate-800"
+            >
+              <span>Beranda</span>
+              <span className="text-[#F5B027] text-sm">➔</span>
+            </Link>
+
+            {/* Mobile Expandable Program Ibadah */}
+            <div className="space-y-1">
+              <button
+                type="button"
+                onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                className="w-full flex items-center justify-between text-base font-bold text-[#4B2476] dark:text-[#F5B027] bg-purple-50 dark:bg-purple-950/60 px-4 py-3 rounded-2xl"
               >
-                <span>{link.name}</span>
-                <span className="text-[#F5B027] text-sm">➔</span>
-              </Link>
-            ))}
+                <span>Program Ibadah</span>
+                <ChevronDown className={`w-5 h-5 transition-transform ${mobileDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {mobileDropdownOpen && (
+                <div className="pl-4 space-y-1.5 pt-1">
+                  {programSubItems.map((sub) => (
+                    <Link
+                      key={sub.name}
+                      href={sub.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block p-3 rounded-xl bg-gray-50 dark:bg-slate-800/80 font-bold text-sm text-gray-800 dark:text-gray-100 hover:text-[#4B2476] dark:hover:text-[#F5B027]"
+                    >
+                      <div>{sub.name}</div>
+                      <div className="text-xs font-normal text-gray-500 dark:text-gray-400">{sub.desc}</div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/blog"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between text-base font-bold text-gray-800 dark:text-gray-100 px-4 py-3 rounded-2xl hover:bg-purple-50 dark:hover:bg-slate-800"
+            >
+              <span>Blog & Artikel</span>
+              <span className="text-[#F5B027] text-sm">➔</span>
+            </Link>
+
+            <Link
+              href="/#testimonials"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between text-base font-bold text-gray-800 dark:text-gray-100 px-4 py-3 rounded-2xl hover:bg-purple-50 dark:hover:bg-slate-800"
+            >
+              <span>Testimoni</span>
+              <span className="text-[#F5B027] text-sm">➔</span>
+            </Link>
+
+            <Link
+              href="/#faq"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center justify-between text-base font-bold text-gray-800 dark:text-gray-100 px-4 py-3 rounded-2xl hover:bg-purple-50 dark:hover:bg-slate-800"
+            >
+              <span>FAQ</span>
+              <span className="text-[#F5B027] text-sm">➔</span>
+            </Link>
           </div>
 
           <div className="p-6 bg-gray-50 dark:bg-slate-950 border-t border-gray-200 dark:border-slate-800 space-y-3">

@@ -48,14 +48,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-white font-bold uppercase tracking-wider text-xs">Navigasi</h4>
+            <h4 className="text-white font-bold uppercase tracking-wider text-xs">Program Ibadah</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link href="/" className="hover:text-[#F5B027] transition-colors">Beranda</Link></li>
-              <li><Link href="/paket-umrah" className="hover:text-[#F5B027] transition-colors">Katalog Paket Umrah</Link></li>
-              <li><Link href="/paket-haji" className="hover:text-[#F5B027] transition-colors">Program Haji VIP</Link></li>
-              <li><Link href="/rancang-umrah" className="hover:text-[#F5B027] transition-colors">Rancang Umrah Mandiri</Link></li>
+              <li><Link href="/paket-umrah" className="hover:text-[#F5B027] transition-colors">Paket Umrah</Link></li>
+              <li><Link href="/rancang-umrah" className="hover:text-[#F5B027] transition-colors">Umrah Private</Link></li>
+              <li><Link href="/paket-haji" className="hover:text-[#F5B027] transition-colors">Paket Haji VIP</Link></li>
               <li><Link href="/blog" className="hover:text-[#F5B027] transition-colors">Blog & Wawasan</Link></li>
-              <li><a href="/#testimonials" className="hover:text-[#F5B027] transition-colors">Testimoni Jamaah</a></li>
+              <li><a href="/#testimonials" className="hover:text-[#F5B027] transition-colors">Testimoni</a></li>
               <li><a href="/#faq" className="hover:text-[#F5B027] transition-colors">FAQ</a></li>
             </ul>
           </div>
